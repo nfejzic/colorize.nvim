@@ -1,15 +1,15 @@
 local M = {}
 
----@param colors KanagawaColors
----@param config? KanagawaConfig
+---@param colors GruvboxColors
+---@param config? GruvboxConfig
 function M.setup(colors, config)
-    config = config or require("kanagawa").config
+    config = config or require("gruvbox").config
     local theme = colors.theme
     return {
         -- @variable                       various variable names
         ["@variable"] = { fg = theme.ui.fg },
         -- @variable.builtin (Special)     built-in variable names (e.g. `this`, `self`)
-        ["@variable.builtin"] = { fg = theme.syn.special2, italic = true },
+        ["@variable.builtin"] = { fg = theme.syn.variable, italic = false },
         -- @variable.parameter             parameters of a function
         ["@variable.parameter"] = { fg = theme.syn.parameter },
         -- @variable.parameter.builtin     special parameters (e.g. `_`, `it`)
@@ -103,10 +103,10 @@ function M.setup(colors, config)
         -- @comment.error          error-type comments (e.g. `ERROR`, `FIXME`, `DEPRECATED`)
         ["@comment.error"] = { fg = theme.ui.fg, bg = theme.diag.error, bold = true },
         -- @comment.warning        warning-type comments (e.g. `WARNING`, `FIX`, `HACK`)
-        ["@comment.warning"] = { fg = theme.ui.fg_reverse, bg = theme.diag.warning, bold = true },
+        ["@comment.warning"] = { fg = theme.ui.fg, bg = theme.diag.warning, bold = true },
         -- @comment.todo           todo-type comments (e.g. `TODO`, `WIP`)
         -- @comment.note           note-type comments (e.g. `NOTE`, `INFO`, `XXX`)
-        ["@comment.note"] = { fg = theme.ui.fg_reverse, bg = theme.diag.hint, bold = true },
+        ["@comment.note"] = { fg = theme.ui.fg, bg = theme.diag.hint, bold = true },
         --
         -- @markup.strong          bold text
         ["@markup.strong"] = { bold = true },

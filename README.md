@@ -72,20 +72,20 @@ require('gruvbox').setup({
 vim.cmd("colorscheme gruvbox")
 ```
 
-**_NOTE 1:_** If you enable compilation, make sure to run `:KanagawaCompile` command every time you make changes to your config.
+**_NOTE 1:_** If you enable compilation, make sure to run `:GruvboxCompile` command every time you make changes to your config.
 
 ```vim
 " 1. Modify your config
 " 2. Restart nvim
 " 3. Run this command:
-:KanagawaCompile
+:GruvboxCompile
 ```
 
-**_NOTE 2:_** Kanagawa adjusts to the value of some options. Make sure that the options `'laststatus'` and `'cmdheight'` are set **_before_** calling `setup`.
+**_NOTE 2:_** Gruvbox adjusts to the value of some options. Make sure that the options `'laststatus'` and `'cmdheight'` are set **_before_** calling `setup`.
 
 ## Themes
 
-Kanagawa comes in three variants:
+Gruvbox comes in three variants:
 
 - `wave` the default heart-warming theme,
 - `dragon` for those late-night sessions

@@ -1,11 +1,11 @@
--- local c = require("kanagawa.color")
+-- local c = require("gruvbox.color")
 local M = {}
 
----@param colors KanagawaColors
----@param config? KanagawaConfig
+---@param colors GruvboxColors
+---@param config? GruvboxConfig
 function M.setup(colors, config)
     local theme = colors.theme
-    config = config or require("kanagawa").config
+    config = config or require("gruvbox").config
 
     return {
         -- *Comment	any comment
@@ -75,7 +75,7 @@ function M.setup(colors, config)
         Error = { fg = theme.diag.error },
 
         -- *Todo		anything that needs extra attention; mostly the keywords TODO FIXME WARNING and XXX
-        Todo = { fg = theme.ui.fg_reverse, bg = theme.diag.info, bold = true },
+        Todo = { fg = theme.ui.fg, bg = theme.diag.info, bold = true },
 
         qfLineNr = { link = "lineNr" },
         qfFileName = { link = "Directory" },

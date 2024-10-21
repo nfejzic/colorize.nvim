@@ -1,8 +1,8 @@
 local M = {}
----@param colors KanagawaColors
----@param config? KanagawaConfig
+---@param colors GruvboxColors
+---@param config? GruvboxConfig
 function M.setup(colors, config)
-    config = config or require("kanagawa").config
+    config = config or require("gruvbox").config
     local theme = colors.theme
     return {
             -- ["@lsp.type.class"] = { link = "Structure" },

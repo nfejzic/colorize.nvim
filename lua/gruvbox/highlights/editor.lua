@@ -1,11 +1,11 @@
--- local c = require("kanagawa.color")
+-- local c = require("gruvbox.color")
 local M = {}
 
----@param colors KanagawaColors
----@param config? KanagawaConfig
+---@param colors GruvboxColors
+---@param config? GruvboxConfig
 function M.setup(colors, config)
     local theme = colors.theme
-    config = config or require("kanagawa").config
+    config = config or require("gruvbox").config
 
     return {
         -- ColorColumn	Used for the columns set with 'colorcolumn'.
@@ -50,7 +50,7 @@ function M.setup(colors, config)
         -- SignColumn	Column where |signs| are displayed.
         SignColumn = { fg = theme.ui.special, bg = theme.ui.bg_gutter },
         -- IncSearch	'incsearch' highlighting; also used for the text replaced with ":s///c".
-        IncSearch = { fg = theme.ui.fg_reverse, bg = theme.diag.warning },
+        IncSearch = { fg = theme.ui.fg_dim, bg = theme.diag.warning },
         -- Substitute	|:substitute| replacement text highlighting.
         Substitute = { fg = theme.ui.fg, bg = theme.vcs.removed },
         -- LineNr		Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
@@ -66,7 +66,7 @@ function M.setup(colors, config)
         -- ModeMsg		'showmode' message (e.g., "-- INSERT --").
         ModeMsg = { fg = theme.diag.warning, bold = true },
         -- MsgArea		Area for messages and cmdline.
-        MsgArea = vim.o.cmdheight == 0 and {link = 'StatusLine'} or { fg = theme.ui.fg_dim },
+        MsgArea = vim.o.cmdheight == 0 and { link = 'StatusLine' } or { fg = theme.ui.fg_dim },
         -- MsgSeparator	Separator for scrolled messages |msgsep|.
         MsgSeparator = { bg = vim.o.cmdheight == 0 and theme.ui.bg or theme.ui.bg_m3 },
         -- MoreMsg		|more-prompt|
