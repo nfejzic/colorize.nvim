@@ -49,7 +49,7 @@ local palette = {
 	neutralAqua = "#689d6a",
 	fadedAqua = "#427b58",
 	darkAquaHard = "#3e4934",
-	darkAqua = "#e8e5b5",
+	darkAqua = "#49503b",
 	darkAquaSoft = "#e1dbac",
 
 	brightOrange = "#fe8019",

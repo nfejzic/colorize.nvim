@@ -17,14 +17,14 @@ M.config = {
     transparent = false,
     dimInactive = false,
     terminalColors = true,
-    colors = { theme = { dh = {} } },
+    colors = { theme = { ["dark-hard"] = {} } },
     ---@type fun(colors: GruvboxColorsSpec): table<string, table>
     overrides = function()
         return {}
     end,
     ---@type { dark: string, light: string }
-    background = { dark = "dh", light = "dh" },
-    theme = "dh",
+    background = { dark = "dark-hard", light = "dark-hard" },
+    theme = "dark-hard",
     compile = false,
 }
 
