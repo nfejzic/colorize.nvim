@@ -77,12 +77,12 @@ local palette = {
     dragonGray2 = "#9e9b93",
     dragonGray3 = "#7a8382",
     dragonBlue2 = "#8ba4b0",
-    dragonViolet= "#8992a7",
+    dragonViolet = "#8992a7",
     dragonRed = "#c4746e",
     dragonAqua = "#8ea4a2",
     dragonAsh = "#737c73",
     dragonTeal = "#949fb5",
-    dragonYellow = "#c4b28a",--"#a99c8b",
+    dragonYellow = "#c4b28a", --"#a99c8b",
     -- "#8a9aa3",
 
     lotusInk1 = "#545464",
@@ -111,7 +111,7 @@ local palette = {
     lotusPink = "#b35b79",
     lotusOrange = "#cc6d00",
     lotusOrange2 = "#e98a00",
-    lotusYellow ="#77713f",
+    lotusYellow = "#77713f",
     lotusYellow2 = "#836f4a",
     lotusYellow3 = "#de9800",
     lotusYellow4 = "#f9d791",
@@ -142,7 +142,8 @@ function M.setup(opts)
     local theme = opts.theme or require("kanagawa")._CURRENT_THEME -- WARN: this fails if called before kanagawa.load()
 
     if not theme then
-        error("kanagawa.colors.setup(): Unable to infer `theme`. Either specify a theme or call this function after ':colorscheme kanagawa'")
+        error(
+        "kanagawa.colors.setup(): Unable to infer `theme`. Either specify a theme or call this function after ':colorscheme kanagawa'")
     end
 
     -- Add to and/or override palette_colors
@@ -152,7 +153,8 @@ function M.setup(opts)
     local theme_colors = require("kanagawa.themes")[theme](updated_palette_colors)
 
     -- Add to and/or override theme_colors
-    local theme_overrides = vim.tbl_deep_extend("force", override_colors.theme["all"] or {}, override_colors.theme[theme] or {} )
+    local theme_overrides = vim.tbl_deep_extend("force", override_colors.theme["all"] or {},
+        override_colors.theme[theme] or {})
     local updated_theme_colors = vim.tbl_deep_extend("force", theme_colors, theme_overrides)
     -- return palette_colors AND theme_colors
 
