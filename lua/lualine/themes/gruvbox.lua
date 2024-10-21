@@ -14,7 +14,7 @@ gruvbox.insert = {
 }
 
 gruvbox.command = {
-  a = { bg = theme.syn.operator, fg = theme.ui.bg },
+  a = { bg = theme.syn.constant, fg = theme.ui.bg },
   b = { bg = theme.ui.bg, fg = theme.syn.operator },
 }
 

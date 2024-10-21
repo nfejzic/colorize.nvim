@@ -136,7 +136,7 @@ return {
                 fun        = palette.brightBlue,
                 statement  = palette.brightPurple,
                 keyword    = palette.brightPurple,
-                operator   = palette.neutralYellow,
+                operator   = palette.brightYellow,
                 preproc    = palette.brightRed, --lightBlue? deserves its own color
                 type       = palette.brightYellow,
                 regex      = palette.neutralYellow,
@@ -162,7 +162,7 @@ return {
                 ok      = palette.brightGreen,
                 error   = palette.brightRed,
                 warning = palette.brightOrange,
-                info    = palette.fadedBlue,
+                info    = palette.brightBlue,
                 hint    = palette.neutralAqua,
             },
             term = {
