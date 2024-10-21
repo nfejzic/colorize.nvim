@@ -1,48 +1,60 @@
 ---@class PaletteColors
 local palette = {
+	-- Bg Shades
+	dark0_hard = "#1d2021",
+	dark0 = "#282828",
+	dark0_soft = "#32302f",
+	dark1 = "#3c3836",
+	dark2 = "#504945",
+	dark3 = "#665c54",
+	dark4 = "#7c6f64",
 
-    -- Bg Shades
-    sumiInk0 = "#282828", --
-    sumiInk1 = "#32302f",
-    sumiInk2 = "#504945",
-    sumiInk3 = "#1d2021", -- bg: dark0_hard
-    sumiInk4 = "#3c3836", -- gutter color
-    sumiInk5 = "#665c54",
-    sumiInk6 = "#7c6f64", --fg
+	light0_hard = "#f9f5d7",
+	light0 = "#fbf1c7",
+	light0_soft = "#f2e5bc",
+	light1 = "#ebdbb2",
+	light2 = "#d5c4a1",
+	light3 = "#bdae93",
+	light4 = "#a89984",
 
-    -- Popup and Floats
-    waveBlue1 = "#458588",
-    waveBlue2 = "#3e4934",
+	gray = "#928374",
 
-    -- Diff and Git
-    darkGreenHard = "#5a633a", -- dark_green_hard
-    neutralYellow = "#d79921", -- neutral_yellow
-    darkRedHard = "#792329",   -- dark_red_hard
-    fadedBlue = "#076678",     -- faded_blue
-    neutralGreen = "#98971a",  -- netural_*
-    brightRed = "#fb4934",     -- bright_red
-    brightYellow = "#fabd2f",  -- bright_yellow
+	brightRed = "#fb4934",
+	neutralRed = "#cc241d",
+	fadedRed = "#9d0006",
+	darkRedHard = "#792329",
+	darkRed = "#722529",
+	darkRedSoft = "#7b2c2f",
 
-    -- Diag
-    brightOrange = "#fe8019", -- bright orange
-    neutralAqua = "#689d6a",  -- neutral aqua
-    brightAqua = "#8ec07c",   -- neutral aqua
+	brightGreen = "#b8bb26",
+	neutralGreen = "#98971a",
+	fadedGreen = "#79740e",
+	darkGreenHard = "#5a633a",
+	darkGreen = "#62693e",
+	darkGreenSoft = "#686d43",
 
-    -- Fg and Comments
-    oldWhite = "#d5c4a1",
-    fujiWhite = "#ebdbb2", -- fg: light1
-    fujiGray = "#a89984",
+	brightYellow = "#fabd2f",
+	neutralYellow = "#d79921",
+	fadedYellow = "#b57614",
 
-    brightPurple = "#d3869b",  -- bright_purple
-    neutralPurple = "#b16286", -- neutral_purple
-    brightBlue = "#83a598",    -- bright_blue
-    unused = "#A3D4D5",        -- unused yet
-    waveAqua2 = "#7AA89F",     -- improve lightness: desaturated greenish Aqua
+	brightBlue = "#83a598",
+	neutralBlue = "#458588",
+	fadedBlue = "#076678",
 
-    brightGreen = "#b8bb26",   -- bright_green
-    fadedYellow = "#b57614",   -- faded_yellow
+	brightPurple = "#d3869b",
+	neutralPurple = "#b16286",
+	fadedPurple = "#8f3f71",
 
-    dark4 = "#7c6f64",         -- dark4
+	brightAqua = "#8ec07c",
+	neutralAqua = "#689d6a",
+	fadedAqua = "#427b58",
+	darkAquaHard = "#3e4934",
+	darkAqua = "#e8e5b5",
+	darkAquaSoft = "#e1dbac",
+
+	brightOrange = "#fe8019",
+	neutralOrange = "#d65d03",
+	fadedOrange = "#af3a03",
 }
 
 local M = {}
@@ -55,31 +67,32 @@ local M = {}
 ---@param opts? { colors?: table, theme?: string }
 ---@return { theme: ThemeColors, palette: PaletteColors}
 function M.setup(opts)
-    opts = opts or {}
-    local override_colors = opts.colors or require("gruvbox").config.colors
-    local theme = opts.theme or require("gruvbox")._CURRENT_THEME -- WARN: this fails if called before gruvbox.load()
+	opts = opts or {}
+	local override_colors = opts.colors or require("gruvbox").config.colors
+	local theme = opts.theme or require("gruvbox")._CURRENT_THEME -- WARN: this fails if called before gruvbox.load()
 
-    if not theme then
-        error(
-            "gruvbox.colors.setup(): Unable to infer `theme`. Either specify a theme or call this function after ':colorscheme gruvbox'")
-    end
+	if not theme then
+		error(
+			"gruvbox.colors.setup(): Unable to infer `theme`. Either specify a theme or call this function after ':colorscheme gruvbox'"
+		)
+	end
 
-    -- Add to and/or override palette_colors
-    local updated_palette_colors = vim.tbl_extend("force", palette, override_colors.palette or {})
+	-- Add to and/or override palette_colors
+	local updated_palette_colors = vim.tbl_extend("force", palette, override_colors.palette or {})
 
-    -- Generate the theme according to the updated palette colors
-    local theme_colors = require("gruvbox.themes")[theme](updated_palette_colors)
+	-- Generate the theme according to the updated palette colors
+	local theme_colors = require("gruvbox.themes")[theme](updated_palette_colors)
 
-    -- Add to and/or override theme_colors
-    local theme_overrides = vim.tbl_deep_extend("force", override_colors.theme["all"] or {},
-        override_colors.theme[theme] or {})
-    local updated_theme_colors = vim.tbl_deep_extend("force", theme_colors, theme_overrides)
-    -- return palette_colors AND theme_colors
+	-- Add to and/or override theme_colors
+	local theme_overrides =
+		vim.tbl_deep_extend("force", override_colors.theme["all"] or {}, override_colors.theme[theme] or {})
+	local updated_theme_colors = vim.tbl_deep_extend("force", theme_colors, theme_overrides)
+	-- return palette_colors AND theme_colors
 
-    return {
-        theme = updated_theme_colors,
-        palette = updated_palette_colors,
-    }
+	return {
+		theme = updated_theme_colors,
+		palette = updated_palette_colors,
+	}
 end
 
 return M

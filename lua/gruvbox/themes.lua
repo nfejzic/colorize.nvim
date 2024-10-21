@@ -85,106 +85,106 @@ local c = require("gruvbox.lib.color")
 ---@field term ColorSpec[]
 
 return {
-    ---@param palette PaletteColors
-    ---@return ThemeColors
-    dh = function(palette)
-        return {
-            ui = {
-                fg         = palette.fujiWhite,
-                fg_dim     = palette.oldWhite,
-                fg_reverse = palette.fujiGray,
+	---@param palette PaletteColors
+	---@return ThemeColors
+	dh = function(palette)
+		return {
+			ui = {
+				fg = palette.light1,
+				fg_dim = palette.light2,
+				fg_reverse = palette.light4,
 
-                bg_dim     = palette.sumiInk1,
-                bg_gutter  = palette.sumiInk4,
+				bg_dim = palette.dark0_soft,
+				bg_gutter = palette.dark1,
 
-                bg_m3      = palette.sumiInk0,
-                bg_m2      = palette.sumiInk1,
-                bg_m1      = palette.sumiInk2,
-                bg         = palette.sumiInk3,
-                bg_p1      = palette.sumiInk4,
-                bg_p2      = palette.sumiInk5,
+				bg_m3 = palette.dark0,
+				bg_m2 = palette.dark0_soft,
+				bg_m1 = palette.dark2,
+				bg = palette.dark0_hard,
+				bg_p1 = palette.dark1,
+				bg_p2 = palette.dark3,
 
-                special    = palette.neutralPurple,
-                nontext    = palette.sumiInk6,
-                whitespace = palette.sumiInk6,
+				special = palette.neutralPurple,
+				nontext = palette.dark4,
+				whitespace = palette.dark4,
 
-                bg_search  = palette.waveBlue2,
-                bg_visual  = palette.dark4,
+				bg_search = palette.darkAquaHard,
+				bg_visual = palette.dark4,
 
-                pmenu      = {
-                    fg       = palette.fujiWhite,
-                    fg_sel   = "none", -- This is important to make highlights pass-through
-                    bg       = palette.waveBlue1,
-                    bg_sel   = palette.waveBlue2,
-                    bg_sbar  = palette.waveBlue1,
-                    bg_thumb = palette.waveBlue2,
-                },
-                float      = {
-                    fg        = palette.oldWhite,
-                    bg        = palette.sumiInk0,
-                    fg_border = palette.sumiInk6,
-                    bg_border = palette.sumiInk0,
-                },
-            },
-            syn = {
-                string     = palette.brightGreen,
-                variable   = "none",
-                number     = palette.brightPurple,
-                constant   = palette.brightOrange,
-                identifier = palette.fujiWhite,
-                parameter  = palette.oldWhite,
-                fun        = palette.brightBlue,
-                statement  = palette.brightPurple,
-                keyword    = palette.brightPurple,
-                operator   = palette.brightYellow,
-                preproc    = palette.brightRed, --lightBlue? deserves its own color
-                type       = palette.brightYellow,
-                regex      = palette.neutralYellow,
-                deprecated = palette.dark4,
-                comment    = palette.fujiGray,
-                punct      = palette.fujiWhite,
-                special1   = palette.brightBlue,
-                special2   = palette.brightRed,
-                special3   = palette.brightRed,
-            },
-            vcs = {
-                added   = palette.neutralGreen,
-                removed = palette.brightRed,
-                changed = palette.brightYellow,
-            },
-            diff = {
-                add    = palette.darkGreenHard,
-                delete = palette.darkRedHard,
-                change = palette.fadedBlue,
-                text   = palette.neutralYellow,
-            },
-            diag = {
-                ok      = palette.brightGreen,
-                error   = palette.brightRed,
-                warning = palette.brightOrange,
-                info    = palette.brightBlue,
-                hint    = palette.neutralAqua,
-            },
-            term = {
-                palette.sumiInk0,      -- black
-                palette.brightRed,     -- red
-                palette.neutralGreen,  -- green
-                palette.neutralYellow, -- yellow
-                palette.brightBlue,    -- blue
-                palette.brightPurple,  -- magenta
-                palette.neutralAqua,   -- cyan
-                palette.oldWhite,      -- white
-                palette.fujiGray,      -- bright black
-                palette.brightRed,     -- bright red
-                palette.brightGreen,   -- bright green
-                palette.brightYellow,  -- bright yellow
-                palette.brightBlue,    -- bright blue
-                palette.neutralPurple, -- bright magenta
-                palette.waveAqua2,     -- bright cyan
-                palette.fujiWhite,     -- bright white
-                palette.brightOrange,  -- extended color 1
-                palette.brightRed,     -- extended color 2
-            },
-        }
-    end,
+				pmenu = {
+					fg = palette.light1,
+					fg_sel = "none", -- This is important to make highlights pass-through
+					bg = palette.neutralBlue,
+					bg_sel = palette.darkAquaHard,
+					bg_sbar = palette.neutralBlue,
+					bg_thumb = palette.darkAquaHard,
+				},
+				float = {
+					fg = palette.light2,
+					bg = palette.dark0,
+					fg_border = palette.dark4,
+					bg_border = palette.dark0,
+				},
+			},
+			syn = {
+				string = palette.brightGreen,
+				variable = "none",
+				number = palette.brightPurple,
+				constant = palette.brightOrange,
+				identifier = palette.light1,
+				parameter = palette.light2,
+				fun = palette.brightBlue,
+				statement = palette.brightPurple,
+				keyword = palette.brightPurple,
+				operator = palette.brightYellow,
+				preproc = palette.brightRed, --lightBlue? deserves its own color
+				type = palette.brightYellow,
+				regex = palette.neutralYellow,
+				deprecated = palette.dark4,
+				comment = palette.light4,
+				punct = palette.light1,
+				special1 = palette.brightBlue,
+				special2 = palette.brightRed,
+				special3 = palette.brightRed,
+			},
+			vcs = {
+				added = palette.neutralGreen,
+				removed = palette.brightRed,
+				changed = palette.brightYellow,
+			},
+			diff = {
+				add = palette.darkGreenHard,
+				delete = palette.darkRedHard,
+				change = palette.dark1,
+				text = palette.dark2,
+			},
+			diag = {
+				ok = palette.brightGreen,
+				error = palette.brightRed,
+				warning = palette.brightOrange,
+				info = palette.brightBlue,
+				hint = palette.neutralAqua,
+			},
+			term = {
+				palette.dark0, -- black
+				palette.brightRed, -- red
+				palette.neutralGreen, -- green
+				palette.neutralYellow, -- yellow
+				palette.brightBlue, -- blue
+				palette.brightPurple, -- magenta
+				palette.neutralAqua, -- cyan
+				palette.light2, -- white
+				palette.light4, -- bright black
+				palette.brightRed, -- bright red
+				palette.brightGreen, -- bright green
+				palette.brightYellow, -- bright yellow
+				palette.brightBlue, -- bright blue
+				palette.neutralPurple, -- bright magenta
+				palette.neutralAqua, -- bright cyan
+				palette.light1, -- bright white
+				palette.brightOrange, -- extended color 1
+				palette.brightRed, -- extended color 2
+			},
+		}
+	end,
 }
