@@ -4,7 +4,7 @@ local gruvbox = {}
 
 gruvbox.normal = {
 	a = { bg = theme.syn.fun, fg = theme.ui.bg_m3 },
-	b = { bg = theme.diff.change, fg = theme.syn.fun },
+	b = { bg = theme.ui.bg, fg = theme.syn.fun },
 	c = { bg = theme.ui.bg_p1, fg = theme.ui.fg },
 }
 
