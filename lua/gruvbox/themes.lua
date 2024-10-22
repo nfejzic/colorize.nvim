@@ -110,7 +110,7 @@ return {
 				whitespace = palette.dark4,
 
 				bg_search = palette.darkAquaHard,
-				bg_visual = palette.dark4,
+				bg_visual = palette.dark2,
 
 				pmenu = {
 					fg = palette.light1,
@@ -152,20 +152,20 @@ return {
 			vcs = {
 				added = palette.neutralGreen,
 				removed = palette.brightRed,
-				changed = palette.brightYellow,
+				changed = palette.brightOrange,
 			},
 			diff = {
 				add = palette.darkGreenHard,
 				delete = palette.darkRedHard,
-				change = palette.dark1,
-				text = palette.dark2,
+				change = palette.dark0_soft,
+				text = palette.dark3,
 			},
 			diag = {
 				ok = palette.brightGreen,
 				error = palette.brightRed,
 				warning = palette.brightOrange,
 				info = palette.brightBlue,
-				hint = palette.neutralAqua,
+				hint = palette.brightAqua,
 			},
 			term = {
 				palette.dark0, -- black
@@ -214,7 +214,7 @@ return {
 				whitespace = palette.dark4,
 
 				bg_search = palette.darkAquaSoft,
-				bg_visual = palette.dark4,
+				bg_visual = palette.dark2,
 
 				pmenu = {
 					fg = palette.light1,
@@ -254,14 +254,14 @@ return {
 				special3 = palette.brightRed,
 			},
 			vcs = {
-				added = palette.neutralGreen,
+				added = palette.brightGreen,
 				removed = palette.brightRed,
-				changed = palette.brightYellow,
+				changed = palette.brightOrange,
 			},
 			diff = {
 				add = palette.darkGreenSoft,
 				delete = palette.darkRedSoft,
-				change = palette.dark1,
+				change = palette.dark0,
 				text = palette.dark2,
 			},
 			diag = {
@@ -269,7 +269,7 @@ return {
 				error = palette.brightRed,
 				warning = palette.brightOrange,
 				info = palette.brightBlue,
-				hint = palette.neutralAqua,
+				hint = palette.brightAqua,
 			},
 			term = {
 				palette.dark0, -- black
@@ -318,7 +318,7 @@ return {
 				whitespace = palette.dark4,
 
 				bg_search = palette.darkAqua,
-				bg_visual = palette.dark4,
+				bg_visual = palette.dark2,
 
 				pmenu = {
 					fg = palette.light1,
@@ -358,22 +358,22 @@ return {
 				special3 = palette.brightRed,
 			},
 			vcs = {
-				added = palette.neutralGreen,
+				added = palette.brightGreen,
 				removed = palette.brightRed,
-				changed = palette.brightYellow,
+				changed = palette.brightOrange,
 			},
 			diff = {
 				add = palette.darkGreen,
 				delete = palette.darkRed,
 				change = palette.dark1,
-				text = palette.dark2,
+				text = palette.dark3,
 			},
 			diag = {
 				ok = palette.brightGreen,
 				error = palette.brightRed,
 				warning = palette.brightOrange,
 				info = palette.brightBlue,
-				hint = palette.neutralAqua,
+				hint = palette.brightAqua,
 			},
 			term = {
 				palette.dark0, -- black
@@ -415,14 +415,14 @@ return {
 				bg_m1 = palette.light2,
 				bg = palette.light0,
 				bg_p1 = palette.light1,
-				bg_p2 = palette.light3,
+				bg_p2 = palette.light2,
 
 				special = palette.neutralPurple,
 				nontext = palette.light4,
 				whitespace = palette.light4,
 
-				bg_search = palette.darkAqua,
-				bg_visual = palette.gray,
+				bg_search = palette.light0,
+				bg_visual = palette.light2,
 
 				pmenu = {
 					fg = palette.dark1,
@@ -443,13 +443,13 @@ return {
 				string = palette.neutralGreen,
 				variable = "none",
 				number = palette.neutralPurple,
-				constant = palette.brightOrange,
+				constant = palette.neutralOrange,
 				identifier = palette.dark1,
 				parameter = palette.dark2,
 				fun = palette.neutralBlue,
 				statement = palette.neutralPurple,
 				keyword = palette.neutralPurple,
-				operator = palette.neutralYellow,
+				operator = palette.fadedYellow,
 				preproc = palette.neutralRed, --lightBlue? deserves its own color
 				type = palette.fadedYellow,
 				regex = palette.neutralYellow,
@@ -457,14 +457,14 @@ return {
 				comment = palette.neutralOrange,
 				docComment = palette.neutralAqua,
 				punct = palette.dark1,
-				special1 = palette.brightBlue,
-				special2 = palette.brightRed,
-				special3 = palette.brightRed,
+				special1 = palette.neutralBlue,
+				special2 = palette.neutralRed,
+				special3 = palette.neutralRed,
 			},
 			vcs = {
 				added = palette.neutralGreen,
-				removed = palette.brightRed,
-				changed = palette.brightYellow,
+				removed = palette.neutralRed,
+				changed = palette.neutralYellow,
 			},
 			diff = {
 				add = palette.darkGreen,
@@ -519,14 +519,14 @@ return {
 				bg_m1 = palette.light2,
 				bg = palette.light0_soft,
 				bg_p1 = palette.light1,
-				bg_p2 = palette.light3,
+				bg_p2 = palette.light2,
 
 				special = palette.neutralPurple,
 				nontext = palette.light4,
 				whitespace = palette.light4,
 
-				bg_search = palette.darkAquaSoft,
-				bg_visual = palette.light3,
+				bg_search = palette.light0,
+				bg_visual = palette.light2,
 
 				pmenu = {
 					fg = palette.dark1,
@@ -553,7 +553,7 @@ return {
 				fun = palette.neutralBlue,
 				statement = palette.neutralPurple,
 				keyword = palette.neutralPurple,
-				operator = palette.neutralYellow,
+				operator = palette.fadedYellow,
 				preproc = palette.neutralRed, --lightBlue? deserves its own color
 				type = palette.fadedYellow,
 				regex = palette.neutralYellow,
@@ -567,8 +567,8 @@ return {
 			},
 			vcs = {
 				added = palette.neutralGreen,
-				removed = palette.brightRed,
-				changed = palette.brightYellow,
+				removed = palette.neutralRed,
+				changed = palette.neutralYellow,
 			},
 			diff = {
 				add = palette.darkGreenSoft,
