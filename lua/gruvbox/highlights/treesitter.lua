@@ -55,7 +55,7 @@ function M.setup(colors, config)
         -- @function               function definitions
         -- @function.builtin       built-in functions
         -- @function.call          function calls
-        -- @function.macro         preprocessor macros
+        ["@function.macro"] = { link = "Macro" }, --         preprocessor macros
         --
         -- @function.method        method definitions
         -- @function.method.call   method calls
