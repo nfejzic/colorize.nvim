@@ -791,7 +791,7 @@ local function solarized_dark(variant)
 			diag = {
 				ok = palette.sol_green,
 				error = palette.sol_red,
-				warning = palette.sol_orange,
+				warning = palette.sol_yellow,
 				info = palette.sol_blue,
 				hint = palette.sol_cyan,
 			},
