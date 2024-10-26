@@ -1,5 +1,3 @@
-local c = require("colorize.lib.color")
-
 --TODO:
 --PreProc needs its own color
 --parameter and field should be different
