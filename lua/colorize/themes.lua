@@ -131,7 +131,7 @@ local function gruvbox_dark(contrast)
 				syn = {
 					string = palette.brightGreen,
 					variable = "none",
-					number = palette.brightPurple,
+					number = palette.brightOrange,
 					constant = palette.brightOrange,
 					identifier = palette.light1,
 					parameter = palette.light2,
@@ -233,7 +233,7 @@ local function gruvbox_dark(contrast)
 				syn = {
 					string = palette.brightGreen,
 					variable = "none",
-					number = palette.brightPurple,
+					number = palette.brightOrange,
 					constant = palette.brightOrange,
 					identifier = palette.light1,
 					parameter = palette.light2,
@@ -335,7 +335,7 @@ local function gruvbox_dark(contrast)
 				syn = {
 					string = palette.brightGreen,
 					variable = "none",
-					number = palette.brightPurple,
+					number = palette.brightOrange,
 					constant = palette.brightOrange,
 					identifier = palette.light1,
 					parameter = palette.light2,
@@ -443,7 +443,7 @@ local function gruvbox_light(contrast)
 				syn = {
 					string = palette.neutralGreen,
 					variable = "none",
-					number = palette.neutralPurple,
+					number = palette.neutralOrange,
 					constant = palette.neutralOrange,
 					identifier = palette.dark1,
 					parameter = palette.dark2,
@@ -545,7 +545,7 @@ local function gruvbox_light(contrast)
 				syn = {
 					string = palette.neutralGreen,
 					variable = "none",
-					number = palette.neutralPurple,
+					number = palette.neutralOrange,
 					constant = palette.neutralOrange,
 					identifier = palette.dark1,
 					parameter = palette.dark2,
@@ -647,7 +647,7 @@ local function gruvbox_light(contrast)
 				syn = {
 					string = palette.neutralGreen,
 					variable = "none",
-					number = palette.neutralPurple,
+					number = palette.neutralOrange,
 					constant = palette.neutralOrange,
 					identifier = palette.dark1,
 					parameter = palette.dark2,
@@ -760,8 +760,7 @@ local function solarized_dark(variant)
 			syn = {
 				string = palette.sol_green,
 				variable = "none",
-				-- TODO(nfejzic): helll
-				number = palette.sol_magenta,
+				number = palette.sol_base1,
 				constant = palette.sol_magenta,
 				identifier = palette.sol_base0,
 				parameter = palette.sol_base0,
@@ -769,7 +768,7 @@ local function solarized_dark(variant)
 				statement = palette.sol_violet,
 				keyword = palette.sol_magenta,
 				operator = palette.sol_yellow,
-				preproc = palette.sol_red, --lightBlue? deserves its own color
+				preproc = palette.sol_red,
 				type = palette.sol_yellow,
 				regex = palette.sol_yellow,
 				deprecated = palette.sol_base01,
