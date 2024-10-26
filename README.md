@@ -1,5 +1,5 @@
 <p align="center">
-  <h2 align="center">GRUVBOX.nvim</h2>
+  <h2 align="center">COLORIZE.nvim</h2>
 </p>
 
 <p align="center">
@@ -16,7 +16,7 @@
 Download with your favorite package manager.
 
 ```lua
-use "nfejzic/gruvbox.nvim"
+use "nfejzic/colorize.nvim"
 ```
 
 ## Requirements
@@ -30,11 +30,11 @@ use "nfejzic/gruvbox.nvim"
 As simple as writing (pasting)
 
 ```vim
-colorscheme gruvbox
+colorscheme gruvbox-dark-hard
 ```
 
 ```lua
-vim.cmd("colorscheme gruvbox")
+vim.cmd("colorscheme gruvbox-dark-hard")
 ```
 
 ## Configuration
@@ -43,7 +43,7 @@ There is no need to call setup if you are ok with the defaults.
 
 ```lua
 -- Default options:
-require('gruvbox').setup({
+require('colorize').setup({
     compile = false,             -- enable compiling the colorscheme
     undercurl = true,            -- enable undercurls
     commentStyle = { italic = true },
@@ -72,24 +72,29 @@ require('gruvbox').setup({
 vim.cmd("colorscheme gruvbox")
 ```
 
-**_NOTE 1:_** If you enable compilation, make sure to run `:GruvboxCompile` command every time you make changes to your config.
+**_NOTE 1:_** If you enable compilation, make sure to run `:ColorizeCompile` command every time you make changes to your config.
 
 ```vim
 " 1. Modify your config
 " 2. Restart nvim
 " 3. Run this command:
-:GruvboxCompile
+:ColorizeCompile
 ```
 
-**_NOTE 2:_** Gruvbox adjusts to the value of some options. Make sure that the options `'laststatus'` and `'cmdheight'` are set **_before_** calling `setup`.
+**_NOTE 2:_** Colorize adjusts to the value of some options. Make sure that the options `'laststatus'` and `'cmdheight'` are set **_before_** calling `setup`.
 
 ## Themes
 
-Gruvbox comes in three variants:
+Colorize comes in multiple variants:
 
-- `wave` the default heart-warming theme,
-- `dragon` for those late-night sessions
-- `lotus` for when you're out in the open.
+- `gruvbox-dark` the gruvbox dark theme with regular contrast
+- `gruvbox-dark-hard` the gruvbox dark theme with hard contrast
+- `gruvbox-dark-soft` the gruvbox dark theme with soft contrast
+- `gruvbox-light` the gruvbox light theme with regular contrast
+- `gruvbox-light-hard` the gruvbox light theme with hard contrast
+- `gruvbox-light-soft` the gruvbox light theme with soft contrast
+- `solarized-dark` Solarized dark theme
+- `solarized-dark-hard` Solarized dark theme with hard contrast (darker background)
 
 Themes can be changed in three ways:
 
@@ -99,18 +104,19 @@ Themes can be changed in three ways:
   Use `vim.o.background = ""` to unset this option.
 - Loading the colorscheme directly with:
   ```lua
-  vim.cmd("colorscheme gruvbox-wave")
-  vim.cmd("colorscheme gruvbox-dragon")
-  vim.cmd("colorscheme gruvbox-lotus")
+  vim.cmd("colorscheme gruvbox-dark")
+  vim.cmd("colorscheme gruvbox-dark-hard")
+  vim.cmd("colorscheme solarized-dark-hard")
+  -- etc.
   ```
   or
   ```lua
-  require("gruvbox").load("wave")
+  require("colorize").load("gruvbox-dark-hard")
   ```
 
 ## Customization
 
-In gruvbox, there are _two_ kinds of colors: `PaletteColors` and `ThemeColors`;
+In colorize, there are _two_ kinds of colors: `PaletteColors` and `ThemeColors`;
 `PaletteColors` are defined directly as RGB Hex strings, and have arbitrary names
 that recall their actual color. Conversely, `ThemeColors` are named and grouped _semantically_
 on the basis of their actual function.
@@ -119,28 +125,28 @@ In short, a `palette` defines all the available colors, while a `theme` maps the
 to specific `ThemeColors` and the same palette color may be assigned to multiple theme colors.
 
 You can change _both_ theme or palette colors using `config.colors`.
-All the palette color names can be found [here](lua/gruvbox/colors.lua),
-while their usage by each theme can be found [here](lua/gruvbox/themes.lua).
+All the palette color names can be found [here](lua/colorize/colors.lua),
+while their usage by each theme can be found [here](lua/colorize/themes.lua).
 
 ```lua
-require('gruvbox').setup({
+require('colorize').setup({
     ...,
     colors = {
         palette = {
             -- change all usages of these colors
-            sumiInk0 = "#000000",
-            fujiWhite = "#FFFFFF",
+            sol_base0 = "#000000",
+            sol_red = "#FFFFFF",
         },
         theme = {
             -- change specific usages for a certain theme, or for all of them
-            wave = {
+            ['gruvbox-dark-hard'] = {
                 ui = {
                     float = {
                         bg = "none",
                     },
                 },
             },
-            dragon = {
+            ['solarized-dark'] = {
                 syn = {
                     parameter = "yellow",
                 },
@@ -160,7 +166,7 @@ You can also conveniently add/modify `hlgroups` using the `config.overrides` opt
 Supported keywords are the same for `:h nvim_set_hl` `{val}` parameter.
 
 ```lua
-require('gruvbox').setup({
+require('colorize').setup({
     ...,
     overrides = function(colors)
         return {
@@ -266,17 +272,13 @@ end,
 
 ```lua
 -- Get the colors for the current theme
-local colors = require("gruvbox.colors").setup()
+local colors = require("colorize.colors").setup()
 local palette_colors = colors.palette
 local theme_colors = colors.theme
 
 -- Get the colors for a specific theme
-local wave_colors = require("gruvbox.colors").setup({ theme = 'wave' })
+local wave_colors = require("colorize.colors").setup({ theme = 'gruvbox-dark-hard' })
 ```
-
-## Accessibility
-
-The colors maintain a `4.5:1` contrast ratio, complying with [WCAG 2.1 | Level AA](https://www.w3.org/TR/WCAG21/#contrast-minimum).  
 
 ## Acknowledgements
 
@@ -285,9 +287,10 @@ The colors maintain a `4.5:1` contrast ratio, complying with [WCAG 2.1 | Level A
 - [Kanagawa](https://github.com/rebelot/kanagawa.nvim)
 - [Catppuccin](https://github.com/catppuccin/nvim)
 - [Affinity Designer](https://affinity.serif.com/designer/)
+- [Solarized](https://github.com/maxmx03/solarized.nvim)
 
 ### Donate
 
 Buy me coffee and support my work ;)
 
-[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate/?business=VNQPHGW4JEM3S&no_recurring=0&item_name=Buy+me+coffee+and+support+my+work+%3B%29&currency_code=EUR)
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate/?hosted_button_id=C7JTXLLH7QY9U)

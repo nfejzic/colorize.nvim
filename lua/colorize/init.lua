@@ -2,11 +2,11 @@ local M = {}
 
 ---@alias ColorSpec string RGB Hex string
 ---@alias ColorTable table<string, ColorSpec>
----@alias GruvboxColorsSpec { palette: ColorTable, theme: ColorTable }
----@alias GruvboxColors { palette: PaletteColors, theme: ThemeColors }
+---@alias ColorizeColorsSpec { palette: ColorTable, theme: ColorTable }
+---@alias ColorizeColors { palette: PaletteColors, theme: ThemeColors }
 
 --- default config
----@class GruvboxConfig
+---@class ColorizeConfig
 M.config = {
     undercurl = true,
     commentStyle = { italic = true },
@@ -18,7 +18,7 @@ M.config = {
     dimInactive = false,
     terminalColors = true,
     colors = { theme = { ["dark-hard"] = {} } },
-    ---@type fun(colors: GruvboxColorsSpec): table<string, table>
+    ---@type fun(colors: ColorizeColorsSpec): table<string, table>
     overrides = function()
         return {}
     end,
@@ -34,19 +34,19 @@ local function check_config(config)
 end
 
 --- update global configuration with user settings
----@param config? GruvboxConfig user configuration
+---@param config? ColorizeConfig user configuration
 function M.setup(config)
     if check_config(config) then
         M.config = vim.tbl_deep_extend("force", M.config, config or {})
     else
-        vim.notify("Gruvbox: Errors found while loading user config. Using default config.", vim.log.levels.ERROR)
+        vim.notify("Colorize: Errors found while loading user config. Using default config.", vim.log.levels.ERROR)
     end
 end
 
 --- load the colorscheme
 ---@param theme? string
 function M.load(theme)
-    local utils = require("gruvbox.utils")
+    local utils = require("colorize.utils")
 
     theme = theme or M.config.background[vim.o.background] or M.config.theme
     M._CURRENT_THEME = theme
@@ -55,7 +55,7 @@ function M.load(theme)
         vim.cmd("hi clear")
     end
 
-    vim.g.colors_name = "gruvbox"
+    vim.g.colors_name = "colorize"
     vim.o.termguicolors = true
 
     if M.config.compile then
@@ -66,28 +66,28 @@ function M.load(theme)
         M.compile()
         utils.load_compiled(theme)
     else
-        local colors = require("gruvbox.colors").setup({ theme = theme, colors = M.config.colors })
-        local highlights = require("gruvbox.highlights").setup(colors, M.config)
-        require("gruvbox.highlights").highlight(highlights, M.config.terminalColors and colors.theme.term or {})
+        local colors = require("colorize.colors").setup({ theme = theme, colors = M.config.colors })
+        local highlights = require("colorize.highlights").setup(colors, M.config)
+        require("colorize.highlights").highlight(highlights, M.config.terminalColors and colors.theme.term or {})
     end
 end
 
 function M.compile()
-    for theme, _ in pairs(require("gruvbox.themes")) do
-        local colors = require("gruvbox.colors").setup({ theme = theme, colors = M.config.colors })
-        local highlights = require("gruvbox.highlights").setup(colors, M.config)
-        require("gruvbox.utils").compile(theme, highlights, M.config.terminalColors and colors.theme.term or {})
+    for theme, _ in pairs(require("colorize.themes")) do
+        local colors = require("colorize.colors").setup({ theme = theme, colors = M.config.colors })
+        local highlights = require("colorize.highlights").setup(colors, M.config)
+        require("colorize.utils").compile(theme, highlights, M.config.terminalColors and colors.theme.term or {})
     end
 end
 
-vim.api.nvim_create_user_command("GruvboxCompile", function()
+vim.api.nvim_create_user_command("ColorizeCompile", function()
     for mod, _ in pairs(package.loaded) do
-        if mod:match("^gruvbox%.") then
+        if mod:match("^colorize%.") then
             package.loaded[mod] = nil
         end
     end
     M.compile()
-    vim.notify("Gruvbox: compiled successfully!", vim.log.levels.INFO)
+    vim.notify("Colorize: compiled successfully!", vim.log.levels.INFO)
     M.load(M._CURRENT_THEME)
     vim.api.nvim_exec_autocmds("ColorScheme", { modeline = false })
 end, {})

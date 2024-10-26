@@ -1,1 +1,1 @@
-lua require('gruvbox').load("dark-soft")
+lua require('colorize').load("gruvbox-dark-soft")

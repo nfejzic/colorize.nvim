@@ -1,9 +1,9 @@
 local M = {}
 
----@param colors GruvboxColors
----@param config? GruvboxConfig
+---@param colors ColorizeColors
+---@param config? ColorizeConfig
 function M.setup(colors, config)
-    config = config or require("gruvbox").config
+    config = config or require("colorize").config
     local theme = colors.theme
     return {
         -- @variable                       various variable names

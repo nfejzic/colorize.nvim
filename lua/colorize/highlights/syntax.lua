@@ -1,11 +1,10 @@
--- local c = require("gruvbox.color")
 local M = {}
 
----@param colors GruvboxColors
----@param config? GruvboxConfig
+---@param colors ColorizeColors
+---@param config? ColorizeConfig
 function M.setup(colors, config)
     local theme = colors.theme
-    config = config or require("gruvbox").config
+    config = config or require("colorize").config
 
     return {
         -- *Comment	any comment

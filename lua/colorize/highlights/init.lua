@@ -11,14 +11,14 @@ function M.highlight(highlights, termcolors)
     end
 end
 
----@param colors GruvboxColors
----@param config? GruvboxConfig
+---@param colors ColorizeColors
+---@param config? ColorizeConfig
 function M.setup(colors, config)
-    config = config or require("gruvbox").config
+    config = config or require("colorize").config
 
     local highlights = {}
     for _, highlight in ipairs({ "editor", "syntax", "treesitter", "lsp", "plugins" }) do
-        local mod = require("gruvbox.highlights." .. highlight)
+        local mod = require("colorize.highlights." .. highlight)
         for hl, spec in pairs(mod.setup(colors, config)) do
             highlights[hl] = spec
         end

@@ -1,4 +1,4 @@
-local c = require("gruvbox.lib.color")
+local c = require("colorize.lib.color")
 
 --TODO:
 --PreProc needs its own color
@@ -414,7 +414,7 @@ local function gruvbox_light(contrast)
 					bg_m3 = palette.light0,
 					bg_m2 = palette.light0,
 					bg_m1 = palette.light2,
-					bg = palette.light0,
+					bg = palette.light0_hard,
 					bg_p1 = palette.light1,
 					bg_p2 = palette.light2,
 
@@ -428,14 +428,14 @@ local function gruvbox_light(contrast)
 					pmenu = {
 						fg = palette.dark1,
 						fg_sel = "none", -- This is important to make highlights pass-through
-						bg = palette.neutralBlue,
-						bg_sel = palette.darkAqua,
-						bg_sbar = palette.neutralBlue,
-						bg_thumb = palette.darkAqua,
+						bg = palette.light0,
+						bg_sel = palette.light1,
+						bg_sbar = palette.light2,
+						bg_thumb = palette.light1,
 					},
 					float = {
 						fg = palette.dark2,
-						bg = palette.light0,
+						bg = palette.light0_hard,
 						fg_border = palette.light4,
 						bg_border = palette.light0,
 					},
@@ -468,8 +468,8 @@ local function gruvbox_light(contrast)
 					changed = palette.neutralYellow,
 				},
 				diff = {
-					add = palette.darkGreen,
-					delete = palette.darkRed,
+					add = palette.darkGreenHard,
+					delete = palette.darkRedHard,
 					change = palette.light1,
 					text = palette.light2,
 				},
@@ -502,8 +502,7 @@ local function gruvbox_light(contrast)
 				},
 			}
 		end
-	else
-		-- TODO: add support for light hard
+	elseif contrast == "soft" then
 		return function(palette)
 			return {
 				ui = {
@@ -518,6 +517,108 @@ local function gruvbox_light(contrast)
 					bg_m2 = palette.light0_soft,
 					bg_m1 = palette.light2,
 					bg = palette.light0_soft,
+					bg_p1 = palette.light1,
+					bg_p2 = palette.light2,
+
+					special = palette.neutralPurple,
+					nontext = palette.light4,
+					whitespace = palette.light4,
+
+					bg_search = palette.light0,
+					bg_visual = palette.light2,
+
+					pmenu = {
+						fg = palette.dark1,
+						fg_sel = "none", -- This is important to make highlights pass-through
+						bg = palette.neutralBlue,
+						bg_sel = palette.darkAquaSoft,
+						bg_sbar = palette.neutralBlue,
+						bg_thumb = palette.darkAquaSoft,
+					},
+					float = {
+						fg = palette.dark2,
+						bg = palette.light0_soft,
+						fg_border = palette.light4,
+						bg_border = palette.light0,
+					},
+				},
+				syn = {
+					string = palette.neutralGreen,
+					variable = "none",
+					number = palette.neutralPurple,
+					constant = palette.neutralOrange,
+					identifier = palette.dark1,
+					parameter = palette.dark2,
+					fun = palette.neutralBlue,
+					statement = palette.neutralPurple,
+					keyword = palette.neutralPurple,
+					operator = palette.fadedYellow,
+					preproc = palette.neutralRed, --lightBlue? deserves its own color
+					type = palette.fadedYellow,
+					regex = palette.neutralYellow,
+					deprecated = palette.light4,
+					comment = palette.neutralOrange,
+					docComment = palette.neutralAqua,
+					punct = palette.dark1,
+					special1 = palette.neutralBlue,
+					special2 = palette.neutralRed,
+					special3 = palette.neutralRed,
+				},
+				vcs = {
+					added = palette.neutralGreen,
+					removed = palette.neutralRed,
+					changed = palette.neutralYellow,
+				},
+				diff = {
+					add = palette.darkGreenSoft,
+					delete = palette.darkRedSoft,
+					change = palette.light1,
+					text = palette.light2,
+				},
+				diag = {
+					ok = palette.neutralGreen,
+					error = palette.neutralRed,
+					warning = palette.neutralOrange,
+					info = palette.neutralBlue,
+					hint = palette.neutralAqua,
+				},
+				term = {
+					palette.light0, -- black
+					palette.brightRed, -- red
+					palette.neutralGreen, -- green
+					palette.neutralYellow, -- yellow
+					palette.brightBlue, -- blue
+					palette.brightPurple, -- magenta
+					palette.neutralAqua, -- cyan
+					palette.dark2, -- white
+					palette.dark4, -- bright black
+					palette.brightRed, -- bright red
+					palette.brightGreen, -- bright green
+					palette.brightYellow, -- bright yellow
+					palette.brightBlue, -- bright blue
+					palette.neutralPurple, -- bright magenta
+					palette.neutralAqua, -- bright cyan
+					palette.dark1, -- bright white
+					palette.brightOrange, -- extended color 1
+					palette.brightRed, -- extended color 2
+				},
+			}
+		end
+	else
+		return function(palette)
+			return {
+				ui = {
+					fg = palette.dark1,
+					fg_dim = palette.dark2,
+					fg_reverse = palette.light4,
+
+					bg_dim = palette.light0_soft,
+					bg_gutter = palette.light1,
+
+					bg_m3 = palette.light0,
+					bg_m2 = palette.light0_soft,
+					bg_m1 = palette.light2,
+					bg = palette.light0,
 					bg_p1 = palette.light1,
 					bg_p2 = palette.light2,
 
@@ -722,11 +823,12 @@ local function solarized_dark(variant)
 end
 
 return {
-	["dark-hard"] = gruvbox_dark("hard"),
-	["dark-soft"] = gruvbox_dark("soft"),
-	["dark"] = gruvbox_dark("none"),
-	["light"] = gruvbox_light("none"),
-	["light-soft"] = gruvbox_light("soft"),
+	["gruvbox-dark-hard"] = gruvbox_dark("hard"),
+	["gruvbox-dark-soft"] = gruvbox_dark("soft"),
+	["gruvbox-dark"] = gruvbox_dark("none"),
+	["gruvbox-light-hard"] = gruvbox_light("hard"),
+	["gruvbox-light-soft"] = gruvbox_light("soft"),
+	["gruvbox-light"] = gruvbox_light("none"),
 	["solarized-dark-hard"] = solarized_dark("hard"),
 	["solarized-dark"] = solarized_dark("normal"),
 }

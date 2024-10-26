@@ -1,4 +1,4 @@
-local hsluv = require("gruvbox.lib.hsluv")
+local hsluv = require("colorize.lib.hsluv")
 
 ---@class HSLuvColor
 local Color = {}

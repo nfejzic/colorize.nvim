@@ -1,1 +1,1 @@
-lua require('gruvbox').load("solarized-dark")
+lua require('colorize').load("solarized-dark")

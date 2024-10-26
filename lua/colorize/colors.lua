@@ -100,19 +100,19 @@ local M = {}
 --- Generate colors table:
 --- * opts:
 ---   - colors: Table of personalized colors and/or overrides of existing ones.
----     Defaults to GruvboxConfig.colors.
----   - theme: Use selected theme. Defaults to GruvboxConfig.theme
+---     Defaults to ColroizeConfig.colors.
+---   - theme: Use selected theme. Defaults to ColorizeConfig.theme
 ---     according to the value of 'background' option.
 ---@param opts? { colors?: table, theme?: string }
 ---@return { theme: ThemeColors, palette: PaletteColors}
 function M.setup(opts)
 	opts = opts or {}
-	local override_colors = opts.colors or require("gruvbox").config.colors
-	local theme = opts.theme or require("gruvbox")._CURRENT_THEME -- WARN: this fails if called before gruvbox.load()
+	local override_colors = opts.colors or require("colorize").config.colors
+	local theme = opts.theme or require("colorize")._CURRENT_THEME -- WARN: this fails if called before gruvbox.load()
 
 	if not theme then
 		error(
-			"gruvbox.colors.setup(): Unable to infer `theme`. Either specify a theme or call this function after ':colorscheme gruvbox'"
+			"colorize.colors.setup(): Unable to infer `theme`. Either specify a theme or call this function after ':colorscheme gruvbox'"
 		)
 	end
 
@@ -120,7 +120,7 @@ function M.setup(opts)
 	local updated_palette_colors = vim.tbl_extend("force", palette, override_colors.palette or {})
 
 	-- Generate the theme according to the updated palette colors
-	local theme_colors = require("gruvbox.themes")[theme](updated_palette_colors)
+	local theme_colors = require("colorize.themes")[theme](updated_palette_colors)
 
 	-- Add to and/or override theme_colors
 	local theme_overrides =
