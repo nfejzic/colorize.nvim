@@ -19,6 +19,7 @@ function M.setup(colors, config)
         -- @constant (Constant)              constant identifiers
         -- @constant.builtin       built-in constant values
         -- @constant.macro         constants defined by the preprocessor
+        ["@constant.comment"] = { link = "Constant" },
         --
         -- @module (Structure)      modules or namespaces
         -- @module.builtin         built-in modules or namespaces
@@ -101,12 +102,12 @@ function M.setup(colors, config)
         -- @comment.documentation  comments documenting code
         --
         -- @comment.error          error-type comments (e.g. `ERROR`, `FIXME`, `DEPRECATED`)
-        ["@comment.error"] = { fg = theme.ui.fg, bg = theme.diag.error, bold = true },
+        ["@comment.error"] = { fg = theme.diag.error, reverse = true, bold = true },
         -- @comment.warning        warning-type comments (e.g. `WARNING`, `FIX`, `HACK`)
-        ["@comment.warning"] = { fg = theme.ui.fg, bg = theme.diag.warning, bold = true },
+        ["@comment.warning"] = { fg = theme.diag.warning, reverse = true, bold = true },
         -- @comment.todo           todo-type comments (e.g. `TODO`, `WIP`)
         -- @comment.note           note-type comments (e.g. `NOTE`, `INFO`, `XXX`)
-        ["@comment.note"] = { fg = theme.ui.fg, bg = theme.diag.hint, bold = true },
+        ["@comment.note"] = { fg = theme.diag.hint, reverse = true, bold = true },
         --
         -- @markup.strong          bold text
         ["@markup.strong"] = { bold = true },

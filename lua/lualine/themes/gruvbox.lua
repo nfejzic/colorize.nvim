@@ -3,7 +3,7 @@ local theme = require("gruvbox.colors").setup().theme
 local gruvbox = {}
 
 gruvbox.normal = {
-	a = { bg = theme.syn.fun, fg = theme.ui.bg_m3 },
+	a = { bg = theme.syn.fun, fg = theme.ui.bg },
 	b = { bg = theme.ui.bg, fg = theme.syn.fun },
 	c = { bg = theme.ui.bg_p1, fg = theme.ui.fg },
 }
