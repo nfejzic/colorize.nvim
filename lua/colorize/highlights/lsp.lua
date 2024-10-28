@@ -22,7 +22,7 @@ function M.setup(colors, config)
         -- ["@lsp.type.typeParameter"] = { link = "TypeDef" },
         ["@lsp.type.variable"] = { link = '@variable' }, -- Identifier
         ["@lsp.type.comment"] = { fg = 'none' },         -- Comment
-
+        ["@lsp.type.typeAlias"] = { fg = theme.syn.constant },
 
         ["@lsp.type.selfParameter"] = { link = "@variable.builtin" },
         -- ["@lsp.type.builtinConstant"] = { link = "@constant.builtin" },
@@ -32,9 +32,11 @@ function M.setup(colors, config)
 
         ["@lsp.mod.readonly"] = { link = "Constant" },
         ["@lsp.mod.typeHint"] = { link = "Type" },
+        -- ["@lsp.mod.attribute"] = { link = "@attribute" },
         -- ["@lsp.mod.defaultLibrary"] = { link = "Special" },
         -- ["@lsp.mod.builtin"] = { link = "Special" },
 
+        ["@lsp.typemod.deriveHelper"] = { link = "Macro" },
 
         ["@lsp.typemod.operator.controlFlow"] = { link = "Operator" },
         ["@lsp.typemod.keyword.documentation"] = { link = "Special" },
@@ -56,4 +58,3 @@ function M.setup(colors, config)
 end
 
 return M
---vim: fdm=marker

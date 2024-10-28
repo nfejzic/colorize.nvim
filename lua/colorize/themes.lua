@@ -128,7 +128,7 @@ local function gruvbox_dark(contrast)
 				},
 				syn = {
 					string = palette.brightGreen,
-					variable = "none",
+					variable = palette.light1,
 					number = palette.brightOrange,
 					constant = palette.brightOrange,
 					identifier = palette.light1,
@@ -230,7 +230,7 @@ local function gruvbox_dark(contrast)
 				},
 				syn = {
 					string = palette.brightGreen,
-					variable = "none",
+					variable = palette.light1,
 					number = palette.brightOrange,
 					constant = palette.brightOrange,
 					identifier = palette.light1,
@@ -332,7 +332,7 @@ local function gruvbox_dark(contrast)
 				},
 				syn = {
 					string = palette.brightGreen,
-					variable = "none",
+					variable = palette.light1,
 					number = palette.brightOrange,
 					constant = palette.brightOrange,
 					identifier = palette.light1,
@@ -440,7 +440,7 @@ local function gruvbox_light(contrast)
 				},
 				syn = {
 					string = palette.neutralGreen,
-					variable = "none",
+					variable = palette.dark1,
 					number = palette.neutralOrange,
 					constant = palette.neutralOrange,
 					identifier = palette.dark1,
@@ -542,7 +542,7 @@ local function gruvbox_light(contrast)
 				},
 				syn = {
 					string = palette.neutralGreen,
-					variable = "none",
+					variable = palette.dark1,
 					number = palette.neutralOrange,
 					constant = palette.neutralOrange,
 					identifier = palette.dark1,
@@ -644,7 +644,7 @@ local function gruvbox_light(contrast)
 				},
 				syn = {
 					string = palette.neutralGreen,
-					variable = "none",
+					variable = palette.dark1,
 					number = palette.neutralOrange,
 					constant = palette.neutralOrange,
 					identifier = palette.dark1,
@@ -757,8 +757,8 @@ local function solarized_dark(variant)
 			},
 			syn = {
 				string = palette.sol_green,
-				variable = "none",
-				number = palette.sol_base1,
+				variable = palette.sol_base0,
+				number = palette.sol_base0,
 				constant = palette.sol_magenta,
 				identifier = palette.sol_base0,
 				parameter = palette.sol_base0,
