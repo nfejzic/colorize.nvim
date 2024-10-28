@@ -759,7 +759,7 @@ local function solarized_dark(variant)
 				string = palette.sol_green,
 				variable = palette.sol_base0,
 				number = palette.sol_base0,
-				constant = palette.sol_magenta,
+				constant = palette.sol_orange,
 				identifier = palette.sol_base0,
 				parameter = palette.sol_base0,
 				fun = palette.sol_blue,
