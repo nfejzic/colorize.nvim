@@ -9,7 +9,7 @@ function M.setup(colors, config)
         -- @variable                       various variable names
         ["@variable"] = { fg = theme.ui.fg },
         -- @variable.builtin (Special)     built-in variable names (e.g. `this`, `self`)
-        ["@variable.builtin"] = { fg = theme.syn.variable, italic = false },
+        ["@variable.builtin"] = { fg = theme.syn.special2, italic = false },
         -- @variable.parameter             parameters of a function
         ["@variable.parameter"] = { fg = theme.syn.parameter },
         -- @variable.parameter.builtin     special parameters (e.g. `_`, `it`)

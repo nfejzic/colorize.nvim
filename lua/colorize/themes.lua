@@ -114,10 +114,10 @@ local function gruvbox_dark(contrast)
 					pmenu = {
 						fg = palette.light1,
 						fg_sel = "none", -- This is important to make highlights pass-through
-						bg = palette.neutralBlue,
-						bg_sel = palette.darkAquaHard,
-						bg_sbar = palette.neutralBlue,
-						bg_thumb = palette.darkAquaHard,
+						bg = palette.dark0_hard,
+						bg_sel = palette.dark3,
+						bg_sbar = palette.dark3,
+						bg_thumb = palette.dark3,
 					},
 					float = {
 						fg = palette.light2,
@@ -145,7 +145,7 @@ local function gruvbox_dark(contrast)
 					docComment = palette.brightAqua,
 					punct = palette.light1,
 					special1 = palette.brightBlue,
-					special2 = palette.brightRed,
+					special2 = palette.brightOrange,
 					special3 = palette.brightRed,
 				},
 				vcs = {
@@ -216,7 +216,7 @@ local function gruvbox_dark(contrast)
 					pmenu = {
 						fg = palette.light1,
 						fg_sel = "none", -- This is important to make highlights pass-through
-						bg = palette.neutralBlue,
+						bg = palette.dark0_soft,
 						bg_sel = palette.darkAquaSoft,
 						bg_sbar = palette.neutralBlue,
 						bg_thumb = palette.darkAquaSoft,
@@ -247,7 +247,7 @@ local function gruvbox_dark(contrast)
 					docComment = palette.brightAqua,
 					punct = palette.light1,
 					special1 = palette.brightBlue,
-					special2 = palette.brightRed,
+					special2 = palette.brightOrange,
 					special3 = palette.brightRed,
 				},
 				vcs = {
@@ -318,7 +318,7 @@ local function gruvbox_dark(contrast)
 					pmenu = {
 						fg = palette.light1,
 						fg_sel = "none", -- This is important to make highlights pass-through
-						bg = palette.neutralBlue,
+						bg = palette.dark0,
 						bg_sel = palette.darkAqua,
 						bg_sbar = palette.neutralBlue,
 						bg_thumb = palette.darkAqua,
@@ -349,7 +349,7 @@ local function gruvbox_dark(contrast)
 					docComment = palette.brightAqua,
 					punct = palette.light1,
 					special1 = palette.brightBlue,
-					special2 = palette.brightRed,
+					special2 = palette.brightOrange,
 					special3 = palette.brightRed,
 				},
 				vcs = {
@@ -457,7 +457,7 @@ local function gruvbox_light(contrast)
 					docComment = palette.neutralAqua,
 					punct = palette.dark1,
 					special1 = palette.neutralBlue,
-					special2 = palette.neutralRed,
+					special2 = palette.neutralOrange,
 					special3 = palette.neutralRed,
 				},
 				vcs = {
@@ -559,7 +559,7 @@ local function gruvbox_light(contrast)
 					docComment = palette.neutralAqua,
 					punct = palette.dark1,
 					special1 = palette.neutralBlue,
-					special2 = palette.neutralRed,
+					special2 = palette.neutralOrange,
 					special3 = palette.neutralRed,
 				},
 				vcs = {
@@ -661,7 +661,7 @@ local function gruvbox_light(contrast)
 					docComment = palette.neutralAqua,
 					punct = palette.dark1,
 					special1 = palette.neutralBlue,
-					special2 = palette.neutralRed,
+					special2 = palette.neutralOrange,
 					special3 = palette.neutralRed,
 				},
 				vcs = {
@@ -774,7 +774,7 @@ local function solarized_dark(variant)
 				docComment = palette.sol_cyan,
 				punct = palette.sol_base0,
 				special1 = palette.sol_blue,
-				special2 = palette.sol_red,
+				special2 = palette.sol_orange,
 				special3 = palette.sol_red,
 			},
 			vcs = {
