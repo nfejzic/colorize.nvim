@@ -157,6 +157,7 @@ function M.setup(colors, config)
         CmpItemAbbrMatchFuzzy = { link = "CmpItemAbbrMatch" },
         CmpItemKindDefault = { fg = theme.ui.fg_dim },
         CmpItemMenu = { fg = theme.ui.fg_dim },
+        CmpGhostText = { link = "LspInlayHint" },
 
         CmpItemKindText = { fg = theme.ui.fg },
         CmpItemKindMethod = { link = "@function.method" },
