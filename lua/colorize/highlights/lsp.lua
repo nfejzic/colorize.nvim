@@ -52,6 +52,9 @@ function M.setup(colors, config)
         ["@lsp.typemod.operator.injected"] = { link = "Operator" },
         ["@lsp.typemod.string.injected"] = { link = "String" },
         ["@lsp.typemod.variable.injected"] = { link = "@variable" },
+        ["@lsp.typemod.keyword.injected"] = { link = "@keyword" },
+        ["@lsp.typemod.punctuation.injected"] = { link = "@punctuation" },
+        ["@lsp.typemod.namespace.injected"] = { link = "@module" },
 
         ["@lsp.typemod.function.readonly"] = { fg = theme.syn.fun, bold = true }
     }
