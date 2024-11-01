@@ -1,7 +1,7 @@
 local M = {}
 
 ---@alias ColorSpec string RGB Hex string
----@alias ColorTable table<string, ColorSpec>
+---@alias ColorTable PaletteColors
 ---@alias ColorizeColorsSpec { palette: ColorTable, theme: ColorTable }
 ---@alias ColorizeColors { palette: PaletteColors, theme: ThemeColors }
 
@@ -17,14 +17,19 @@ M.config = {
     transparent = false,
     dimInactive = false,
     terminalColors = true,
-    colors = { theme = { ["dark-hard"] = {} } },
+    colors = {
+        palette = {},
+        theme = {
+            ["gruvbox-dark-hard"] = {}
+        }
+    },
     ---@type fun(colors: ColorizeColorsSpec): table<string, table>
     overrides = function()
         return {}
     end,
     ---@type { dark: string, light: string }
-    background = { dark = "dark-hard", light = "dark-hard" },
-    theme = "dark-hard",
+    background = { dark = "gruvbox-dark-hard", light = "gruvbox-light-soft" },
+    theme = "gruvbox-dark-hard",
     compile = false,
 }
 
