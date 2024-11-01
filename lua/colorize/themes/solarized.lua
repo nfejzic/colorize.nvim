@@ -49,7 +49,7 @@ function public.palette()
 end
 
 ---@param variant "hard"|"normal"
----@return fun(palette: PaletteColors): ThemeColors, string
+---@return fun(palette: PaletteColors): Theme
 function public.dark(variant)
 	return function(palette_colors)
 		local palette = palette_colors.solarized
@@ -160,7 +160,7 @@ function public.dark(variant)
 			},
 		}
 
-		return colors, palette.sol_base03
+		return { colors = colors, base_color = palette.sol_base03 }
 	end
 end
 

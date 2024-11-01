@@ -33,18 +33,18 @@ function M.setup(opts)
 	local updated_palette_colors = vim.tbl_extend("force", palette, override_colors.palette or {})
 
 	-- Generate the theme according to the updated palette colors
-	local theme_colors, base_color = require("colorize.themes")[theme](updated_palette_colors)
+	local new_theme = require("colorize.themes")[theme](updated_palette_colors)
 
 	-- Add to and/or override theme_colors
 	local theme_overrides =
-		vim.tbl_deep_extend("force", override_colors.theme["all"] or {}, override_colors.theme[theme] or {})
-	local updated_theme_colors = vim.tbl_deep_extend("force", theme_colors, theme_overrides)
+		vim.tbl_deep_extend("force", override_colors.theme["all"] or {}, override_colors.theme[new_theme] or {})
+	local updated_theme_colors = vim.tbl_deep_extend("force", new_theme.colors, theme_overrides)
 	-- return palette_colors AND theme_colors
 
 	return {
 		theme = updated_theme_colors,
 		palette = updated_palette_colors,
-		base_color = base_color,
+		base_color = new_theme.base_color,
 	}
 end
 

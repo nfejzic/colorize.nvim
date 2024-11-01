@@ -67,7 +67,7 @@ function public.palette()
 end
 
 ---@param contrast "hard"|"soft"|"none"
----@return fun(palette: PaletteColors): ThemeColors, string
+---@return fun(palette: PaletteColors): Theme
 function public.dark(contrast)
 	if contrast == "hard" then
 		return function(palette_colors)
@@ -172,7 +172,7 @@ function public.dark(contrast)
 				},
 			}
 
-			return colors, palette.dark0_hard
+			return { colors = colors, base_color = palette.dark0_hard }
 		end
 	elseif contrast == "soft" then
 		return function(palette_colors)
@@ -277,7 +277,7 @@ function public.dark(contrast)
 				},
 			}
 
-			return colors, palette.dark0_soft
+			return { colors = colors, base_color = palette.dark0_soft }
 		end
 	else
 		return function(palette_colors)
@@ -382,13 +382,13 @@ function public.dark(contrast)
 				},
 			}
 
-			return colors, palette.dark0
+			return { colors = colors, base_color = palette.dark0 }
 		end
 	end
 end
 
 ---@param contrast "hard"|"soft"|"none"
----@return fun(palette: GruvboxPaletteColors): ThemeColors, string
+---@return fun(palette: GruvboxPaletteColors): Theme
 function public.light(contrast)
 	if contrast == "hard" then
 		return function(palette)
@@ -492,7 +492,7 @@ function public.light(contrast)
 				},
 			}
 
-			return colors, palette.light0_hard
+			return { colors = colors, base_color = palette.light0_hard }
 		end
 	elseif contrast == "soft" then
 		return function(palette)
@@ -596,7 +596,7 @@ function public.light(contrast)
 				},
 			}
 
-			return colors, palette.light0_soft
+			return { colors = colors, base_color = palette.light0_soft }
 		end
 	else
 		return function(palette)
@@ -700,7 +700,7 @@ function public.light(contrast)
 				},
 			}
 
-			return colors, palette.light0
+			return { colors = colors, base_color = palette.light0 }
 		end
 	end
 end

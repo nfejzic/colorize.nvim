@@ -83,11 +83,15 @@
 ---@field ui UiElements
 ---@field term ColorSpec[]
 
+---@class Theme
+---@field colors ThemeColors
+---@field base_color string
+
 local gruvbox = require('colorize.themes.gruvbox')
 local solarized = require('colorize.themes.solarized')
 local rose_pine = require('colorize.themes.rose_pine')
 
----@type table<string, fun(pc: PaletteColors): ThemeColors, string>
+---@type table<string, fun(pc: PaletteColors): Theme>
 return {
 	["gruvbox-dark-hard"] = gruvbox.dark("hard"),
 	["gruvbox-dark-soft"] = gruvbox.dark("soft"),

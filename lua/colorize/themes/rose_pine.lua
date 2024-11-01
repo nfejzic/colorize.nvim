@@ -68,7 +68,7 @@ function public.palette()
 end
 
 ---@param variant "black"|"main"|"moon"|"dawn"
----@return fun(palette: PaletteColors): ThemeColors, string
+---@return fun(palette: PaletteColors): Theme
 function public.colorize(variant)
 	return function(palette_colors)
 		local rose_pine_palette = palette_colors.rose_pine
@@ -183,7 +183,7 @@ function public.colorize(variant)
 			},
 		}
 
-		return colors, palette.base
+		return { colors = colors, base_color = palette.base }
 	end
 end
 
