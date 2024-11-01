@@ -1,9 +1,12 @@
 local gruvbox = require('colorize.themes.gruvbox')
 local solarized = require('colorize.themes.solarized')
+local rose_pine = require('colorize.themes.rose_pine')
+
 ---@class PaletteColors
 local palette = {
 	gruvbox = gruvbox.palette(),
 	solarized = solarized.palette(),
+	rose_pine = rose_pine.palette(),
 }
 
 local M = {}
