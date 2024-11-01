@@ -13,8 +13,8 @@ local M = {}
 ---     Defaults to ColorizeConfig.colors.
 ---   - theme: Use selected theme. Defaults to ColorizeConfig.theme
 ---     according to the value of 'background' option.
----@param opts? { colors?: table, theme?: string }
----@return { theme: ThemeColors, palette: PaletteColors}
+---@param opts? { colors?: {palette: PaletteColors, theme: table<string, ThemeColors>}, theme?: string }
+---@return { theme: ThemeColors, palette: PaletteColors, base_color: string }
 function M.setup(opts)
 	opts = opts or {}
 	local override_colors = opts.colors or require("colorize").config.colors

@@ -72,15 +72,19 @@ function M.load(theme)
         utils.load_compiled(theme)
     else
         local colors = require("colorize.colors").setup({ theme = theme, colors = M.config.colors })
-        local highlights = require("colorize.highlights").setup(colors, M.config)
-        require("colorize.highlights").highlight(highlights, M.config.terminalColors and colors.theme.term or {})
+        local highlights = require("colorize.highlights").setup(colors, M.config, colors.base_color)
+        require("colorize.highlights").highlight(
+            highlights,
+            M.config.terminalColors and colors.theme.term or {},
+            colors.base_color
+        )
     end
 end
 
 function M.compile()
     for theme, _ in pairs(require("colorize.themes")) do
         local colors = require("colorize.colors").setup({ theme = theme, colors = M.config.colors })
-        local highlights = require("colorize.highlights").setup(colors, M.config)
+        local highlights = require("colorize.highlights").setup(colors, M.config, colors.base_color)
         require("colorize.utils").compile(theme, highlights, M.config.terminalColors and colors.theme.term or {})
     end
 end
