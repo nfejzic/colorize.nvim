@@ -162,24 +162,24 @@ function public.colorize(variant)
 				hint = palette.iris,
 			},
 			term = {
-				palette.sol_base02, -- black
-				palette.sol_red, -- red
-				palette.sol_green, -- green
-				palette.sol_yellow, -- yellow
-				palette.sol_blue, -- blue
-				palette.sol_magenta, -- magenta
-				palette.sol_cyan, -- cyan
-				palette.sol_base2, -- white
-				palette.sol_base03, -- bright black
-				palette.sol_red, -- bright red
-				palette.sol_base01, -- bright green
-				palette.sol_base00, -- bright yellow
-				palette.sol_blue, -- bright blue
-				palette.sol_violet, -- bright magenta
-				palette.sol_base1, -- bright cyan
-				palette.sol_base3, -- bright white
-				palette.sol_orange, -- extended color 1
-				palette.sol_red, -- extended color 2
+				palette.base, -- black
+				palette.love, -- red
+				palette.pine, -- green
+				palette.gold, -- yellow
+				palette.foam, -- blue
+				palette.iris, -- magenta
+				palette.rose, -- cyan
+				palette.text, -- white
+				palette.surface, -- bright black
+				palette.love, -- bright red
+				palette.pine, -- bright green
+				palette.gold, -- bright yellow
+				palette.foam, -- bright blue
+				palette.iris, -- bright magenta
+				palette.rose, -- bright cyan
+				palette.subtle, -- bright white
+				palette.foam, -- extended color 1
+				palette.pine, -- extended color 2
 			},
 		}
 
