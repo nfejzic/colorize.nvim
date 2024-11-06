@@ -25,6 +25,15 @@ function M.setup(colors, config)
         GitSignsAddInline = { fg = theme.vcs.added, bg = theme.diff.text },
         GitSignsChange = { fg = theme.vcs.changed, bg = theme.ui.bg_gutter },
         GitSignsDelete = { fg = theme.vcs.removed, bg = theme.ui.bg_gutter },
+
+        -- GitConflict
+        GitConflictAncestorLabel = { bg = theme.ui.bg },
+        GitConflictAncestor = { bg = theme.ui.bg },
+        GitConflictCurrentLabel = { bg = theme.diff.change },
+        GitConflictCurrent = { link = "GitConflictCurrentLabel" },
+        GitConflictIncomingLabel = { link = "GitConflictIncoming" },
+
+
         -- Neogit
         NeogitDiffContextHighlight = { bg = theme.diff.change }, --[[  guibg=#333333 guifg=#b2b2b2 ]]
         NeogitHunkHeader = { fg = theme.syn.fun }, --[[  guifg=#cccccc guibg=#404040 ]]
@@ -36,7 +45,7 @@ function M.setup(colors, config)
         TreesitterContextLineNumber = { fg = theme.ui.special, bg = theme.ui.bg_gutter },
         -- Telescope
         TelescopeBorder = { fg = theme.ui.float.fg_border, bg = theme.ui.bg },
-        TelescopeTitle = { fg = theme.ui.special },
+        TelescopeTitle = { fg = theme.ui.fg },
         TelescopeSelection = { link = "CursorLine" },
         TelescopeSelectionCaret = { link = "CursorLineNr" },
         TelescopeResultsClass = { link = "Structure" },

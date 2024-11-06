@@ -16,12 +16,15 @@ function M.setup(colors, config)
         ["@lsp.type.namespace"] = { link = "@module" },             -- Structure
         ["@lsp.type.parameter"] = { link = "@variable.parameter" }, -- Identifier
         ["@lsp.type.formatSpecifier"] = { link = "Constant" },
+        ["@lsp.type.lifetime"] = { link = "@attribute" },
+        ["@lsp.type.keyword"] = { link = "@keyword" },
         -- ["@lsp.type.property"] = { link = "Identifier" },
         -- ["@lsp.type.struct"] = { link = "Structure" },
         -- ["@lsp.type.type"] = { link = "Type" },
         -- ["@lsp.type.typeParameter"] = { link = "TypeDef" },
         ["@lsp.type.variable"] = { link = '@variable' }, -- Identifier
-        ["@lsp.type.comment"] = { fg = 'none' },         -- Comment
+        ["@lsp.type.comment"] = { link = '@lsp' },       -- Comment
+        ["@lsp.mod.documentation"] = { link = '@lsp' },
         ["@lsp.type.typeAlias"] = { fg = theme.syn.constant },
 
         ["@lsp.type.selfParameter"] = { link = "@variable.builtin" },
@@ -37,6 +40,8 @@ function M.setup(colors, config)
         -- ["@lsp.mod.builtin"] = { link = "Special" },
 
         ["@lsp.typemod.deriveHelper"] = { link = "Macro" },
+        ["@lsp.typemod.comment.injected"] = { link = "Comment" },
+        ["@lsp.typemod.comment.documentation"] = { link = "@comment.documentation" },
 
         ["@lsp.typemod.operator.controlFlow"] = { link = "Operator" },
         ["@lsp.typemod.keyword.documentation"] = { link = "Special" },

@@ -105,9 +105,9 @@ function public.dark(contrast)
 					},
 					float = {
 						fg = palette.light2,
-						bg = palette.dark0,
+						bg = palette.dark0_hard,
 						fg_border = palette.dark4,
-						bg_border = palette.dark0,
+						bg_border = palette.dark0_hard,
 					},
 				},
 				syn = {
@@ -138,10 +138,10 @@ function public.dark(contrast)
 					changed = palette.brightOrange,
 				},
 				diff = {
-					add = palette.darkGreenHard,
+					add = palette.fadedGreen,
 					delete = palette.darkRedHard,
-					change = palette.dark0_soft,
-					text = palette.dark3,
+					change = palette.darkAquaHard,
+					text = palette.darkGreenSoft,
 				},
 				diag = {
 					ok = palette.brightGreen,
@@ -243,10 +243,10 @@ function public.dark(contrast)
 					changed = palette.brightOrange,
 				},
 				diff = {
-					add = palette.darkGreenSoft,
+					add = palette.fadedGreen,
 					delete = palette.darkRedSoft,
-					change = palette.dark0,
-					text = palette.dark2,
+					change = palette.darkAquaSoft,
+					text = palette.darkGreen,
 				},
 				diag = {
 					ok = palette.brightGreen,
@@ -348,10 +348,10 @@ function public.dark(contrast)
 					changed = palette.brightOrange,
 				},
 				diff = {
-					add = palette.darkGreen,
+					add = palette.fadedGreen,
 					delete = palette.darkRed,
-					change = palette.dark1,
-					text = palette.dark3,
+					change = palette.darkAqua,
+					text = palette.darkGreenHard,
 				},
 				diag = {
 					ok = palette.brightGreen,

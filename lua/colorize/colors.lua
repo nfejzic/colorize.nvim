@@ -25,7 +25,7 @@ function M.setup(opts)
 
 	if not theme then
 		error(
-			"colorize.colors.setup(): Unable to infer `theme`. Either specify a theme or call this function after ':colorscheme gruvbox'"
+			"colorize.colors.setup(): Unable to infer `theme`. Either specify a theme or call this function after ':colorscheme gruvbox-dark-hard'"
 		)
 	end
 

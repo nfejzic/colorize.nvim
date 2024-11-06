@@ -84,7 +84,7 @@ end
 function M.compile()
     for theme_name, _ in pairs(require("colorize.themes")) do
         local theme = require("colorize.colors").setup({ theme = theme_name, colors = M.config.colors })
-        local highlights = require("colorize.highlights").setup(theme.theme, M.config, theme.base_color)
+        local highlights = require("colorize.highlights").setup(theme, M.config, theme.base_color)
         require("colorize.utils").compile(theme_name, highlights, M.config.terminalColors and theme.theme.term or {})
     end
 end

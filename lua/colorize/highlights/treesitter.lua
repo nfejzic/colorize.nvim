@@ -9,7 +9,7 @@ function M.setup(colors, config)
         -- @variable                       various variable names
         ["@variable"] = { fg = theme.ui.fg },
         -- @variable.builtin (Special)     built-in variable names (e.g. `this`, `self`)
-        ["@variable.builtin"] = { fg = theme.syn.special2, italic = false },
+        ["@variable.builtin"] = { fg = theme.syn.constant, italic = false },
         -- @variable.parameter             parameters of a function
         ["@variable.parameter"] = { fg = theme.syn.parameter },
         -- @variable.parameter.builtin     special parameters (e.g. `_`, `it`)
@@ -22,6 +22,7 @@ function M.setup(colors, config)
         ["@constant.comment"] = { link = "Constant" },
         --
         -- @module (Structure)      modules or namespaces
+        ["@module"] = { link = "@variable" },
         -- @module.builtin         built-in modules or namespaces
         -- @label                  `GOTO` and other labels (e.g. `label:` in C), including heredoc labels
         --
@@ -49,14 +50,18 @@ function M.setup(colors, config)
         -- @type.definition        identifiers in type definitions (e.g. `typedef <type> <identifier>` in C)
         --
         -- @attribute              attribute annotations (e.g. Python decorators, Rust lifetimes)
-        ["@attribute"] = { link = "Constant" },
+        ["@attribute"] = { fg = theme.syn.docComment },
         -- @attribute.builtin      builtin annotations (e.g. `@property` in Python)
+        ["@attribute.builtin"] = { link = "@attribute" },
         -- @property               the key in key/value pairs
         --
         -- @function               function definitions
         -- @function.builtin       built-in functions
         -- @function.call          function calls
-        ["@function.macro"] = { link = "Macro" }, --         preprocessor macros
+        ["@function.macro"] = { link = "Macro" },           --         preprocessor macros
+        ["@macro_invocation"] = { fg = theme.syn.keyword }, --         preprocessor macros
+        ["@assert_macro"] = { fg = theme.syn.operator },
+        ["@superimportant"] = { fg = theme.syn.operator },
         --
         -- @function.method        method definitions
         -- @function.method.call   method calls
@@ -76,6 +81,7 @@ function M.setup(colors, config)
         ["@keyword.import"] = { link = "PreProc" },
         -- @keyword.type           keywords defining composite types (e.g. `struct`, `enum`)
         -- @keyword.modifier       keywords defining type modifiers (e.g. `const`, `static`, `public`)
+        ["@keyword.modifier"] = { link = "PreProc" },
         -- @keyword.repeat         keywords related to loops (e.g. `for`, `while`)
         -- @keyword.return         keywords like `return` and `yield`
         ["@keyword.return"] = vim.tbl_extend("force", { fg = theme.syn.special3 }, config.keywordStyle),
@@ -100,6 +106,7 @@ function M.setup(colors, config)
         --
         -- @comment                line and block comments
         -- @comment.documentation  comments documenting code
+        ["@comment.documentation"] = { fg = theme.syn.docComment },
         --
         -- @comment.error          error-type comments (e.g. `ERROR`, `FIXME`, `DEPRECATED`)
         ["@comment.error"] = { fg = theme.diag.error, reverse = true, bold = true },
@@ -120,6 +127,7 @@ function M.setup(colors, config)
         --
         -- @markup.heading         headings, titles (including markers)
         ["@markup.heading"] = { link = "Function" },
+        ["@markup.heading.gitcommit"] = { fg = theme.syn.variable },
         -- @markup.heading.1       top-level heading
         -- @markup.heading.2       section heading
         -- @markup.heading.3       subsection heading
