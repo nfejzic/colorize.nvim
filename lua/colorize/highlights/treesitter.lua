@@ -20,6 +20,7 @@ function M.setup(colors, config)
         -- @constant.builtin       built-in constant values
         -- @constant.macro         constants defined by the preprocessor
         ["@constant.comment"] = { link = "Constant" },
+        ["@constant.builtin"] = { link = "Constant" },
         --
         -- @module (Structure)      modules or namespaces
         ["@module"] = { link = "@variable" },

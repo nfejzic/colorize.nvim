@@ -10,6 +10,8 @@ function M.setup(colors, config)
         -- *Comment	any comment
         Comment = vim.tbl_extend("force", { fg = theme.syn.comment }, config.commentStyle),
 
+        zigCommentLineDoc = { link = "@comment.documentation" },
+
         -- *Constant	any constant
         Constant = { fg = theme.syn.constant },
         --  String		a string constant: "this is a string"

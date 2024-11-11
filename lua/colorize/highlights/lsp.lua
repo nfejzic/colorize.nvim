@@ -25,7 +25,8 @@ function M.setup(colors, config)
         ["@lsp.type.variable"] = { link = '@variable' }, -- Identifier
         ["@lsp.type.comment"] = { link = '@lsp' },       -- Comment
         ["@lsp.mod.documentation"] = { link = '@lsp' },
-        ["@lsp.type.typeAlias"] = { link = '@lsp' },
+        ["@lsp.type.typeAlias"] = { link = "@lsp" },
+        ["@lsp.type.selfKeyword"] = { link = "@variable.builtin" },
 
         ["@lsp.type.selfParameter"] = { link = "@variable.builtin" },
         -- ["@lsp.type.builtinConstant"] = { link = "@constant.builtin" },
