@@ -49,7 +49,7 @@ function M.setup(colors, config)
 
         ["@lsp.typemod.variable.global"] = { link = "Constant" },
         ["@lsp.typemod.variable.static"] = { link = "Constant" },
-        ["@lsp.typemod.variable.defaultLibrary"] = { link = "Special" },
+        ["@lsp.typemod.variable.defaultLibrary"] = { link = "@lsp" },
 
         ["@lsp.typemod.function.builtin"] = { link = "@function.builtin" },
         ["@lsp.typemod.function.defaultLibrary"] = { link = "@function.builtin" },
