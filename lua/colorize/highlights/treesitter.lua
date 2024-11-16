@@ -69,7 +69,7 @@ function M.setup(colors, config)
         --
         -- @constructor            constructor calls and definitions
         ["@constructor"] = { fg = theme.syn.special1 },
-        ["@constructor.lua"] = { fg = theme.syn.keyword },
+        ["@constructor.lua"] = { fg = theme.syn.punct },
         -- @operator               symbolic operators (e.g. `+`, `*`)
         ["@operator"] = { link = "Operator" },
         --
