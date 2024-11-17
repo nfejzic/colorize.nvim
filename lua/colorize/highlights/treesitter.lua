@@ -48,6 +48,7 @@ function M.setup(colors, config)
         --
         -- @type                   type or class definitions and annotations
         -- @type.builtin           built-in types
+        ["@type.builtin"] = { link = "Type" },
         -- @type.definition        identifiers in type definitions (e.g. `typedef <type> <identifier>` in C)
         --
         -- @attribute              attribute annotations (e.g. Python decorators, Rust lifetimes)
