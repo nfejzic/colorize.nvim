@@ -4,28 +4,28 @@ local colorize = {}
 
 colorize.normal = {
 	a = { bg = theme.syn.fun, fg = theme.ui.bg },
-	b = { bg = theme.ui.bg, fg = theme.syn.fun },
+	b = { bg = theme.ui.bg_m3, fg = theme.syn.fun },
 	c = { bg = theme.ui.bg_p1, fg = theme.ui.fg },
 }
 
 colorize.insert = {
 	a = { bg = theme.diag.ok, fg = theme.ui.bg },
-	b = { bg = theme.ui.bg, fg = theme.diag.ok },
+	b = { bg = theme.ui.bg_m3, fg = theme.diag.ok },
 }
 
 colorize.command = {
 	a = { bg = theme.syn.constant, fg = theme.ui.bg },
-	b = { bg = theme.ui.bg, fg = theme.syn.operator },
+	b = { bg = theme.ui.bg_m3, fg = theme.syn.operator },
 }
 
 colorize.visual = {
 	a = { bg = theme.syn.keyword, fg = theme.ui.bg },
-	b = { bg = theme.ui.bg, fg = theme.syn.keyword },
+	b = { bg = theme.ui.bg_m3, fg = theme.syn.keyword },
 }
 
 colorize.replace = {
 	a = { bg = theme.syn.special2, fg = theme.ui.bg },
-	b = { bg = theme.ui.bg, fg = theme.syn.constant },
+	b = { bg = theme.ui.bg_m3, fg = theme.syn.constant },
 }
 
 colorize.inactive = {
