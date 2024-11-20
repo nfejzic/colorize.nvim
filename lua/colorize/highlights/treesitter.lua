@@ -17,6 +17,7 @@ function M.setup(colors, config)
         ["@variable.member"] = { fg = theme.syn.identifier },
         --
         -- @constant (Constant)              constant identifiers
+        ["@constant"] = { link = "@variable" },
         -- @constant.builtin       built-in constant values
         -- @constant.macro         constants defined by the preprocessor
         ["@constant.comment"] = { link = "Constant" },
