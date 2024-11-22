@@ -27,6 +27,7 @@ function M.setup(colors, config)
         ["@module"] = { link = "@variable" },
         -- @module.builtin         built-in modules or namespaces
         -- @label                  `GOTO` and other labels (e.g. `label:` in C), including heredoc labels
+        ["@label"] = { fg = theme.syn.identifier },
         --
         -- @string                 string literals
         -- @string.documentation   string documenting code (e.g. Python docstrings)
