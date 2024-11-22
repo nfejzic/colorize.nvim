@@ -150,7 +150,7 @@ function M.setup(colors, config)
         -- @markup.link.url        URL-style links
         ["@markup.link.url"] = { link = "@string.special.url" },
         -- @markup.raw             literal or verbatim text (e.g. inline code)
-        ["@markup.raw"] = { link = "String" },
+        ["@markup.raw"] = { link = "Type" },
         -- @markup.raw.block       literal or verbatim text as a stand-alone block
         --
         -- @markup.list            list markers
