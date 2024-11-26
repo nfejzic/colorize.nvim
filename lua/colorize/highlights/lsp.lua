@@ -22,8 +22,8 @@ local function minimal(colors)
         -- ["@lsp.type.struct"] = { link = "Structure" },
         -- ["@lsp.type.type"] = { link = "Type" },
         -- ["@lsp.type.typeParameter"] = { link = "TypeDef" },
-        ["@lsp.type.variable"] = { link = '@lsp' }, -- Identifier
-        ["@lsp.type.comment"] = { link = '@lsp' },  -- Comment
+        ["@lsp.type.variable"] = { link = '@variable' }, -- Identifier
+        ["@lsp.type.comment"] = { link = '@lsp' },       -- Comment
         ["@lsp.mod.documentation"] = { link = '@lsp' },
         ["@lsp.type.typeAlias"] = { link = "@lsp" },
         ["@lsp.type.selfKeyword"] = { link = "@lsp" },
