@@ -51,9 +51,9 @@ local function minimal(colors)
         ["@lsp.typemod.variable.static"] = { link = "@lsp" },
         ["@lsp.typemod.variable.defaultLibrary"] = { link = "@lsp" },
 
-        ["@lsp.typemod.function.builtin"] = { link = "@function.builtin" },
-        ["@lsp.typemod.function.defaultLibrary"] = { link = "@function.builtin" },
-        ["@lsp.typemod.method.defaultLibrary"] = { link = "@function.builtin" },
+        ["@lsp.typemod.function.builtin"] = { link = "@lsp" },
+        ["@lsp.typemod.function.defaultLibrary"] = { link = "@lsp" },
+        ["@lsp.typemod.method.defaultLibrary"] = { link = "@lsp" },
 
         ["@lsp.typemod.operator.injected"] = { link = "Operator" },
         ["@lsp.typemod.string.injected"] = { link = "String" },
