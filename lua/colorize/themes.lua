@@ -90,6 +90,7 @@
 local gruvbox = require('colorize.themes.gruvbox')
 local solarized = require('colorize.themes.solarized')
 local rose_pine = require('colorize.themes.rose_pine')
+local kanagawa = require('colorize.themes.kanagawa')
 
 ---@type table<string, fun(pc: PaletteColors): Theme>
 return {
@@ -105,4 +106,5 @@ return {
 	["rose-pine-black"] = rose_pine.colorize("black"),
 	["rose-pine-moon"] = rose_pine.colorize("moon"),
 	["rose-pine-dawn"] = rose_pine.colorize("dawn"),
+	["kanagawa"] = kanagawa.wave(),
 }
