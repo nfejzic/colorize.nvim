@@ -88,7 +88,7 @@ function public.dark(contrast)
 					bg_p1 = palette.dark1,
 					bg_p2 = palette.dark3,
 
-					special = palette.neutralPurple,
+					special = palette.brightRed,
 					nontext = palette.dark4,
 					whitespace = palette.dark4,
 
@@ -193,7 +193,7 @@ function public.dark(contrast)
 					bg_p1 = palette.dark1,
 					bg_p2 = palette.dark3,
 
-					special = palette.neutralPurple,
+					special = palette.brightRed,
 					nontext = palette.dark4,
 					whitespace = palette.dark4,
 
@@ -298,7 +298,7 @@ function public.dark(contrast)
 					bg_p1 = palette.dark1,
 					bg_p2 = palette.dark3,
 
-					special = palette.neutralPurple,
+					special = palette.brightRed,
 					nontext = palette.dark4,
 					whitespace = palette.dark4,
 
@@ -388,10 +388,11 @@ function public.dark(contrast)
 end
 
 ---@param contrast "hard"|"soft"|"none"
----@return fun(palette: GruvboxPaletteColors): Theme
+---@return fun(palette: PaletteColors): Theme
 function public.light(contrast)
 	if contrast == "hard" then
-		return function(palette)
+		return function(palette_themes)
+			local palette = palette_themes.gruvbox
 			local colors = {
 				ui = {
 					fg = palette.dark1,
@@ -495,7 +496,8 @@ function public.light(contrast)
 			return { colors = colors, base_color = palette.light0_hard }
 		end
 	elseif contrast == "soft" then
-		return function(palette)
+		return function(palette_themes)
+			local palette = palette_themes.gruvbox
 			local colors = {
 				ui = {
 					fg = palette.dark1,
@@ -599,7 +601,8 @@ function public.light(contrast)
 			return { colors = colors, base_color = palette.light0_soft }
 		end
 	else
-		return function(palette)
+		return function(palette_themes)
+			local palette = palette_themes.gruvbox
 			local colors = {
 				ui = {
 					fg = palette.dark1,
