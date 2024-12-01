@@ -66,6 +66,7 @@ local function minimal(colors)
         ["@lsp.typemod.const.injected"] = { link = "@constant" },
         ["@lsp.typemod.method.injected"] = { link = "Function" },
         ["@lsp.type.generic"] = { link = "@variable" },
+        ["@lsp.typemod.generic.injected"] = { link = "@lsp.type.generic" },
 
         ["@lsp.typemod.function.readonly"] = { fg = theme.syn.fun, bold = true }
     }

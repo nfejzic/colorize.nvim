@@ -76,7 +76,7 @@ function M.setup(colors, config)
         Error = { fg = theme.diag.error },
 
         -- *Todo		anything that needs extra attention; mostly the keywords TODO FIXME WARNING and XXX
-        Todo = { fg = theme.diag.info, reverse = true, bold = true },
+        Todo = { fg = theme.diag.info, reverse = false, bold = true },
 
         qfLineNr = { link = "lineNr" },
         qfFileName = { link = "Directory" },

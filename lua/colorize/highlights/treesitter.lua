@@ -50,7 +50,7 @@ function M.setup(colors, config)
         --
         -- @type                   type or class definitions and annotations
         -- @type.builtin           built-in types
-        ["@type.builtin"] = { link = "Type" },
+        ["@type.builtin"] = { link = "Special" },
         -- @type.definition        identifiers in type definitions (e.g. `typedef <type> <identifier>` in C)
         --
         -- @attribute              attribute annotations (e.g. Python decorators, Rust lifetimes)
@@ -113,12 +113,12 @@ function M.setup(colors, config)
         ["@comment.documentation"] = { fg = theme.syn.docComment },
         --
         -- @comment.error          error-type comments (e.g. `ERROR`, `FIXME`, `DEPRECATED`)
-        ["@comment.error"] = { fg = theme.diag.error, reverse = true, bold = true },
+        ["@comment.error"] = { fg = theme.diag.error, reverse = false, bold = true },
         -- @comment.warning        warning-type comments (e.g. `WARNING`, `FIX`, `HACK`)
-        ["@comment.warning"] = { fg = theme.diag.warning, reverse = true, bold = true },
+        ["@comment.warning"] = { fg = theme.diag.warning, reverse = false, bold = true },
         -- @comment.todo           todo-type comments (e.g. `TODO`, `WIP`)
         -- @comment.note           note-type comments (e.g. `NOTE`, `INFO`, `XXX`)
-        ["@comment.note"] = { fg = theme.diag.hint, reverse = true, bold = true },
+        ["@comment.note"] = { fg = theme.diag.hint, reverse = false, bold = true },
         --
         -- @markup.strong          bold text
         ["@markup.strong"] = { bold = true },
@@ -151,7 +151,7 @@ function M.setup(colors, config)
         -- @markup.link.url        URL-style links
         ["@markup.link.url"] = { link = "@string.special.url" },
         -- @markup.raw             literal or verbatim text (e.g. inline code)
-        ["@markup.raw"] = { link = "Type" },
+        ["@markup.raw"] = { link = "String" },
         -- @markup.raw.block       literal or verbatim text as a stand-alone block
         --
         -- @markup.list            list markers
