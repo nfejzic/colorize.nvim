@@ -100,7 +100,7 @@ function public.wave()
 				fun = palette.crystalBlue,
 				statement = palette.oniViolet,
 				keyword = palette.sakuraPink,
-				operator = palette.surimiOrange,
+				operator = palette.boatYellow2,
 				preproc = palette.peachRed,
 				type = palette.carpYellow,
 				regex = palette.boatYellow2,
