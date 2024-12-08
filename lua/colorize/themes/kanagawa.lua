@@ -6,15 +6,19 @@ local private = {}
 private.palette = {
 	fujiWhite = '#DCD7BA',
 	oldWhite = '#C8C093',
+
 	sumiInk0 = '#16161D',
 	sumiInk1 = '#1F1F28',
 	sumiInk2 = '#2A2A37',
 	sumiInk3 = '#363646',
 	sumiInk4 = '#54546D',
+
 	waveBlue1 = '#223249',
 	waveBlue2 = '#2D4F67',
+
 	waveAqua1 = '#6A9589',
 	waveAqua2 = '#7AA89F',
+
 	samuraiRed = '#E82424',
 	autumnRed = '#C34043',
 	autumnYellow = '#DCA561',
@@ -61,11 +65,11 @@ function public.wave()
 				bg_dim = palette.sumiInk0,
 				bg_gutter = palette.sumiInk2,
 
-				bg_m3 = palette.sumiInk2,
+				bg_m3 = palette.sumiInk3,
 				bg_m2 = palette.oldWhite,
 				bg_m1 = palette.sumiInk0,
 				bg = palette.sumiInk1,
-				bg_p1 = palette.sumiInk3,
+				bg_p1 = palette.sumiInk2,
 				bg_p2 = palette.sumiInk2,
 
 				special = palette.peachRed,
