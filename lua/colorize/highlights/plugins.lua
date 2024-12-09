@@ -22,7 +22,7 @@ function M.setup(colors, config)
 
         -- Gitsigns
         GitSignsAdd = { fg = theme.vcs.added, bg = theme.ui.bg_gutter },
-        GitSignsAddInline = { fg = theme.vcs.added, bg = theme.diff.text },
+        GitSignsAddInline = { bg = theme.vcs.added, blend = 20 },
         GitSignsChange = { fg = theme.vcs.changed, bg = theme.ui.bg_gutter },
         GitSignsDelete = { fg = theme.vcs.removed, bg = theme.ui.bg_gutter },
 

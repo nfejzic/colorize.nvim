@@ -125,7 +125,7 @@ function public.wave()
 				add = palette.winterGreen,
 				delete = palette.winterRed,
 				change = palette.winterYellow,
-				text = palette.winterBlue,
+				text = palette.winterGreen,
 			},
 			diag = {
 				ok = palette.springGreen,
