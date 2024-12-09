@@ -99,7 +99,7 @@ function public.colorize(variant)
 				bg_p1 = palette.highlight_low,
 				bg_p2 = palette.highlight_high,
 
-				special = palette.iris,
+				special = palette.love,
 				nontext = palette.subtle,
 				whitespace = palette.muted,
 
@@ -118,7 +118,7 @@ function public.colorize(variant)
 					fg = palette.text,
 					bg = palette.base,
 					fg_border = palette.muted,
-					bg_border = palette.muted,
+					bg_border = palette.base,
 				},
 			},
 			syn = {
