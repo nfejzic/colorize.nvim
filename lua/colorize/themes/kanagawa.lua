@@ -104,7 +104,7 @@ function public.wave()
 				fun = palette.crystalBlue,
 				statement = palette.oniViolet,
 				keyword = palette.sakuraPink,
-				operator = palette.boatYellow2,
+				operator = palette.surimiOrange,
 				preproc = palette.peachRed,
 				type = palette.carpYellow,
 				regex = palette.boatYellow2,
