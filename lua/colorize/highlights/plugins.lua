@@ -33,6 +33,8 @@ function M.setup(colors, config)
         GitConflictCurrent = { link = "GitConflictCurrentLabel" },
         GitConflictIncomingLabel = { link = "GitConflictIncoming" },
 
+        -- Oil
+        OilHidden = { fg = theme.syn.deprecated },
 
         -- Neogit
         NeogitDiffContextHighlight = { bg = theme.diff.change }, --[[  guibg=#333333 guifg=#b2b2b2 ]]
