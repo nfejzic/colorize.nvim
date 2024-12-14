@@ -91,6 +91,7 @@ local gruvbox = require('colorize.themes.gruvbox')
 local solarized = require('colorize.themes.solarized')
 local rose_pine = require('colorize.themes.rose_pine')
 local kanagawa = require('colorize.themes.kanagawa')
+local catppuccin = require('colorize.themes.catppuccin')
 
 ---@type table<string, fun(pc: PaletteColors): Theme>
 return {
@@ -100,11 +101,19 @@ return {
 	["gruvbox-light-hard"] = gruvbox.light("hard"),
 	["gruvbox-light-soft"] = gruvbox.light("soft"),
 	["gruvbox-light"] = gruvbox.light("none"),
+
 	["solarized-dark-hard"] = solarized.dark("hard"),
 	["solarized-dark"] = solarized.dark("normal"),
+
 	["rose-pine-main"] = rose_pine.colorize("main"),
 	["rose-pine-black"] = rose_pine.colorize("black"),
 	["rose-pine-moon"] = rose_pine.colorize("moon"),
 	["rose-pine-dawn"] = rose_pine.colorize("dawn"),
+
 	["kanagawa"] = kanagawa.wave(),
+
+	["catppuccin-latte"] = catppuccin.latte(),
+	["catppuccin-frappe"] = catppuccin.frappe(),
+	["catppuccin-machiatto"] = catppuccin.machiatto(),
+	["catppuccin-mocha"] = catppuccin.mocha(),
 }
