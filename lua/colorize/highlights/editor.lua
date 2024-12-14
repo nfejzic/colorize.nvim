@@ -26,13 +26,13 @@ function M.setup(colors, config)
 		-- Directory	Directory names (and other special names in listings).
 		Directory = { fg = theme.syn.fun },
 		-- DiffAdd		Diff mode: Added line. |diff.txt|
-		DiffAdd = { bg = theme.diff.add, blend = 20 },
+		DiffAdd = { bg = theme.diff.add, blend = 80 },
 		-- DiffChange	Diff mode: Changed line. |diff.txt|
-		DiffChange = { bg = theme.diff.change, blend = 20 },
+		DiffChange = { bg = theme.diff.change, blend = 80 },
 		-- DiffDelete	Diff mode: Deleted line. |diff.txt|
-		DiffDelete = { bg = theme.diff.delete, blend = 20 },
+		DiffDelete = { bg = theme.diff.delete, blend = 80 },
 		-- DiffText	Diff mode: Changed text within a changed line. |diff.txt|
-		DiffText = { bg = theme.diff.text, blend = 40 },
+		DiffText = { bg = theme.diff.text, blend = 80 },
 		-- EndOfBuffer	Filler lines (~) after the end of the buffer. By default, this is highlighted like |hl-NonText|.
 		EndOfBuffer = { fg = theme.ui.bg },
 		-- TermCursor	Cursor in a focused terminal.
