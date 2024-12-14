@@ -23,6 +23,7 @@ local function minimal(colors)
         -- ["@lsp.type.type"] = { link = "Type" },
         -- ["@lsp.type.typeParameter"] = { link = "TypeDef" },
         ["@lsp.type.variable"] = { link = '@variable' }, -- Identifier
+        ["@lsp.mod.callable"] = { fg = theme.syn.special1 },
         ["@lsp.type.comment"] = { link = '@lsp' },       -- Comment
         ["@lsp.mod.documentation"] = { link = '@lsp' },
         ["@lsp.type.typeAlias"] = { link = "@lsp" },

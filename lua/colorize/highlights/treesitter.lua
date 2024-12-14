@@ -80,7 +80,7 @@ function M.setup(colors, config)
         -- @keyword.coroutine      keywords related to coroutines (e.g. `go` in Go, `async/await` in Python)
         -- @keyword.function       keywords that define a function (e.g. `func` in Go, `def` in Python)
         -- @keyword.operator       operators that are English words (e.g. `and`, `or`)
-        ["@keyword.operator"] = { fg = theme.syn.operator, bold = true },
+        ["@keyword.operator"] = { fg = theme.syn.special2, bold = true },
         -- @keyword.import         keywords for including modules (e.g. `import`, `from` in Python)
         ["@keyword.import"] = { link = "PreProc" },
         -- @keyword.type           keywords defining composite types (e.g. `struct`, `enum`)
