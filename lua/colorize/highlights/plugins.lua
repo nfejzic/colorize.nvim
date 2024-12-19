@@ -198,6 +198,10 @@ function M.setup(colors, config)
         CmpItemKindTypeParameter = { link = "Type" },
         CmpItemKindCopilot = { link = "String" },
 
+        -- Blink.nvim
+        BlinkCmpMenu = { link = "NormalFloat" },
+        BlinkCmpMenuBorder = { link = "FloatBorder" },
+
         -- IndentBlankline
         IndentBlanklineChar = { fg = theme.ui.whitespace },
         IndentBlanklineSpaceChar = { fg = theme.ui.whitespace },
