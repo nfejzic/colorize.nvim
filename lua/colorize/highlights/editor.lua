@@ -6,6 +6,8 @@ function M.setup(colors, config)
 	local theme = colors.theme
 	config = config or require("colorize").config
 
+	local utils = require('colorize.utils')
+
 	return {
 		-- ColorColumn	Used for the columns set with 'colorcolumn'.
 		ColorColumn = { bg = theme.ui.bg_p1 },
@@ -26,13 +28,13 @@ function M.setup(colors, config)
 		-- Directory	Directory names (and other special names in listings).
 		Directory = { fg = theme.syn.fun },
 		-- DiffAdd		Diff mode: Added line. |diff.txt|
-		DiffAdd = { bg = theme.diff.add, blend = 80 },
+		DiffAdd = { bg = theme.diff.add, blend = utils.clamped_val(theme.diff.blend, 80, 100) },
 		-- DiffChange	Diff mode: Changed line. |diff.txt|
-		DiffChange = { bg = theme.diff.change, blend = 80 },
+		DiffChange = { bg = theme.diff.change, blend = utils.clamped_val(theme.diff.blend, 80, 100) },
 		-- DiffDelete	Diff mode: Deleted line. |diff.txt|
-		DiffDelete = { bg = theme.diff.delete, blend = 80 },
+		DiffDelete = { bg = theme.diff.delete, blend = utils.clamped_val(theme.diff.blend, 80, 100) },
 		-- DiffText	Diff mode: Changed text within a changed line. |diff.txt|
-		DiffText = { bg = theme.diff.text, blend = 80 },
+		DiffText = { bg = theme.diff.text, blend = utils.clamped_val(theme.diff.blend, 80, 100) },
 		-- EndOfBuffer	Filler lines (~) after the end of the buffer. By default, this is highlighted like |hl-NonText|.
 		EndOfBuffer = { fg = theme.ui.bg },
 		-- TermCursor	Cursor in a focused terminal.

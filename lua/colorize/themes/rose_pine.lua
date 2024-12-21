@@ -153,6 +153,7 @@ function public.colorize(variant)
 				delete = palette.love,
 				change = palette.rose,
 				text = palette.rose,
+				blend = 40,
 			},
 			diag = {
 				ok = palette.foam,

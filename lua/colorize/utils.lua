@@ -57,4 +57,32 @@ function M.load_compiled(theme)
     return false
 end
 
+--- Returns either the provided value if not nil, or default value of 80
+---@param val number|nil
+---@param default number|nil
+---@return number
+function M.or_default(val, default)
+    return val or default or 80
+end
+
+---@param a number
+---@param b number
+---@return number
+function M.min(a, b)
+    if a < b then
+        return a
+    else
+        return b
+    end
+end
+
+--- Returns either the provided  if not nil, or default value of 80
+---@param val number|nil The optional value
+---@param default number The default value that will be returned if `val` is nil.
+---@param max number The max value that this function may return.
+---@return number
+function M.clamped_val(val, default, max)
+    return M.min(val or default, max)
+end
+
 return M

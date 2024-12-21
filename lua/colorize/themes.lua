@@ -35,6 +35,7 @@
 ---@field delete ColorSpec
 ---@field change ColorSpec
 ---@field text ColorSpec
+---@field blend number|nil
 
 ---@class VCSElements
 ---@field added ColorSpec
