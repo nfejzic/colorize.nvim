@@ -90,7 +90,7 @@ function public.colorize(variant)
 				fg_reverse = palette.overlay,
 
 				bg_dim = palette.surface,
-				bg_gutter = palette.surface,
+				bg_gutter = palette.overlay,
 
 				bg_m3 = palette.surface,
 				bg_m2 = palette.muted,
@@ -100,7 +100,7 @@ function public.colorize(variant)
 				bg_p2 = palette.highlight_high,
 
 				special = palette.love,
-				nontext = palette.subtle,
+				nontext = palette.muted,
 				whitespace = palette.muted,
 
 				bg_search = palette.highlight_med,
@@ -117,7 +117,7 @@ function public.colorize(variant)
 				float = {
 					fg = palette.text,
 					bg = palette.base,
-					fg_border = palette.muted,
+					fg_border = palette.highlight_high,
 					bg_border = palette.base,
 				},
 			},
@@ -136,8 +136,8 @@ function public.colorize(variant)
 				type = palette.gold,
 				regex = palette.gold,
 				deprecated = palette.muted,
-				comment = palette.rose,
-				docComment = palette.foam,
+				comment = palette.gold,
+				docComment = palette.pine,
 				punct = palette.text,
 				special1 = palette.pine,
 				special2 = palette.love,
