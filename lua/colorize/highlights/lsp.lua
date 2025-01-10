@@ -12,22 +12,23 @@ local function minimal(colors)
         ["@lsp.type.function"] = { link = "@lsp" },
         -- ["@lsp.type.interface"] = { link = "Structure" },
         ["@lsp.type.macro"] = { link = "@lsp" },
-        ["@lsp.type.method"] = { link = "@lsp" },                   -- Function - use treesitter
+        ["@lsp.type.method"] = { link = "Function" },               -- Function - use treesitter
         ["@lsp.type.namespace"] = { link = "@lsp" },                -- Structure
         ["@lsp.type.parameter"] = { link = "@variable.parameter" }, -- Identifier
         ["@lsp.type.formatSpecifier"] = { link = "Constant" },
         ["@lsp.type.lifetime"] = { link = "@attribute" },
         ["@lsp.type.keyword"] = { link = "@lsp" },
+
         -- ["@lsp.type.property"] = { link = "Identifier" },
         -- ["@lsp.type.struct"] = { link = "Structure" },
         -- ["@lsp.type.type"] = { link = "Type" },
         -- ["@lsp.type.typeParameter"] = { link = "TypeDef" },
-        ["@lsp.type.variable"] = { link = '@variable' }, -- Identifier
+        ["@lsp.type.variable"] = { link = '@lsp' }, -- Identifier
         ["@lsp.mod.callable"] = { fg = theme.syn.special1 },
-        ["@lsp.type.comment"] = { link = '@lsp' },       -- Comment
+        ["@lsp.type.comment"] = { link = '@lsp' },  -- Comment
         ["@lsp.mod.documentation"] = { link = '@lsp' },
         ["@lsp.type.typeAlias"] = { link = "@lsp" },
-        ["@lsp.type.selfKeyword"] = { link = "@lsp" },
+        ["@lsp.type.selfKeyword"] = { link = "@variable.builtin" },
 
         ["@lsp.type.selfParameter"] = { link = "@lsp" },
         -- ["@lsp.type.builtinConstant"] = { link = "@constant.builtin" },
@@ -37,6 +38,7 @@ local function minimal(colors)
 
         ["@lsp.mod.readonly"] = { link = "Constant" },
         ["@lsp.mod.typeHint"] = { link = "Type" },
+        ["@lsp.mod.macro"] = { link = "@lsp" },
         -- ["@lsp.mod.attribute"] = { link = "@attribute" },
         -- ["@lsp.mod.defaultLibrary"] = { link = "Special" },
         -- ["@lsp.mod.builtin"] = { link = "Special" },
