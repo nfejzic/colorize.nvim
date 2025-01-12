@@ -5,6 +5,7 @@ local private = {}
 ---@class KanagawaPaletteColors
 private.palette = {
 	fujiWhite = '#DCD7BA',
+	fujiGrey = '#727169',
 	oldWhite = '#C8C093',
 
 	sumiInk0 = '#16161D',
@@ -109,8 +110,8 @@ function public.wave()
 				type = palette.carpYellow,
 				regex = palette.boatYellow2,
 				deprecated = palette.katanaGrey,
-				comment = palette.surimiOrange,
-				docComment = palette.springGreen,
+				comment = palette.fujiGrey,
+				docComment = palette.autumnGreen,
 				punct = palette.fujiWhite,
 				special1 = palette.springBlue,
 				special2 = palette.autumnRed,
