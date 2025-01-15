@@ -115,6 +115,6 @@ return {
 
 	["catppuccin-latte"] = catppuccin.latte(),
 	["catppuccin-frappe"] = catppuccin.frappe(),
-	["catppuccin-machiatto"] = catppuccin.machiatto(),
+	["catppuccin-macchiato"] = catppuccin.macchiato(),
 	["catppuccin-mocha"] = catppuccin.mocha(),
 }

@@ -30,7 +30,7 @@ local private = {}
 ---@field Mantle string
 ---@field Crust string
 
----@alias CatppuccinVariant 'latte'|'frappe'|'machiatto'|'mocha'
+---@alias CatppuccinVariant 'latte'|'frappe'|'macchiato'|'mocha'
 
 ---@type table<CatppuccinVariant, CatppuccinPaletteColors>
 private.palette = {
@@ -100,7 +100,7 @@ private.palette = {
 		Crust = "#232634",
 	},
 
-	machiatto = {
+	macchiato = {
 		Rosewater = "#f4dbd6",
 		Flamingo = "#f0c6c6",
 		Pink = "#f5bde6",
@@ -185,10 +185,10 @@ function public.frappe()
 end
 
 ---@return fun(palette: PaletteColors): Theme
-function public.machiatto()
+function public.macchiato()
 	return function(palette_colors)
 		local theme = palette_colors.catppuccin
-		local palette = theme.machiatto
+		local palette = theme.macchiato
 
 		return private.colorize(palette)
 	end
