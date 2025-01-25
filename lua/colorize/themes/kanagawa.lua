@@ -114,7 +114,7 @@ function public.wave()
 				docComment = palette.springGreen,
 				punct = palette.fujiWhite,
 				special1 = palette.springBlue,
-				special2 = palette.autumnRed,
+				special2 = palette.peachRed,
 				special3 = palette.peachRed,
 			},
 			vcs = {
