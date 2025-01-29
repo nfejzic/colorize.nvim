@@ -161,7 +161,7 @@ function M.setup(colors, config)
 		DiagnosticInfo = { fg = theme.diag.info },
 		DiagnosticHint = { fg = theme.diag.hint },
 		DiagnosticOk = { fg = theme.diag.ok },
-		DiagnosticUnnecessary = { fg = theme.syn.deprecated, undercurl = true },
+		DiagnosticUnnecessary = { undercurl = true },
 
 		DiagnosticFloatingError = { fg = theme.diag.error },
 		DiagnosticFloatingWarn = { fg = theme.diag.warning },
