@@ -60,6 +60,14 @@ function M.setup(colors, config)
         TelescopeResultsField = { link = "@field" },
         TelescopeResultsMethod = { link = "Function" },
         TelescopeResultsVariable = { link = "@variable" },
+
+        -- SnacksPicker
+        SnacksPickerDir = { fg = theme.ui.fg },
+        SnacksPickerTree = { bg = "none" },
+        SnacksPickerCol = { fg = theme.syn.comment, bg = "none" },
+        SnacksPickerPrompt = { bg = theme.ui.bg },
+        SnacksPickerMatch = { fg = theme.ui.special },
+
         -- NvimTree
         NvimTreeNormal = { link = "Normal" },
         NvimTreeNormalNC = { link = "NvimTreeNormal" },
