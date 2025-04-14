@@ -213,6 +213,7 @@ function M.setup(colors, config)
         -- Blink.nvim
         BlinkCmpMenu = { link = "NormalFloat" },
         BlinkCmpMenuBorder = { link = "FloatBorder" },
+        BlinkCmpKind = { bg = "none" },
 
         -- IndentBlankline
         IndentBlanklineChar = { fg = theme.ui.whitespace },

@@ -83,7 +83,7 @@ function public.wave()
 				pmenu = {
 					fg = palette.oldWhite,
 					fg_sel = "none", -- This is important to make highlights pass-through
-					bg = palette.sumiInk2,
+					bg = palette.sumiInk1,
 					bg_sel = palette.sumiInk3,
 					bg_sbar = palette.sumiInk3,
 					bg_thumb = palette.sumiInk3,
