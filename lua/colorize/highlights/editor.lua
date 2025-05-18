@@ -131,7 +131,7 @@ function M.setup(colors, config)
 		-- Title		Titles for output from ":set all", ":autocmd" etc.
 		Title = { fg = theme.syn.fun, bold = true },
 		-- Visual		Visual mode selection.
-		Visual = { bg = theme.ui.bg_visual },
+		Visual = { fg = theme.ui.fg_visual ~= nil and theme.ui.fg_visual or "none", bg = theme.ui.bg_visual },
 		-- VisualNOS	Visual mode selection when vim is "Not Owning the Selection".
 		VisualNOS = { link = "Visual" },
 		-- WarningMsg	Warning messages.

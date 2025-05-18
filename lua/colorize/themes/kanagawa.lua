@@ -38,13 +38,69 @@ private.palette = {
 	sakuraPink = '#D27E99',
 	lightBlue = '#A3D4D5',
 
-	oldWhite3 = '#002B36',
-	oldWhite3_hard = '#00141D',
 	surimiOrange = '#FFA066',
 	boatYellow2 = '#C0A36E',
 	carpYellow = '#E6C384',
 
 	katanaGrey = '#717C7C',
+
+	-- # LOTUS
+
+	-- ink
+	lotusInk1 = "#545464",
+	lotusInk2 = "#43436c",
+
+	-- white
+	lotusWhite0 = "#d5cea3",
+	lotusWhite1 = "#dcd5ac",
+	lotusWhite2 = "#e5ddb0",
+	lotusWhite3 = "#f2ecbc",
+	lotusWhite4 = "#e7dba0",
+
+	-- grey
+	lotusGray = "#dcd7ba",
+	lotusGray2 = "#716e61",
+	lotusGrey3 = "#8a8980",
+
+	-- red
+	lotusRed = "#c84053",
+	lotusRed3 = "#e82424",
+	lotusRed4 = "#d9a594",
+
+	-- orange
+	lotusOrange = "#cc6d00",
+	lotusOrange2 = "#e98a00",
+
+	-- yellow
+	lotusYellow2 = "#836f4a",
+	lotusYellow3 = "#de9800",
+	lotusYellow4 = "#f9d791",
+
+	-- green
+	lotusGreen = "#6f894e",
+	lotusGreen2 = "#6e915f",
+	lotusGreen3 = "#b7d0ae",
+
+	-- teal
+	lotusTeal2 = "#6693bf",
+	lotusTeal3 = "#5a7785",
+
+	-- aqua
+	lotusAqua2 = "#5e857a",
+
+	-- cyan
+	lotusCyan = "#d7e3d8",
+
+	-- blue
+	lotusBlue2 = "#b5cbd2",
+	lotusBlue4 = "#4d699b",
+
+	-- violet
+	lotusViolet3 = "#c9cbd1",
+	lotusViolet4 = "#624c83",
+
+	-- pink
+	lotusPink = "#b35b79",
 }
 
 ---@return KanagawaPaletteColors
@@ -53,6 +109,117 @@ function public.palette()
 end
 
 ---@return fun(palette: PaletteColors): Theme
+function public.lotus()
+	return function(palette_colors)
+		local palette = palette_colors.kanagawa
+
+		local colors = {
+			ui = {
+				fg = palette.lotusInk1,
+				fg_dim = palette.lotusInk2,
+				fg_reverse = palette.lotusWhite1,
+
+				bg_dim = palette.lotusWhite0,
+				bg_gutter = palette.lotusWhite0,
+
+				bg_m3 = palette.lotusWhite3,
+				bg_m2 = palette.lotusInk2,
+				bg_m1 = palette.lotusWhite0,
+				bg = palette.lotusWhite1,
+				bg_p1 = palette.lotusWhite0,
+				bg_p2 = palette.lotusWhite2,
+
+				special = palette.lotusRed,
+				nontext = palette.lotusGray2,
+				whitespace = palette.lotusWhite2,
+
+				bg_search = palette.lotusViolet3,
+				bg_visual = palette.lotusInk2,
+				fg_visual = palette.lotusWhite1,
+
+				pmenu = {
+					fg = palette.lotusInk2,
+					fg_sel = palette.lotusWhite1,
+					bg = "none",
+					bg_sel = palette.lotusRed,
+					bg_sbar = palette.lotusInk2,
+					bg_thumb = palette.lotusInk2,
+				},
+				float = {
+					fg = palette.lotusInk2,
+					bg = palette.lotusWhite1,
+					fg_border = palette.lotusInk1,
+					bg_border = palette.lotusWhite1,
+				},
+			},
+			syn = {
+				string = palette.lotusGreen,
+				variable = palette.lotusInk1,
+				number = palette.lotusOrange,
+				constant = palette.lotusOrange,
+				identifier = palette.lotusInk1,
+				parameter = palette.lotusInk1,
+				fun = palette.lotusBlue4,
+				statement = palette.lotusViolet4,
+				keyword = palette.lotusPink,
+				operator = palette.lotusOrange,
+				preproc = palette.lotusRed,
+				type = palette.lotusYellow2,
+				regex = palette.lotusYellow2,
+				deprecated = palette.lotusGrey3,
+				comment = palette.lotusOrange,
+				docComment = palette.lotusGreen,
+				punct = palette.lotusInk1,
+				special1 = palette.lotusTeal2,
+				special2 = palette.lotusRed,
+				special3 = palette.lotusRed,
+			},
+			vcs = {
+				added = palette.lotusGreen2,
+				removed = palette.lotusRed,
+				changed = palette.lotusYellow3,
+			},
+			diff = {
+				add = palette.lotusGreen3,
+				delete = palette.lotusRed4,
+				change = palette.lotusYellow4,
+				text = palette.lotusGreen3,
+				blend = 90,
+			},
+			diag = {
+				ok = palette.lotusGreen,
+				error = palette.lotusRed3,
+				warning = palette.lotusOrange2,
+				info = palette.lotusAqua2,
+				hint = palette.lotusTeal3,
+			},
+			term = {
+				palette.lotusWhite2, -- black
+				palette.lotusRed, -- red
+				palette.lotusGreen2, -- green
+				palette.lotusYellow2, -- yellow
+				palette.lotusBlue4, -- blue
+				palette.lotusViolet4, -- magenta
+				palette.lotusAqua2, -- cyan
+				palette.lotusInk1, -- white
+				palette.lotusInk2, -- bright black
+				palette.lotusRed3, -- bright red
+				palette.lotusGreen, -- bright green
+				palette.lotusOrange2, -- bright yellow
+				palette.lotusTeal2, -- bright blue
+				palette.lotusPink, -- bright magenta
+				palette.lotusAqua2, -- bright cyan
+				palette.lotusInk2, -- bright white
+				palette.lotusOrange, -- extended color 1
+				palette.lotusRed3, -- extended color 2
+			},
+		}
+
+		return { colors = colors, base_color = palette.oldWhite }
+	end
+end
+
+--- @return fun(palette: PaletteColors): Theme
 function public.wave()
 	return function(palette_colors)
 		local palette = palette_colors.kanagawa
@@ -145,7 +312,7 @@ function public.wave()
 				palette.oniViolet, -- magenta
 				palette.waveAqua1, -- cyan
 				palette.fujiWhite, -- white
-				palette.oldWhite3, -- bright black
+				palette.oldWhite, -- bright black
 				palette.samuraiRed, -- bright red
 				palette.springGreen, -- bright green
 				palette.roninYellow, -- bright yellow
@@ -158,7 +325,7 @@ function public.wave()
 			},
 		}
 
-		return { colors = colors, base_color = palette.oldWhite3 }
+		return { colors = colors, base_color = palette.oldWhite }
 	end
 end
 

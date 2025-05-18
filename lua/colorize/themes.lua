@@ -59,6 +59,7 @@
 ---@field whitespace ColorSpec Whitespace
 ---@field bg_search ColorSpec
 ---@field bg_visual ColorSpec
+---@field fg_visual ColorSpec|nil
 ---@field pmenu MenuElements
 ---@field float FloatElements
 
@@ -111,7 +112,8 @@ return {
 	["rose-pine-moon"] = rose_pine.colorize("moon"),
 	["rose-pine-dawn"] = rose_pine.colorize("dawn"),
 
-	["kanagawa"] = kanagawa.wave(),
+	["kanagawa-wave"] = kanagawa.wave(),
+	["kanagawa-lotus"] = kanagawa.lotus(),
 
 	["catppuccin-latte"] = catppuccin.latte(),
 	["catppuccin-frappe"] = catppuccin.frappe(),
