@@ -215,7 +215,7 @@ function public.lotus()
 			},
 		}
 
-		return { colors = colors, base_color = palette.oldWhite }
+		return { colors = colors, base_color = palette.lotusInk2 }
 	end
 end
 
