@@ -113,6 +113,7 @@ return {
 	["rose-pine-dawn"] = rose_pine.colorize("dawn"),
 
 	["kanagawa-wave"] = kanagawa.wave(),
+	["kanagawa-dragon"] = kanagawa.dragon(),
 	["kanagawa-lotus"] = kanagawa.lotus(),
 
 	["catppuccin-latte"] = catppuccin.latte(),

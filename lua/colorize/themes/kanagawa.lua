@@ -8,41 +8,47 @@ private.palette = {
 	fujiGrey = '#727169',
 	oldWhite = '#C8C093',
 
+	katanaGrey = '#717C7C',
+
 	sumiInk0 = '#16161D',
 	sumiInk1 = '#1F1F28',
 	sumiInk2 = '#2A2A37',
 	sumiInk3 = '#363646',
 	sumiInk4 = '#54546D',
 
-	waveBlue1 = '#223249',
-	waveBlue2 = '#2D4F67',
+	waveRed = '#E46876',
+	samuraiRed = '#E82424',
+	peachRed = '#FF5D62',
+	autumnRed = '#C34043',
+	winterRed = '#43242B',
+
+	surimiOrange = '#FFA066',
+
+	boatYellow2 = '#C0A36E',
+	carpYellow = '#E6C384',
+	autumnYellow = '#DCA561',
+	winterYellow = '#49443C',
+	roninYellow = '#FF9E3B',
+
+	springGreen = '#98BB6C',
+	autumnGreen = '#76946A',
+	winterGreen = '#2B3328',
 
 	waveAqua1 = '#6A9589',
 	waveAqua2 = '#7AA89F',
 
-	samuraiRed = '#E82424',
-	autumnRed = '#C34043',
-	autumnYellow = '#DCA561',
-	roninYellow = '#FF9E3B',
-	peachRed = '#FF5D62',
+	waveBlue1 = '#223249',
+	waveBlue2 = '#2D4F67',
+	lightBlue = '#A3D4D5',
 	crystalBlue = '#7E9CD8',
 	dragonBlue = '#658594',
-	springGreen = '#98BB6C',
 	springBlue = '#7FB4CA',
-	autumnGreen = '#76946A',
-	winterGreen = '#2B3328',
-	winterYellow = '#49443C',
-	winterRed = '#43242B',
 	winterBlue = '#252535',
+
+	springViolet1 = '#938AA9',
 	oniViolet = '#957FB8',
+
 	sakuraPink = '#D27E99',
-	lightBlue = '#A3D4D5',
-
-	surimiOrange = '#FFA066',
-	boatYellow2 = '#C0A36E',
-	carpYellow = '#E6C384',
-
-	katanaGrey = '#717C7C',
 
 	-- # LOTUS
 
@@ -101,11 +107,170 @@ private.palette = {
 
 	-- pink
 	lotusPink = "#b35b79",
+
+	-- # DRAGON
+
+	-- black
+	dragonBlack0 = "#0d0c0c",
+	dragonBlack1 = "#12120f",
+	dragonBlack2 = "#1D1C19",
+	dragonBlack3 = "#181616",
+	dragonBlack4 = "#282727",
+	dragonBlack5 = "#393836",
+	dragonBlack6 = "#625e5a",
+
+	-- gray
+	dragonAsh = "#737c73",
+	dragonGray = "#a6a69c",
+	dragonGray2 = "#9e9b93",
+	dragonGray3 = "#7a8382",
+
+	-- white
+	dragonWhite = "#c5c9c5",
+
+	-- red
+	dragonRed = "#c4746e",
+
+	-- orange
+	dragonOrange = "#b6927b",
+	dragonOrange2 = "#b98d7b",
+
+	-- yellow
+	dragonYellow = "#c4b28a",
+
+	-- green
+	dragonGreen = "#87a987",
+	dragonGreen2 = "#8a9a7b",
+
+	-- aqua
+	dragonAqua = "#8ea4a2",
+
+	-- teal
+	dragonTeal = "#949fb5",
+
+	-- blue
+	dragonBlue2 = "#8ba4b0",
+
+	-- violet
+	dragonViolet = "#8992a7",
+
+	-- pink
+	dragonPink = "#a292a3",
 }
 
 ---@return KanagawaPaletteColors
 function public.palette()
 	return private.palette
+end
+
+---@return fun(palette: PaletteColors): Theme
+function public.dragon()
+	return function(palette_colors)
+		local palette = palette_colors.kanagawa
+
+		local colors = {
+			ui = {
+				fg = palette.dragonWhite,
+				fg_dim = palette.oldWhite,
+				fg_reverse = palette.dragonBlack1,
+
+				bg_dim = palette.dragonBlack0,
+				bg_gutter = palette.dragonBlack2,
+
+				bg_m3 = palette.dragonBlack3,
+				bg_m2 = palette.oldWhite,
+				bg_m1 = palette.dragonBlack0,
+				bg = palette.dragonBlack1,
+				bg_p1 = palette.dragonBlack2,
+				bg_p2 = palette.dragonBlack2,
+
+				special = palette.dragonRed,
+				nontext = palette.dragonBlack6,
+				whitespace = palette.dragonBlack5,
+
+				bg_search = palette.waveBlue1,
+				bg_visual = palette.dragonBlack4,
+
+				pmenu = {
+					fg = palette.oldWhite,
+					fg_sel = "none", -- This is important to make highlights pass-through
+					bg = "none",
+					bg_sel = palette.dragonBlack4,
+					bg_sbar = palette.dragonBlack5,
+					bg_thumb = palette.dragonBlack5,
+				},
+				float = {
+					fg = palette.oldWhite,
+					bg = palette.dragonBlack1,
+					fg_border = palette.dragonBlack4,
+					bg_border = palette.dragonBlack1,
+				},
+			},
+			syn = {
+				string = palette.dragonGreen2,
+				variable = palette.dragonWhite,
+				number = palette.dragonOrange,
+				constant = palette.dragonOrange,
+				identifier = palette.dragonWhite,
+				parameter = palette.dragonWhite,
+				fun = palette.dragonBlue2,
+				statement = palette.dragonViolet,
+				keyword = palette.dragonPink,
+				operator = palette.dragonOrange,
+				preproc = palette.dragonRed,
+				type = palette.dragonYellow,
+				regex = palette.dragonRed,
+				deprecated = palette.katanaGrey,
+				comment = palette.dragonOrange,
+				docComment = palette.dragonGreen2,
+				punct = palette.dragonWhite,
+				special1 = palette.dragonTeal,
+				special2 = palette.dragonRed,
+				special3 = palette.dragonRed,
+			},
+			vcs = {
+				added = palette.autumnGreen,
+				removed = palette.autumnRed,
+				changed = palette.autumnYellow,
+			},
+			diff = {
+				add = palette.winterGreen,
+				delete = palette.winterRed,
+				change = palette.winterYellow,
+				text = palette.winterGreen,
+				blend = 90,
+			},
+			diag = {
+				ok = palette.dragonGreen2,
+				error = palette.samuraiRed,
+				warning = palette.roninYellow,
+				info = palette.waveAqua1,
+				hint = palette.dragonBlue,
+			},
+			term = {
+				palette.dragonBlack0, -- black
+				palette.dragonRed, -- red
+				palette.dragonGreen2, -- green
+				palette.dragonYellow, -- yellow
+				palette.dragonBlue2, -- blue
+				palette.dragonPink, -- magenta
+				palette.dragonAqua, -- cyan
+				palette.oldWhite, -- white
+				palette.dragonGray, -- bright black
+				palette.waveRed, -- bright red
+				palette.dragonGreen, -- bright green
+				palette.carpYellow, -- bright yellow
+				palette.springBlue, -- bright blue
+				palette.springViolet1, -- bright magenta
+				palette.waveAqua2, -- bright cyan
+				palette.dragonWhite, -- bright white
+				palette.dragonOrange, -- extended color 1
+				palette.dragonOrange2, -- extended color 2
+			},
+		}
+
+		return { colors = colors, base_color = palette.oldWhite }
+	end
 end
 
 ---@return fun(palette: PaletteColors): Theme
