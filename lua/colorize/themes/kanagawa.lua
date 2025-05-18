@@ -60,7 +60,7 @@ private.palette = {
 	-- grey
 	lotusGray = "#dcd7ba",
 	lotusGray2 = "#716e61",
-	lotusGrey3 = "#8a8980",
+	lotusGray3 = "#8a8980",
 
 	-- red
 	lotusRed = "#c84053",
@@ -166,7 +166,7 @@ function public.lotus()
 				preproc = palette.lotusRed,
 				type = palette.lotusYellow2,
 				regex = palette.lotusYellow2,
-				deprecated = palette.lotusGrey3,
+				deprecated = palette.lotusGray3,
 				comment = palette.lotusOrange,
 				docComment = palette.lotusGreen,
 				punct = palette.lotusInk1,
