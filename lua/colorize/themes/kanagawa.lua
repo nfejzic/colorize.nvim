@@ -236,9 +236,9 @@ function public.dragon()
 			diff = {
 				add = palette.winterGreen,
 				delete = palette.winterRed,
-				change = palette.winterYellow,
-				text = palette.winterGreen,
-				blend = 90,
+				change = palette.winterBlue,
+				text = palette.winterYellow,
+				blend = 100,
 			},
 			diag = {
 				ok = palette.dragonGreen2,
@@ -278,20 +278,24 @@ function public.lotus()
 	return function(palette_colors)
 		local palette = palette_colors.kanagawa
 
+		local fg = palette.lotusInk1
+		local bg = palette.lotusWhite3
+		local bg_gutter = palette.lotusWhite4
+
 		local colors = {
 			ui = {
-				fg = palette.lotusInk1,
+				fg = fg,
 				fg_dim = palette.lotusInk2,
-				fg_reverse = palette.lotusWhite1,
+				fg_reverse = bg,
 
-				bg_dim = palette.lotusWhite0,
-				bg_gutter = palette.lotusWhite0,
+				bg_dim = bg_gutter,
+				bg_gutter = bg_gutter,
 
-				bg_m3 = palette.lotusWhite3,
+				bg_m3 = bg_gutter,
 				bg_m2 = palette.lotusInk2,
-				bg_m1 = palette.lotusWhite0,
-				bg = palette.lotusWhite1,
-				bg_p1 = palette.lotusWhite0,
+				bg_m1 = bg_gutter,
+				bg = palette.lotusWhite3,
+				bg_p1 = bg_gutter,
 				bg_p2 = palette.lotusWhite2,
 
 				special = palette.lotusRed,
@@ -299,22 +303,21 @@ function public.lotus()
 				whitespace = palette.lotusWhite2,
 
 				bg_search = palette.lotusViolet3,
-				bg_visual = palette.lotusInk2,
-				fg_visual = palette.lotusWhite1,
+				bg_visual = palette.lotusWhite0,
 
 				pmenu = {
-					fg = palette.lotusInk2,
-					fg_sel = palette.lotusWhite1,
+					fg = "none",
+					fg_sel = "none",
 					bg = "none",
-					bg_sel = palette.lotusRed,
+					bg_sel = palette.lotusWhite0,
 					bg_sbar = palette.lotusInk2,
 					bg_thumb = palette.lotusInk2,
 				},
 				float = {
-					fg = palette.lotusInk2,
-					bg = palette.lotusWhite1,
-					fg_border = palette.lotusInk1,
-					bg_border = palette.lotusWhite1,
+					fg = fg,
+					bg = bg,
+					fg_border = fg,
+					bg_border = bg,
 				},
 			},
 			syn = {
@@ -329,7 +332,7 @@ function public.lotus()
 				keyword = palette.lotusPink,
 				operator = palette.lotusOrange,
 				preproc = palette.lotusRed,
-				type = palette.lotusYellow2,
+				type = palette.lotusBlue4,
 				regex = palette.lotusYellow2,
 				deprecated = palette.lotusGray3,
 				comment = palette.lotusOrange,
@@ -345,11 +348,11 @@ function public.lotus()
 				changed = palette.lotusYellow3,
 			},
 			diff = {
-				add = palette.lotusGreen3,
+				add = palette.lotusGreen2,
 				delete = palette.lotusRed4,
-				change = palette.lotusYellow4,
-				text = palette.lotusGreen3,
-				blend = 90,
+				change = palette.lotusGreen3,
+				text = palette.springGreen,
+				blend = 30,
 			},
 			diag = {
 				ok = palette.lotusGreen,
@@ -380,7 +383,7 @@ function public.lotus()
 			},
 		}
 
-		return { colors = colors, base_color = palette.lotusInk2 }
+		return { colors = colors, base_color = palette.lotusWhite1 }
 	end
 end
 
@@ -457,9 +460,9 @@ function public.wave()
 			diff = {
 				add = palette.winterGreen,
 				delete = palette.winterRed,
-				change = palette.winterYellow,
+				change = palette.winterBlue,
 				text = palette.winterGreen,
-				blend = 90,
+				blend = 100,
 			},
 			diag = {
 				ok = palette.springGreen,
