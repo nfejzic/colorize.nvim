@@ -69,642 +69,263 @@ end
 ---@param contrast "hard"|"soft"|"none"
 ---@return fun(palette: PaletteColors): Theme
 function public.dark(contrast)
-	if contrast == "hard" then
-		return function(palette_colors)
-			local palette = palette_colors.gruvbox
-			local colors = {
-				ui = {
-					fg = palette.light1,
-					fg_dim = palette.light2,
-					fg_reverse = palette.light4,
+	---@param palette_colors PaletteColors
+	return function(palette_colors)
+		local palette = palette_colors.gruvbox
 
-					bg_dim = palette.dark0_soft,
-					bg_gutter = palette.dark1,
+		---@class GruvboxContrastColors
+		local contrast_colors = {
+			dark0 = palette.dark0,
+			dark0_dim = palette.dark0,
+			darkAqua = palette.darkAqua,
+			darkRed = palette.darkRed,
+		}
 
-					bg_m3 = palette.dark0,
-					bg_m2 = palette.dark0_soft,
-					bg_m1 = palette.dark2,
-					bg = palette.dark0_hard,
-					bg_p1 = palette.dark1,
-					bg_p2 = palette.dark3,
-
-					special = palette.brightRed,
-					nontext = palette.dark4,
-					whitespace = palette.dark4,
-
-					bg_search = palette.darkAquaHard,
-					bg_visual = palette.dark2,
-
-					pmenu = {
-						fg = palette.light1,
-						fg_sel = "none", -- This is important to make highlights pass-through
-						bg = palette.neutralBlue,
-						bg_sel = palette.darkAquaHard,
-						bg_sbar = palette.neutralBlue,
-						bg_thumb = palette.darkAquaHard,
-					},
-					float = {
-						fg = palette.light2,
-						bg = palette.dark0_hard,
-						fg_border = palette.dark4,
-						bg_border = palette.dark0_hard,
-					},
-				},
-				syn = {
-					string = palette.brightGreen,
-					variable = palette.light1,
-					number = palette.brightOrange,
-					constant = palette.brightOrange,
-					identifier = palette.light1,
-					parameter = palette.light2,
-					fun = palette.brightBlue,
-					statement = palette.brightPurple,
-					keyword = palette.brightPurple,
-					operator = palette.brightYellow,
-					preproc = palette.brightRed, --lightBlue? deserves its own color
-					type = palette.brightYellow,
-					regex = palette.neutralYellow,
-					deprecated = palette.dark4,
-					comment = palette.brightOrange,
-					docComment = palette.brightAqua,
-					punct = palette.light1,
-					special1 = palette.brightBlue,
-					special2 = palette.brightRed,
-					special3 = palette.brightRed,
-				},
-				vcs = {
-					added = palette.neutralGreen,
-					removed = palette.brightRed,
-					changed = palette.brightOrange,
-				},
-				diff = {
-					add = palette.fadedGreen,
-					delete = palette.darkRedHard,
-					change = palette.darkAquaHard,
-					text = palette.darkGreenSoft,
-				},
-				diag = {
-					ok = palette.brightGreen,
-					error = palette.brightRed,
-					warning = palette.brightOrange,
-					info = palette.brightBlue,
-					hint = palette.brightAqua,
-				},
-				term = {
-					palette.dark0, -- black
-					palette.brightRed, -- red
-					palette.neutralGreen, -- green
-					palette.neutralYellow, -- yellow
-					palette.brightBlue, -- blue
-					palette.brightPurple, -- magenta
-					palette.neutralAqua, -- cyan
-					palette.light2, -- white
-					palette.light4, -- bright black
-					palette.brightRed, -- bright red
-					palette.brightGreen, -- bright green
-					palette.brightYellow, -- bright yellow
-					palette.brightBlue, -- bright blue
-					palette.neutralPurple, -- bright magenta
-					palette.neutralAqua, -- bright cyan
-					palette.light1, -- bright white
-					palette.brightOrange, -- extended color 1
-					palette.brightRed, -- extended color 2
-				},
+		if contrast == "hard" then
+			contrast_colors = {
+				dark0 = palette.dark0_hard,
+				dark0_dim = palette.dark0_soft,
+				darkAqua = palette.darkAquaHard,
+				darkRed = palette.darkRedHard,
 			}
-
-			return { colors = colors, base_color = palette.dark0_hard }
-		end
-	elseif contrast == "soft" then
-		return function(palette_colors)
-			local palette = palette_colors.gruvbox
-			local colors = {
-				ui = {
-					fg = palette.light1,
-					fg_dim = palette.light2,
-					fg_reverse = palette.light4,
-
-					bg_dim = palette.dark0_soft,
-					bg_gutter = palette.dark1,
-
-					bg_m3 = palette.dark0,
-					bg_m2 = palette.dark0_soft,
-					bg_m1 = palette.dark2,
-					bg = palette.dark0_soft,
-					bg_p1 = palette.dark1,
-					bg_p2 = palette.dark3,
-
-					special = palette.brightRed,
-					nontext = palette.dark4,
-					whitespace = palette.dark4,
-
-					bg_search = palette.darkAquaSoft,
-					bg_visual = palette.dark2,
-
-					pmenu = {
-						fg = palette.light1,
-						fg_sel = "none", -- This is important to make highlights pass-through
-						bg = palette.neutralBlue,
-						bg_sel = palette.darkAquaSoft,
-						bg_sbar = palette.neutralBlue,
-						bg_thumb = palette.darkAquaSoft,
-					},
-					float = {
-						fg = palette.light2,
-						bg = palette.dark0,
-						fg_border = palette.dark4,
-						bg_border = palette.dark0,
-					},
-				},
-				syn = {
-					string = palette.brightGreen,
-					variable = palette.light1,
-					number = palette.brightOrange,
-					constant = palette.brightOrange,
-					identifier = palette.light1,
-					parameter = palette.light2,
-					fun = palette.brightBlue,
-					statement = palette.brightPurple,
-					keyword = palette.brightPurple,
-					operator = palette.brightYellow,
-					preproc = palette.brightRed, --lightBlue? deserves its own color
-					type = palette.brightYellow,
-					regex = palette.neutralYellow,
-					deprecated = palette.dark4,
-					comment = palette.brightOrange,
-					docComment = palette.brightAqua,
-					punct = palette.light1,
-					special1 = palette.brightBlue,
-					special2 = palette.brightRed,
-					special3 = palette.brightRed,
-				},
-				vcs = {
-					added = palette.brightGreen,
-					removed = palette.brightRed,
-					changed = palette.brightOrange,
-				},
-				diff = {
-					add = palette.fadedGreen,
-					delete = palette.darkRedSoft,
-					change = palette.darkAquaSoft,
-					text = palette.darkGreen,
-				},
-				diag = {
-					ok = palette.brightGreen,
-					error = palette.brightRed,
-					warning = palette.brightOrange,
-					info = palette.brightBlue,
-					hint = palette.brightAqua,
-				},
-				term = {
-					palette.dark0, -- black
-					palette.brightRed, -- red
-					palette.neutralGreen, -- green
-					palette.neutralYellow, -- yellow
-					palette.brightBlue, -- blue
-					palette.brightPurple, -- magenta
-					palette.neutralAqua, -- cyan
-					palette.light2, -- white
-					palette.light4, -- bright black
-					palette.brightRed, -- bright red
-					palette.brightGreen, -- bright green
-					palette.brightYellow, -- bright yellow
-					palette.brightBlue, -- bright blue
-					palette.neutralPurple, -- bright magenta
-					palette.neutralAqua, -- bright cyan
-					palette.light1, -- bright white
-					palette.brightOrange, -- extended color 1
-					palette.brightRed, -- extended color 2
-				},
+		elseif contrast == "soft" then
+			contrast_colors = {
+				dark0 = palette.dark0_soft,
+				dark0_dim = palette.dark0_soft,
+				darkAqua = palette.darkAquaSoft,
+				darkRed = palette.darkRedSoft,
 			}
-
-			return { colors = colors, base_color = palette.dark0_soft }
 		end
-	else
-		return function(palette_colors)
-			local palette = palette_colors.gruvbox
-			local colors = {
-				ui = {
+
+		local colors = {
+			ui = {
+				fg = palette.light1,
+				fg_dim = palette.light2,
+				fg_reverse = palette.light4,
+
+				bg_dim = contrast_colors.dark0_dim,
+				bg_gutter = palette.dark1,
+
+				bg_m3 = palette.dark0,
+				bg_m2 = contrast_colors.dark0_dim,
+				bg_m1 = palette.dark2,
+				bg = contrast_colors.dark0,
+				bg_p1 = palette.dark1,
+				bg_p2 = palette.dark2,
+
+				special = palette.brightRed,
+				nontext = palette.dark4,
+				whitespace = palette.dark4,
+
+				bg_search = palette.darkAquaHard,
+				bg_visual = palette.dark2,
+
+				pmenu = {
 					fg = palette.light1,
-					fg_dim = palette.light2,
-					fg_reverse = palette.light4,
-
-					bg_dim = palette.dark0,
-					bg_gutter = palette.dark1,
-
-					bg_m3 = palette.dark0,
-					bg_m2 = palette.dark0,
-					bg_m1 = palette.dark2,
-					bg = palette.dark0,
-					bg_p1 = palette.dark1,
-					bg_p2 = palette.dark3,
-
-					special = palette.brightRed,
-					nontext = palette.dark4,
-					whitespace = palette.dark4,
-
-					bg_search = palette.darkAqua,
-					bg_visual = palette.dark2,
-
-					pmenu = {
-						fg = palette.light1,
-						fg_sel = "none", -- This is important to make highlights pass-through
-						bg = palette.neutralBlue,
-						bg_sel = palette.darkAqua,
-						bg_sbar = palette.neutralBlue,
-						bg_thumb = palette.darkAqua,
-					},
-					float = {
-						fg = palette.light2,
-						bg = palette.dark0,
-						fg_border = palette.dark4,
-						bg_border = palette.dark0,
-					},
+					fg_sel = "none", -- This is important to make highlights pass-through
+					bg = "none",
+					bg_sel = palette.dark1,
+					bg_sbar = palette.dark1,
+					bg_thumb = palette.dark2,
 				},
-				syn = {
-					string = palette.brightGreen,
-					variable = palette.light1,
-					number = palette.brightOrange,
-					constant = palette.brightOrange,
-					identifier = palette.light1,
-					parameter = palette.light2,
-					fun = palette.brightBlue,
-					statement = palette.brightPurple,
-					keyword = palette.brightPurple,
-					operator = palette.brightYellow,
-					preproc = palette.brightRed, --lightBlue? deserves its own color
-					type = palette.brightYellow,
-					regex = palette.neutralYellow,
-					deprecated = palette.dark4,
-					comment = palette.brightOrange,
-					docComment = palette.brightAqua,
-					punct = palette.light1,
-					special1 = palette.brightBlue,
-					special2 = palette.brightRed,
-					special3 = palette.brightRed,
+				float = {
+					fg = palette.light2,
+					bg = contrast_colors.dark0,
+					fg_border = palette.dark4,
+					bg_border = contrast_colors.dark0,
 				},
-				vcs = {
-					added = palette.brightGreen,
-					removed = palette.brightRed,
-					changed = palette.brightOrange,
-				},
-				diff = {
-					add = palette.fadedGreen,
-					delete = palette.darkRed,
-					change = palette.darkAqua,
-					text = palette.darkGreenHard,
-				},
-				diag = {
-					ok = palette.brightGreen,
-					error = palette.brightRed,
-					warning = palette.brightOrange,
-					info = palette.brightBlue,
-					hint = palette.brightAqua,
-				},
-				term = {
-					palette.dark0, -- black
-					palette.brightRed, -- red
-					palette.neutralGreen, -- green
-					palette.neutralYellow, -- yellow
-					palette.brightBlue, -- blue
-					palette.brightPurple, -- magenta
-					palette.neutralAqua, -- cyan
-					palette.light2, -- white
-					palette.light4, -- bright black
-					palette.brightRed, -- bright red
-					palette.brightGreen, -- bright green
-					palette.brightYellow, -- bright yellow
-					palette.brightBlue, -- bright blue
-					palette.neutralPurple, -- bright magenta
-					palette.neutralAqua, -- bright cyan
-					palette.light1, -- bright white
-					palette.brightOrange, -- extended color 1
-					palette.brightRed, -- extended color 2
-				},
-			}
+			},
+			syn = {
+				string = palette.brightGreen,
+				variable = palette.light1,
+				number = palette.brightOrange,
+				constant = palette.brightOrange,
+				identifier = palette.light1,
+				parameter = palette.light1,
+				fun = palette.brightBlue,
+				statement = palette.brightPurple,
+				keyword = palette.brightPurple,
+				operator = palette.brightOrange,
+				preproc = palette.brightRed, --lightBlue? deserves its own color
+				type = palette.brightYellow,
+				regex = palette.neutralYellow,
+				deprecated = palette.dark4,
+				comment = palette.brightOrange,
+				docComment = palette.brightAqua,
+				punct = palette.light1,
+				special1 = palette.brightBlue,
+				special2 = palette.brightRed,
+				special3 = palette.brightRed,
+			},
+			vcs = {
+				added = palette.neutralGreen,
+				removed = palette.brightRed,
+				changed = palette.brightOrange,
+			},
+			diff = {
+				add = palette.fadedGreen,
+				delete = contrast_colors.darkRed,
+				change = contrast_colors.darkAqua,
+				text = palette.darkGreenSoft,
+			},
+			diag = {
+				ok = palette.brightGreen,
+				error = palette.brightRed,
+				warning = palette.brightOrange,
+				info = palette.brightBlue,
+				hint = palette.brightAqua,
+			},
+			term = {
+				contrast_colors.dark0, -- black
+				palette.brightRed, -- red
+				palette.neutralGreen, -- green
+				palette.neutralYellow, -- yellow
+				palette.brightBlue, -- blue
+				palette.brightPurple, -- magenta
+				palette.neutralAqua, -- cyan
+				palette.light2, -- white
+				palette.light4, -- bright black
+				palette.brightRed, -- bright red
+				palette.brightGreen, -- bright green
+				palette.brightYellow, -- bright yellow
+				palette.brightBlue, -- bright blue
+				palette.neutralPurple, -- bright magenta
+				palette.neutralAqua, -- bright cyan
+				palette.light1, -- bright white
+				palette.brightOrange, -- extended color 1
+				palette.brightRed, -- extended color 2
+			},
+		}
 
-			return { colors = colors, base_color = palette.dark0 }
-		end
+		return { colors = colors, base_color = contrast_colors.dark0 }
 	end
 end
 
 ---@param contrast "hard"|"soft"|"none"
 ---@return fun(palette: PaletteColors): Theme
 function public.light(contrast)
-	if contrast == "hard" then
-		return function(palette_themes)
-			local palette = palette_themes.gruvbox
-			local colors = {
-				ui = {
-					fg = palette.dark1,
-					fg_dim = palette.dark2,
-					fg_reverse = palette.dark4,
+	return function(palette_colors)
+		local palette = palette_colors.gruvbox
 
-					bg_dim = palette.light0,
-					bg_gutter = palette.light1,
+		---@class LightGruvboxContrastColors
+		local contrast_colors = {
+			light0 = palette.light0,
+			light0_dim = palette.light0,
+		}
 
-					bg_m3 = palette.light0,
-					bg_m2 = palette.light0,
-					bg_m1 = palette.light2,
-					bg = palette.light0_hard,
-					bg_p1 = palette.light1,
-					bg_p2 = palette.light2,
-
-					special = palette.neutralPurple,
-					nontext = palette.light4,
-					whitespace = palette.light4,
-
-					bg_search = palette.light0,
-					bg_visual = palette.light2,
-
-					pmenu = {
-						fg = palette.dark1,
-						fg_sel = "none", -- This is important to make highlights pass-through
-						bg = palette.light0,
-						bg_sel = palette.light1,
-						bg_sbar = palette.light2,
-						bg_thumb = palette.light1,
-					},
-					float = {
-						fg = palette.dark2,
-						bg = palette.light0_hard,
-						fg_border = palette.light4,
-						bg_border = palette.light0,
-					},
-				},
-				syn = {
-					string = palette.neutralGreen,
-					variable = palette.dark1,
-					number = palette.neutralOrange,
-					constant = palette.neutralOrange,
-					identifier = palette.dark1,
-					parameter = palette.dark2,
-					fun = palette.neutralBlue,
-					statement = palette.neutralPurple,
-					keyword = palette.neutralPurple,
-					operator = palette.fadedYellow,
-					preproc = palette.neutralRed, --lightBlue? deserves its own color
-					type = palette.fadedYellow,
-					regex = palette.neutralYellow,
-					deprecated = palette.light4,
-					comment = palette.neutralOrange,
-					docComment = palette.neutralAqua,
-					punct = palette.dark1,
-					special1 = palette.neutralBlue,
-					special2 = palette.neutralRed,
-					special3 = palette.neutralRed,
-				},
-				vcs = {
-					added = palette.neutralGreen,
-					removed = palette.neutralRed,
-					changed = palette.neutralYellow,
-				},
-				diff = {
-					add = palette.darkGreenHard,
-					delete = palette.darkRedHard,
-					change = palette.light1,
-					text = palette.light2,
-				},
-				diag = {
-					ok = palette.brightGreen,
-					error = palette.brightRed,
-					warning = palette.brightOrange,
-					info = palette.brightBlue,
-					hint = palette.neutralAqua,
-				},
-				term = {
-					palette.light0, -- black
-					palette.brightRed, -- red
-					palette.neutralGreen, -- green
-					palette.neutralYellow, -- yellow
-					palette.brightBlue, -- blue
-					palette.brightPurple, -- magenta
-					palette.neutralAqua, -- cyan
-					palette.dark2, -- white
-					palette.dark4, -- bright black
-					palette.brightRed, -- bright red
-					palette.brightGreen, -- bright green
-					palette.brightYellow, -- bright yellow
-					palette.brightBlue, -- bright blue
-					palette.neutralPurple, -- bright magenta
-					palette.neutralAqua, -- bright cyan
-					palette.dark1, -- bright white
-					palette.brightOrange, -- extended color 1
-					palette.brightRed, -- extended color 2
-				},
+		if contrast == "hard" then
+			contrast_colors = {
+				light0 = palette.light0_hard,
+				light0_dim = palette.light0_soft,
 			}
-
-			return { colors = colors, base_color = palette.light0_hard }
-		end
-	elseif contrast == "soft" then
-		return function(palette_themes)
-			local palette = palette_themes.gruvbox
-			local colors = {
-				ui = {
-					fg = palette.dark1,
-					fg_dim = palette.dark2,
-					fg_reverse = palette.light4,
-
-					bg_dim = palette.light0_soft,
-					bg_gutter = palette.light1,
-
-					bg_m3 = palette.light0,
-					bg_m2 = palette.light0_soft,
-					bg_m1 = palette.light2,
-					bg = palette.light0_soft,
-					bg_p1 = palette.light1,
-					bg_p2 = palette.light2,
-
-					special = palette.neutralPurple,
-					nontext = palette.light4,
-					whitespace = palette.light4,
-
-					bg_search = palette.light0,
-					bg_visual = palette.light2,
-
-					pmenu = {
-						fg = palette.dark1,
-						fg_sel = "none", -- This is important to make highlights pass-through
-						bg = palette.neutralBlue,
-						bg_sel = palette.darkAquaSoft,
-						bg_sbar = palette.neutralBlue,
-						bg_thumb = palette.darkAquaSoft,
-					},
-					float = {
-						fg = palette.dark2,
-						bg = palette.light0_soft,
-						fg_border = palette.light4,
-						bg_border = palette.light0,
-					},
-				},
-				syn = {
-					string = palette.neutralGreen,
-					variable = palette.dark1,
-					number = palette.neutralOrange,
-					constant = palette.neutralOrange,
-					identifier = palette.dark1,
-					parameter = palette.dark2,
-					fun = palette.neutralBlue,
-					statement = palette.neutralPurple,
-					keyword = palette.neutralPurple,
-					operator = palette.fadedYellow,
-					preproc = palette.neutralRed, --lightBlue? deserves its own color
-					type = palette.fadedYellow,
-					regex = palette.neutralYellow,
-					deprecated = palette.light4,
-					comment = palette.neutralOrange,
-					docComment = palette.neutralAqua,
-					punct = palette.dark1,
-					special1 = palette.neutralBlue,
-					special2 = palette.neutralRed,
-					special3 = palette.neutralRed,
-				},
-				vcs = {
-					added = palette.neutralGreen,
-					removed = palette.neutralRed,
-					changed = palette.neutralYellow,
-				},
-				diff = {
-					add = palette.darkGreenSoft,
-					delete = palette.darkRedSoft,
-					change = palette.light1,
-					text = palette.light2,
-				},
-				diag = {
-					ok = palette.neutralGreen,
-					error = palette.neutralRed,
-					warning = palette.neutralOrange,
-					info = palette.neutralBlue,
-					hint = palette.neutralAqua,
-				},
-				term = {
-					palette.light0, -- black
-					palette.brightRed, -- red
-					palette.neutralGreen, -- green
-					palette.neutralYellow, -- yellow
-					palette.brightBlue, -- blue
-					palette.brightPurple, -- magenta
-					palette.neutralAqua, -- cyan
-					palette.dark2, -- white
-					palette.dark4, -- bright black
-					palette.brightRed, -- bright red
-					palette.brightGreen, -- bright green
-					palette.brightYellow, -- bright yellow
-					palette.brightBlue, -- bright blue
-					palette.neutralPurple, -- bright magenta
-					palette.neutralAqua, -- bright cyan
-					palette.dark1, -- bright white
-					palette.brightOrange, -- extended color 1
-					palette.brightRed, -- extended color 2
-				},
+		elseif contrast == "soft" then
+			contrast_colors = {
+				light0 = palette.light0_soft,
+				light0_dim = palette.light0_soft,
 			}
-
-			return { colors = colors, base_color = palette.light0_soft }
 		end
-	else
-		return function(palette_themes)
-			local palette = palette_themes.gruvbox
-			local colors = {
-				ui = {
+
+		local colors = {
+			ui = {
+				fg = palette.dark1,
+				fg_dim = palette.dark2,
+				fg_reverse = palette.dark4,
+
+				bg_dim = palette.light0,
+				bg_gutter = palette.light1,
+
+				bg_m3 = palette.light0,
+				bg_m2 = palette.light0,
+				bg_m1 = palette.light2,
+				bg = contrast_colors.light0,
+				bg_p1 = palette.light1,
+				bg_p2 = palette.light2,
+
+				special = palette.neutralPurple,
+				nontext = palette.light4,
+				whitespace = palette.light4,
+
+				bg_search = palette.light0,
+				bg_visual = palette.light2,
+
+				pmenu = {
 					fg = palette.dark1,
-					fg_dim = palette.dark2,
-					fg_reverse = palette.light4,
-
-					bg_dim = palette.light0_soft,
-					bg_gutter = palette.light1,
-
-					bg_m3 = palette.light0,
-					bg_m2 = palette.light0_soft,
-					bg_m1 = palette.light2,
-					bg = palette.light0,
-					bg_p1 = palette.light1,
-					bg_p2 = palette.light2,
-
-					special = palette.neutralPurple,
-					nontext = palette.light4,
-					whitespace = palette.light4,
-
-					bg_search = palette.light0,
-					bg_visual = palette.light2,
-
-					pmenu = {
-						fg = palette.dark1,
-						fg_sel = "none", -- This is important to make highlights pass-through
-						bg = palette.neutralBlue,
-						bg_sel = palette.darkAquaSoft,
-						bg_sbar = palette.neutralBlue,
-						bg_thumb = palette.darkAquaSoft,
-					},
-					float = {
-						fg = palette.dark2,
-						bg = palette.light0,
-						fg_border = palette.light4,
-						bg_border = palette.light0,
-					},
+					fg_sel = "none", -- This is important to make highlights pass-through
+					bg = "none",
+					bg_sel = palette.light1,
+					bg_sbar = palette.light2,
+					bg_thumb = palette.light1,
 				},
-				syn = {
-					string = palette.neutralGreen,
-					variable = palette.dark1,
-					number = palette.neutralOrange,
-					constant = palette.neutralOrange,
-					identifier = palette.dark1,
-					parameter = palette.dark2,
-					fun = palette.neutralBlue,
-					statement = palette.neutralPurple,
-					keyword = palette.neutralPurple,
-					operator = palette.fadedYellow,
-					preproc = palette.neutralRed, --lightBlue? deserves its own color
-					type = palette.fadedYellow,
-					regex = palette.neutralYellow,
-					deprecated = palette.light4,
-					comment = palette.neutralOrange,
-					docComment = palette.neutralAqua,
-					punct = palette.dark1,
-					special1 = palette.neutralBlue,
-					special2 = palette.neutralRed,
-					special3 = palette.neutralRed,
+				float = {
+					fg = palette.dark2,
+					bg = contrast_colors.light0,
+					fg_border = palette.light4,
+					bg_border = palette.light0,
 				},
-				vcs = {
-					added = palette.neutralGreen,
-					removed = palette.neutralRed,
-					changed = palette.neutralYellow,
-				},
-				diff = {
-					add = palette.darkGreenSoft,
-					delete = palette.darkRedSoft,
-					change = palette.light1,
-					text = palette.light2,
-				},
-				diag = {
-					ok = palette.neutralGreen,
-					error = palette.neutralRed,
-					warning = palette.neutralOrange,
-					info = palette.neutralBlue,
-					hint = palette.neutralAqua,
-				},
-				term = {
-					palette.light0, -- black
-					palette.brightRed, -- red
-					palette.neutralGreen, -- green
-					palette.neutralYellow, -- yellow
-					palette.brightBlue, -- blue
-					palette.brightPurple, -- magenta
-					palette.neutralAqua, -- cyan
-					palette.dark2, -- white
-					palette.dark4, -- bright black
-					palette.brightRed, -- bright red
-					palette.brightGreen, -- bright green
-					palette.brightYellow, -- bright yellow
-					palette.brightBlue, -- bright blue
-					palette.neutralPurple, -- bright magenta
-					palette.neutralAqua, -- bright cyan
-					palette.dark1, -- bright white
-					palette.brightOrange, -- extended color 1
-					palette.brightRed, -- extended color 2
-				},
-			}
+			},
+			syn = {
+				string = palette.neutralGreen,
+				variable = palette.dark1,
+				number = palette.neutralOrange,
+				constant = palette.neutralOrange,
+				identifier = palette.dark1,
+				parameter = palette.dark1,
+				fun = palette.neutralBlue,
+				statement = palette.neutralPurple,
+				keyword = palette.neutralPurple,
+				operator = palette.fadedYellow,
+				preproc = palette.neutralRed, --lightBlue? deserves its own color
+				type = palette.fadedYellow,
+				regex = palette.neutralYellow,
+				deprecated = palette.light4,
+				comment = palette.neutralOrange,
+				docComment = palette.neutralAqua,
+				punct = palette.dark1,
+				special1 = palette.neutralBlue,
+				special2 = palette.neutralRed,
+				special3 = palette.neutralRed,
+			},
+			vcs = {
+				added = palette.neutralGreen,
+				removed = palette.neutralRed,
+				changed = palette.neutralYellow,
+			},
+			diff = {
+				add = palette.darkGreenHard,
+				delete = palette.darkRedHard,
+				change = palette.light1,
+				text = palette.light2,
+			},
+			diag = {
+				ok = palette.brightGreen,
+				error = palette.brightRed,
+				warning = palette.brightOrange,
+				info = palette.brightBlue,
+				hint = palette.neutralAqua,
+			},
+			term = {
+				contrast_colors.light0, -- black
+				palette.brightRed, -- red
+				palette.neutralGreen, -- green
+				palette.neutralYellow, -- yellow
+				palette.brightBlue, -- blue
+				palette.brightPurple, -- magenta
+				palette.neutralAqua, -- cyan
+				palette.dark2, -- white
+				palette.dark4, -- bright black
+				palette.brightRed, -- bright red
+				palette.brightGreen, -- bright green
+				palette.brightYellow, -- bright yellow
+				palette.brightBlue, -- bright blue
+				palette.neutralPurple, -- bright magenta
+				palette.neutralAqua, -- bright cyan
+				palette.dark1, -- bright white
+				palette.brightOrange, -- extended color 1
+				palette.brightRed, -- extended color 2
+			},
+		}
 
-			return { colors = colors, base_color = palette.light0 }
-		end
+		return { colors = colors, base_color = contrast_colors.light0 }
 	end
 end
 

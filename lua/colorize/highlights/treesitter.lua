@@ -43,6 +43,7 @@ function M.setup(colors, config)
         ["@string.special.url"] = { fg = theme.syn.special1, undercurl = true },
         -- @character              character literals
         -- @character.special      special characters (e.g. wildcards)
+        ["@character.special"] = { link = "Variable" },
         --
         -- @boolean                boolean literals
         -- @number                 numeric literals
@@ -50,11 +51,11 @@ function M.setup(colors, config)
         --
         -- @type                   type or class definitions and annotations
         -- @type.builtin           built-in types
-        ["@type.builtin"] = { link = "Special" },
+        ["@type.builtin"] = { link = "Type" },
         -- @type.definition        identifiers in type definitions (e.g. `typedef <type> <identifier>` in C)
         --
         -- @attribute              attribute annotations (e.g. Python decorators, Rust lifetimes)
-        ["@attribute"] = { fg = theme.syn.docComment },
+        ["@attribute"] = { fg = theme.syn.special1 },
         -- @attribute.builtin      builtin annotations (e.g. `@property` in Python)
         ["@attribute.builtin"] = { link = "@attribute" },
         -- @property               the key in key/value pairs

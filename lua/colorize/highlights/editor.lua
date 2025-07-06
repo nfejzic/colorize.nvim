@@ -151,7 +151,7 @@ function M.setup(colors, config)
 		debugPC = { bg = theme.diff.delete },
 		debugBreakpoint = { fg = theme.syn.special1, bg = theme.ui.bg_gutter },
 
-		LspReferenceText = { link = "CursorLine" },
+		LspReferenceText = { link = "ColorColumn" },
 		LspReferenceRead = { link = "LspReferenceText" },
 		LspReferenceWrite = { bg = theme.diff.text, underline = true },
 		LspInlayHint = { link = "NonText" },

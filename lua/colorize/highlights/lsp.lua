@@ -18,6 +18,8 @@ local function minimal(colors)
         ["@lsp.type.formatSpecifier"] = { link = "Constant" },
         ["@lsp.type.lifetime"] = { link = "@attribute" },
         ["@lsp.type.keyword"] = { link = "@lsp" },
+        ["@lsp.type.selfTypeKeyword"] = { link = "Type" },
+        ["@lsp.type.operator.rust"] = { link = "@lsp" },
 
         -- ["@lsp.type.property"] = { link = "Identifier" },
         -- ["@lsp.type.struct"] = { link = "Structure" },
@@ -26,7 +28,7 @@ local function minimal(colors)
         ["@lsp.type.variable"] = { link = '@variable' }, -- Identifier
         ["@lsp.mod.callable"] = { fg = theme.syn.special1 },
         ["@lsp.type.comment"] = { link = '@lsp' },       -- Comment
-        ["@lsp.mod.documentation"] = { link = '@lsp' },
+        -- ["@lsp.mod.documentation"] = { link = '@comment.documentation' },
         ["@lsp.type.typeAlias"] = { link = "@lsp" },
         ["@lsp.type.selfKeyword"] = { link = "@variable.builtin" },
 
@@ -69,6 +71,7 @@ local function minimal(colors)
         ["@lsp.typemod.const.injected"] = { link = "@constant" },
         ["@lsp.typemod.method.injected"] = { link = "Function" },
         ["@lsp.type.generic"] = { link = "@lsp" },
+        ["@lsp.type.string"] = { link = "@lsp" },
         ["@lsp.typemod.generic.injected"] = { link = "@lsp.type.generic" },
 
         ["@lsp.typemod.function.readonly"] = { fg = theme.syn.fun, bold = true }
@@ -102,6 +105,7 @@ local function full(colors)
         ["@lsp.mod.documentation"] = { link = '@lsp' },
         ["@lsp.type.typeAlias"] = { link = "@lsp" },
         ["@lsp.type.selfKeyword"] = { link = "@variable.builtin" },
+        ["@lsp.type.selfTypeKeyword"] = { link = "Type" },
 
         ["@lsp.type.selfParameter"] = { link = "@variable.builtin" },
         -- ["@lsp.type.builtinConstant"] = { link = "@constant.builtin" },
