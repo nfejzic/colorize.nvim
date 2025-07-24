@@ -5,18 +5,23 @@ local function minimal(colors)
     local theme = colors.theme
 
     return {
-        -- ["@lsp.type.class"] = { link = "Structure" },
-        ["@lsp.type.decorator"] = { link = "@lsp" },
+        ["@lsp.type"] = { link = "Type" },
+        ["@lsp.type.attributeBracket"] = { link = "PreProc" },
+        -- -- ["@lsp.type.class"] = { link = "Structure" },
+        ["@lsp.type.decorator"] = { link = "PreProc" },
         ["@lsp.type.enum"] = { link = "@lsp" },
         ["@lsp.type.enumMember"] = { link = "@lsp" },
         ["@lsp.type.function"] = { link = "@lsp" },
+        ["@lsp.type.number"] = { link = "@lsp" },
         -- ["@lsp.type.interface"] = { link = "Structure" },
-        ["@lsp.type.macro"] = { link = "@lsp" },
+        ["@lsp.type.macro"] = { link = "PreProc" },
+        ["@lsp.type.procMacro"] = { link = "PreProc" },
         ["@lsp.type.method"] = { link = "Function" },               -- Function - use treesitter
-        ["@lsp.type.namespace"] = { link = "@lsp" },                -- Structure
+        ["@lsp.type.namespace"] = { link = "@module" },             -- Structure
         ["@lsp.type.parameter"] = { link = "@variable.parameter" }, -- Identifier
         ["@lsp.type.formatSpecifier"] = { link = "Constant" },
         ["@lsp.type.lifetime"] = { link = "@attribute" },
+        ["@lsp.type.builtinAttribute"] = { link = "PreProc" },
         ["@lsp.type.keyword"] = { link = "@lsp" },
         ["@lsp.type.selfTypeKeyword"] = { link = "Type" },
         ["@lsp.type.operator.rust"] = { link = "@lsp" },
