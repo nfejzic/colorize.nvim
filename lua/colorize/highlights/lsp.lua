@@ -9,7 +9,7 @@ local function minimal(colors)
         ["@lsp.type.attributeBracket"] = { link = "PreProc" },
         -- -- ["@lsp.type.class"] = { link = "Structure" },
         ["@lsp.type.decorator"] = { link = "PreProc" },
-        ["@lsp.type.enum"] = { link = "@lsp" },
+        ["@lsp.type.enum"] = { link = "Type" },
         ["@lsp.type.enumMember"] = { link = "@lsp" },
         ["@lsp.type.function"] = { link = "@lsp" },
         ["@lsp.type.number"] = { link = "@lsp" },
