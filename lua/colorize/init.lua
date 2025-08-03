@@ -29,8 +29,9 @@ M.config = {
     overrides = function()
         return {}
     end,
-    ---@type { dark: string|nil, light: string|nil }
+    ---@type { dark: ThemeChoice|nil, light: ThemeChoice|nil }
     background = { dark = nil, light = nil },
+    ---@type ThemeChoice
     theme = "gruvbox-dark-hard",
     compile = false,
 }

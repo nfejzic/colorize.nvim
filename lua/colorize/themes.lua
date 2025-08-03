@@ -96,7 +96,32 @@ local kanagawa = require('colorize.themes.kanagawa')
 local kanso = require('colorize.themes.kanso')
 local catppuccin = require('colorize.themes.catppuccin')
 
----@type table<string, fun(pc: PaletteColors): Theme>
+---@alias ThemeChoice
+---|'gruvbox-dark-hard'
+---|'gruvbox-dark-soft'
+---|'gruvbox-dark'
+---|'gruvbox-light-hard'
+---|'gruvbox-light-soft'
+---|'gruvbox-light'
+---|'solarized-dark-hard'
+---|'solarized-dark'
+---|'rose-pine-main'
+---|'rose-pine-black'
+---|'rose-pine-moon'
+---|'rose-pine-dawn'
+---|'kanagawa-wave'
+---|'kanagawa-dragon'
+---|'kanagawa-lotus'
+---|'kanso-zen'
+---|'kanso-ink'
+---|'kanso-pearl'
+---|'kanso-mist'
+---|'catppuccin-latte'
+---|'catppuccin-frappe'
+---|'catppuccin-macchiato'
+---|'catppuccin-mocha'
+
+---@type table<ThemeChoice, fun(pc: PaletteColors): Theme>
 return {
 	["gruvbox-dark-hard"] = gruvbox.dark("hard"),
 	["gruvbox-dark-soft"] = gruvbox.dark("soft"),
