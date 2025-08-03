@@ -54,7 +54,7 @@ private.gruvbox_palette = {
 	fadedAqua = "#427b58",
 	darkAquaHard = "#3e4934",
 	darkAqua = "#49503b",
-	darkAquaSoft = "#e1dbac",
+	darkAquaSoft = "#525742",
 
 	brightOrange = "#fe8019",
 	neutralOrange = "#d65d03",
