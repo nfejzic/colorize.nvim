@@ -79,6 +79,7 @@ function public.dark(contrast)
 			dark0_dim = palette.dark0,
 			darkAqua = palette.darkAqua,
 			darkRed = palette.darkRed,
+			darkGreen = palette.darkGreen,
 		}
 
 		if contrast == "hard" then
@@ -87,6 +88,7 @@ function public.dark(contrast)
 				dark0_dim = palette.dark0_soft,
 				darkAqua = palette.darkAquaHard,
 				darkRed = palette.darkRedHard,
+				darkGreen = palette.darkGreenHard,
 			}
 		elseif contrast == "soft" then
 			contrast_colors = {
@@ -94,6 +96,7 @@ function public.dark(contrast)
 				dark0_dim = palette.dark0_soft,
 				darkAqua = palette.darkAquaSoft,
 				darkRed = palette.darkRedSoft,
+				darkGreen = palette.darkGreenHard,
 			}
 		end
 
@@ -163,10 +166,10 @@ function public.dark(contrast)
 				changed = palette.brightOrange,
 			},
 			diff = {
-				add = palette.fadedGreen,
+				add = contrast_colors.darkGreen,
 				delete = contrast_colors.darkRed,
 				change = contrast_colors.darkAqua,
-				text = palette.darkGreenSoft,
+				text = palette.darkGreenHard,
 			},
 			diag = {
 				ok = palette.brightGreen,
