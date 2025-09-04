@@ -149,7 +149,7 @@ function public.dark(contrast)
 				statement = palette.brightPurple,
 				keyword = palette.brightPurple,
 				operator = palette.brightOrange,
-				preproc = palette.brightRed, --lightBlue? deserves its own color
+				preproc = palette.brightRed,
 				type = palette.brightYellow,
 				regex = palette.neutralYellow,
 				deprecated = palette.dark4,
@@ -277,7 +277,7 @@ function public.light(contrast)
 				statement = palette.neutralPurple,
 				keyword = palette.neutralPurple,
 				operator = palette.fadedYellow,
-				preproc = palette.neutralRed, --lightBlue? deserves its own color
+				preproc = palette.neutralRed,
 				type = palette.fadedYellow,
 				regex = palette.neutralYellow,
 				deprecated = palette.light4,
