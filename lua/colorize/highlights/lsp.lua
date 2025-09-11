@@ -1,7 +1,31 @@
 local M = {}
 
+local function minimal()
+    return {
+        ["@lsp.type.formatSpecifier"] = { link = "Constant" },
+        ["@lsp.type.variable"] = { link = '@variable' }, -- Identifier
+        ["@lsp.typemod.deriveHelper"] = { link = "Macro" },
+
+        -- ["@lsp.typemod.comment.injected"] = { link = "Comment" },
+        -- ["@lsp.typemod.operator.injected"] = { link = "Operator" },
+        -- ["@lsp.typemod.string.injected"] = { link = "String" },
+        -- ["@lsp.typemod.number.injected"] = { link = "Number" },
+        -- ["@lsp.typemod.variable.injected"] = { link = "@variable" },
+        -- ["@lsp.typemod.keyword.injected"] = { link = "@keyword" },
+        -- ["@lsp.typemod.punctuation.injected"] = { link = "@punctuation" },
+        -- ["@lsp.typemod.namespace.injected"] = { link = "@module" },
+        -- ["@lsp.typemod.function.injected"] = { link = "Function" },
+        -- ["@lsp.typemod.macro.injected"] = { link = "Macro" },
+        -- ["@lsp.typemod.const.injected"] = { link = "@constant" },
+        -- ["@lsp.typemod.method.injected"] = { link = "Function" },
+        -- ["@lsp.typemod.function.readonly"] = { link = "Function" },
+        -- ["@lsp.typemod.generic.injected"] = { link = "Type" },
+        -- ["@lsp.typemod.struct.injected"] = { link = "Type" },
+    }
+end
+
 ---@param colors ColorizeColors
-local function minimal(colors)
+local function medium(colors)
     local theme = colors.theme
 
     return {
@@ -62,7 +86,7 @@ local function minimal(colors)
         ["@lsp.typemod.method.injected"] = { link = "Function" },
         ["@lsp.typemod.function.readonly"] = { link = "Function" },
 
-        ["@lsp.typemod.generic.injected"] = { link = "@lsp.type.generic" },
+        ["@lsp.typemod.generic.injected"] = { link = "Type" },
     }
 end
 
@@ -71,12 +95,6 @@ local function full(colors)
     local theme = colors.theme
 
     return {
-        -- ["@lsp.type.class"] = { link = "Structure" },
-        -- ["@lsp.type.decorator"] = { link = "Function" },
-        -- ["@lsp.type.enum"] = { link = "Structure" },
-        -- ["@lsp.type.enumMember"] = { link = "Constant" },
-        -- ["@lsp.type.function"] = { link = "Function" },
-        -- ["@lsp.type.interface"] = { link = "Structure" },
         ["@lsp.type.macro"] = { link = "Macro" },
         ["@lsp.type.method"] = { link = "none" },                   -- Function - use treesitter
         ["@lsp.type.namespace"] = { link = "@module" },             -- Structure
@@ -84,10 +102,7 @@ local function full(colors)
         ["@lsp.type.formatSpecifier"] = { link = "Constant" },
         ["@lsp.type.lifetime"] = { link = "@attribute" },
         ["@lsp.type.keyword"] = { link = "@keyword" },
-        -- ["@lsp.type.property"] = { link = "Identifier" },
-
-        -- ["@lsp.type.type"] = { link = "Type" },
-        -- ["@lsp.type.typeParameter"] = { link = "TypeDef" },
+        ["@lsp.type.keyword.return"] = { link = "@keyword.return" },
         ["@lsp.type.variable"] = { link = '@variable' }, -- Identifier
         ["@lsp.type.comment"] = { link = '@lsp' },       -- Comment
         ["@lsp.mod.documentation"] = { link = '@lsp' },
@@ -96,15 +111,11 @@ local function full(colors)
         ["@lsp.type.selfTypeKeyword"] = { link = "Type" },
 
         ["@lsp.type.selfParameter"] = { link = "@variable.builtin" },
-        -- ["@lsp.type.builtinConstant"] = { link = "@constant.builtin" },
         ["@lsp.type.builtinConstant"] = { link = "@constant.builtin" },
         ["@lsp.type.magicFunction"] = { link = "@function.builtin" },
 
         ["@lsp.mod.readonly"] = { link = "Constant" },
         ["@lsp.mod.typeHint"] = { link = "Type" },
-        -- ["@lsp.mod.attribute"] = { link = "@attribute" },
-        -- ["@lsp.mod.defaultLibrary"] = { link = "Special" },
-        -- ["@lsp.mod.builtin"] = { link = "Special" },
 
         ["@lsp.typemod.deriveHelper"] = { link = "Macro" },
         ["@lsp.typemod.comment.injected"] = { link = "Comment" },
@@ -138,13 +149,21 @@ end
 function M.setup(colors, config)
     config = config or require("colorize").config
 
-    if config.semantic_highlighting == "minimal" then
-        return minimal(colors)
-    elseif config.semantic_highlighting == "full" then
-        return full(colors)
-    else
-        return {}
+    local lsp_highlights = {}
+
+    for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
+        lsp_highlights[group] = { link = "@lsp" }
     end
+
+    if config.semantic_highlighting == "minimal" then
+        lsp_highlights = vim.tbl_deep_extend('force', lsp_highlights, minimal())
+    elseif config.semantic_highlighting == "medium" then
+        lsp_highlights = vim.tbl_deep_extend('force', lsp_highlights, medium(colors))
+    elseif config.semantic_highlighting == "full" then
+        lsp_highlights = vim.tbl_deep_extend('force', lsp_highlights, full(colors))
+    end
+
+    return lsp_highlights
 end
 
 return M

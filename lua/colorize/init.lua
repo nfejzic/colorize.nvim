@@ -17,7 +17,7 @@ M.config = {
     transparent = false,
     dimInactive = false,
     terminalColors = true,
-    ---@type "minimal"|"full"|false
+    ---@type "minimal"|"medium"|"full"|"none"
     semantic_highlighting = "full",
     colors = {
         palette = {},
