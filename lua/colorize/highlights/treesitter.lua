@@ -17,11 +17,11 @@ function M.setup(colors, config)
         ["@variable.member"] = { fg = theme.syn.identifier },
         --
         -- @constant (Constant)              constant identifiers
-        ["@constant"] = { link = "@variable" },
+        ["@constant"] = { link = "Constant" },
         -- @constant.builtin       built-in constant values
         -- @constant.macro         constants defined by the preprocessor
         ["@constant.comment"] = { link = "Keyword" },
-        ["@constant.builtin"] = { link = "Constant" },
+        ["@constant.builtin"] = { link = "@constant" },
         --
         -- @module (Structure)      modules or namespaces
         ["@module"] = { link = "@variable" },

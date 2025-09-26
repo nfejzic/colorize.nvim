@@ -156,7 +156,7 @@ function public.dark(contrast)
 				comment = palette.brightOrange,
 				docComment = palette.brightAqua,
 				punct = palette.light1,
-				special1 = palette.brightBlue,
+				special1 = palette.brightAqua,
 				special2 = palette.brightRed,
 				special3 = palette.brightRed,
 			},

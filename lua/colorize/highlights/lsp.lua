@@ -5,7 +5,9 @@ local function minimal()
         ["@lsp.type.formatSpecifier"] = { link = "Constant" },
         ["@lsp.type.variable"] = { link = '@variable' }, -- Identifier
         ["@lsp.typemod.deriveHelper"] = { link = "Macro" },
-
+        ["@lsp.typemod.struct.injected"] = { link = "Type" },
+        ["@lsp.typemod.enum.injected"] = { link = "Type" },
+        ["@lsp.typemod.interface.injected"] = { link = "Type" },
         -- ["@lsp.typemod.comment.injected"] = { link = "Comment" },
         -- ["@lsp.typemod.operator.injected"] = { link = "Operator" },
         -- ["@lsp.typemod.string.injected"] = { link = "String" },
