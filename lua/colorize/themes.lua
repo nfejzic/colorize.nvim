@@ -95,6 +95,7 @@ local rose_pine = require('colorize.themes.rose_pine')
 local kanagawa = require('colorize.themes.kanagawa')
 local kanso = require('colorize.themes.kanso')
 local catppuccin = require('colorize.themes.catppuccin')
+local everforest = require('colorize.themes.everforest')
 
 ---@alias ThemeChoice
 ---|'gruvbox-dark-hard'
@@ -151,4 +152,6 @@ return {
 	["catppuccin-frappe"] = catppuccin.frappe(),
 	["catppuccin-macchiato"] = catppuccin.macchiato(),
 	["catppuccin-mocha"] = catppuccin.mocha(),
+
+	["everforest-dark-hard"] = everforest.dark("hard"),
 }

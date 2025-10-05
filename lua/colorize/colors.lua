@@ -4,6 +4,7 @@ local rose_pine = require('colorize.themes.rose_pine')
 local kanagawa = require('colorize.themes.kanagawa')
 local kanso = require('colorize.themes.kanso')
 local catppuccin = require('colorize.themes.catppuccin')
+local everforest = require('colorize.themes.everforest')
 
 ---@class PaletteColors
 local palette = {
@@ -13,6 +14,7 @@ local palette = {
 	kanagawa = kanagawa.palette(),
 	catppuccin = catppuccin.palette(),
 	kanso = kanso.palette(),
+	everforest = everforest.palette(),
 }
 
 local M = {}
