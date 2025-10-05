@@ -448,7 +448,7 @@ function public.wave()
 				comment = palette.surimiOrange,
 				docComment = palette.springGreen,
 				punct = palette.fujiWhite,
-				special1 = palette.springGreen,
+				special1 = palette.waveAqua1,
 				special2 = palette.peachRed,
 				special3 = palette.peachRed,
 			},
