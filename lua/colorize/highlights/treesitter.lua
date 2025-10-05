@@ -61,7 +61,7 @@ function M.setup(colors, config)
         -- @property               the key in key/value pairs
         --
         -- @function               function definitions
-        -- @function.builtin       built-in functions
+        ["@function.builtin"] = { link = "@function" },
         -- @function.call          function calls
         ["@function.macro"] = { link = "Macro" },           --         preprocessor macros
         ["@macro_invocation"] = { fg = theme.syn.keyword }, --         preprocessor macros
