@@ -7,7 +7,7 @@ private.palette = {
 	fujiWhite = '#DCD7BA',
 	fujiGrey = '#727169',
 	oldWhite = '#C8C093',
-
+	-- hello there
 	katanaGrey = '#717C7C',
 
 	sumiInk0 = '#16161D',
@@ -163,9 +163,12 @@ function public.palette()
 	return private.palette
 end
 
+local Color = require("colorize.lib.color")
+
 ---@return Colors
 function public.dragon()
 	local p = private.palette
+
 
 	---@type Colors
 	return {
@@ -179,12 +182,12 @@ function public.dragon()
 		bg3 = p.dragonBlack6,
 
 		brightRed = p.dragonRed,
-		neutralRed = p.autumnGreen,
+		neutralRed = Color.darken(p.autumnRed, p.dragonBlack3, -0.35),
 		darkRed = p.winterRed,
 
 		brightGreen = p.dragonGreen2,
 		neutralGreen = p.autumnGreen,
-		darkGreen = p.winterGreen,
+		darkGreen = Color.darken(p.autumnGreen, p.dragonBlack3, -0.35),
 
 		brightYellow = p.dragonYellow,
 		neutralYellow = p.dragonYellow,
@@ -197,7 +200,7 @@ function public.dragon()
 
 		brightAqua = p.dragonGreen2,
 		neutralAqua = p.dragonAqua,
-		darkAqua = p.waveBlue1,
+		darkAqua = p.winterGreen,
 
 		brightOrange = p.dragonOrange,
 		neutralOrange = p.autumnYellow,
@@ -207,8 +210,6 @@ end
 ---@return Colors
 function public.lotus()
 	local p = private.palette
-
-	local Color = require("colorize.lib.color")
 
 	---@type Colors
 	return {
@@ -222,12 +223,12 @@ function public.lotus()
 		fg2 = p.lotusInk1,
 
 		brightRed = p.lotusRed,
-		neutralRed = Color(p.lotusRed3):brighten(-0.25, p.lotusWhite3):to_hex(),
-		darkRed = p.lotusRed3,
+		neutralRed = Color.darken(p.lotusRed3, p.lotusWhite3, -0.25),
+		darkRed = Color.darken(p.lotusRed3, p.lotusWhite3, -0.45),
 
 		brightGreen = p.lotusGreen,
-		neutralGreen = Color(p.lotusGreen2):brighten(-0.25, p.lotusWhite3):to_hex(),
-		darkGreen = p.lotusGreen2,
+		neutralGreen = Color.darken(p.lotusGreen2, p.lotusWhite3, -0.15),
+		darkGreen = Color.darken(p.lotusGreen2, p.lotusWhite3, -0.25),
 
 		brightYellow = p.lotusBlue4,
 		neutralYellow = p.lotusBlue2,
@@ -240,7 +241,7 @@ function public.lotus()
 
 		brightAqua = p.lotusGreen,
 		neutralAqua = p.lotusAqua2,
-		darkAqua = p.lotusViolet3,
+		darkAqua = p.lotusGreen3,
 
 		brightOrange = p.lotusOrange,
 		neutralOrange = p.lotusYellow3,
@@ -269,7 +270,7 @@ function public.wave()
 
 		brightGreen = palette.springGreen,
 		neutralGreen = palette.autumnGreen,
-		darkGreen = palette.winterGreen,
+		darkGreen = palette.autumnGreen,
 
 		brightYellow = palette.carpYellow,
 		neutralYellow = palette.autumnYellow,
@@ -282,7 +283,7 @@ function public.wave()
 
 		brightAqua = palette.springGreen,
 		neutralAqua = palette.waveAqua2,
-		darkAqua = palette.waveAqua1,
+		darkAqua = palette.winterGreen,
 
 		brightOrange = palette.surimiOrange,
 		neutralOrange = palette.autumnYellow,

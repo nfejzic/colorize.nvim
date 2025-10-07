@@ -158,7 +158,7 @@ function public.zen()
 
 		brightRed = p.inkRed,
 		neutralRed = p.autumnRed,
-		darkRed = Color.darken(p.autumnRed, p.zen0, -0.25),
+		darkRed = Color.darken(p.autumnRed, p.zen0, -0.35),
 
 		brightGreen = p.inkGreen,
 		neutralGreen = Color.darken(p.autumnGreen, p.zen0),
@@ -175,7 +175,7 @@ function public.zen()
 
 		brightAqua = p.zenAqua1,
 		neutralAqua = p.zenAqua2,
-		darkAqua = Color.darken(p.zenAqua2, p.zen0),
+		darkAqua = Color.darken(p.winterGreen, p.zen0),
 
 		brightOrange = p.inkOrange2,
 		neutralOrange = p.inkOrange,
@@ -219,7 +219,7 @@ function public.ink()
 
 		brightAqua = p.inkAqua,
 		neutralAqua = Color.darken(p.inkAqua, p.inkBlack0),
-		darkAqua = Color.darken(p.mistAqua, p.inkBlack0, -0.20),
+		darkAqua = Color.darken(p.winterGreen, p.inkBlack0, -0.20),
 
 		brightOrange = p.inkOrange,
 		neutralOrange = p.autumnYellow,
@@ -246,11 +246,11 @@ function public.pearl()
 
 		brightRed = p.pearlRed,
 		neutralRed = p.pearlRed2,
-		darkRed = Color.darken(p.pearlRed3, p.pearlWhite0),
+		darkRed = Color.darken(p.pearlRed2, p.pearlWhite0),
 
 		brightGreen = p.pearlGreen,
 		neutralGreen = Color.darken(p.pearlGreen2, p.pearlWhite0),
-		darkGreen = p.pearlGreen3,
+		darkGreen = p.pearlGreen2,
 
 		brightYellow = p.pearlYellow,
 		neutralYellow = p.pearlYellow3,
@@ -263,7 +263,7 @@ function public.pearl()
 
 		brightAqua = p.pearlAqua,
 		neutralAqua = p.pearlAqua2,
-		darkAqua = Color.darken(p.pearlAqua2, p.pearlWhite0, -0.20),
+		darkAqua = Color.darken(p.pearlGreen3, p.pearlWhite0, -0.20),
 
 		brightOrange = p.pearlOrange,
 		neutralOrange = p.pearlOrange2,
@@ -294,7 +294,7 @@ function public.mist()
 
 		brightGreen = p.mistGreen2,
 		neutralGreen = Color.darken(p.mistGreen, p.mist0),
-		darkGreen = Color.darken(p.mistGreen, p.mist0, -0.35),
+		darkGreen = Color.darken(p.mistGreen, p.mist0, -0.20),
 
 		brightYellow = p.mistYellow,
 		neutralYellow = p.autumnYellow,
@@ -307,7 +307,7 @@ function public.mist()
 
 		brightAqua = p.mistAqua,
 		neutralAqua = Color.darken(p.mistAqua, p.mist0),
-		darkAqua = Color.darken(p.mistAqua, p.mist0, -0.20),
+		darkAqua = Color.darken(p.mistGreen, p.mist0, -0.35),
 
 		brightOrange = p.mistOrange,
 		neutralOrange = Color.darken(p.mistOrange2, p.mist0),
