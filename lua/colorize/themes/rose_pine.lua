@@ -130,7 +130,7 @@ function private.to_colors(p)
 		bg3 = p.subtle,
 
 		fg = p.text,
-		fg1 = p.muted,
+		fg1 = p.subtle,
 		fg2 = p.subtle,
 
 		brightRed = p.love,
