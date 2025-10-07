@@ -1,9 +1,9 @@
 local M = {}
 
 ---@alias ColorSpec string RGB Hex string
----@alias ColorTable PaletteColors
----@alias ColorizeColorsSpec { palette: ColorTable, theme: ColorTable }
----@alias ColorizeColors { palette: PaletteColors, theme: ThemeColors }
+---@alias ColorizeColors { theme: ThemeColors }
+
+---@class (partial) Colors.P: Colors
 
 --- default config
 ---@class ColorizeConfig
@@ -19,13 +19,9 @@ M.config = {
     terminalColors = true,
     ---@type "minimal"|"medium"|"full"|"none"
     semantic_highlighting = "full",
-    colors = {
-        palette = {},
-        theme = {
-            ["gruvbox-dark-hard"] = {}
-        }
-    },
-    ---@type fun(colors: ColorizeColorsSpec): table<string, table>
+    ---@type Colors.P
+    palette_overrides = {},
+    ---@type fun(colors: ColorizeColors): table<string, table>
     overrides = function()
         return {}
     end,
@@ -36,19 +32,10 @@ M.config = {
     compile = false,
 }
 
-local function check_config(config)
-    local err
-    return not err
-end
-
 --- update global configuration with user settings
 ---@param config? ColorizeConfig user configuration
 function M.setup(config)
-    if check_config(config) then
-        M.config = vim.tbl_deep_extend("force", M.config, config or {})
-    else
-        vim.notify("Colorize: Errors found while loading user config. Using default config.", vim.log.levels.ERROR)
-    end
+    M.config = vim.tbl_deep_extend("force", M.config, config or {})
 end
 
 --- load the colorscheme
@@ -74,8 +61,14 @@ function M.load(theme)
         M.compile()
         utils.load_compiled(theme)
     else
-        local colors = require("colorize.colors").setup({ theme = theme, colors = M.config.colors })
-        local highlights = require("colorize.highlights").setup(colors, M.config, colors.base_color)
+        local colors = require("colorize.colors").setup({
+            theme = theme,
+            palette_overrides = M.config.palette_overrides
+        })
+        local highlights = require("colorize.highlights").setup(
+            colors,
+            M.config
+        )
         require("colorize.highlights").highlight(
             highlights,
             M.config.terminalColors and colors.theme.term or {},
@@ -85,9 +78,12 @@ function M.load(theme)
 end
 
 function M.compile()
-    for theme_name, _ in pairs(require("colorize.themes")) do
-        local theme = require("colorize.colors").setup({ theme = theme_name, colors = M.config.colors })
-        local highlights = require("colorize.highlights").setup(theme, M.config, theme.base_color)
+    for theme_name, _ in pairs(require("colorize.themes").palettes) do
+        local theme = require("colorize.colors").setup({
+            theme = theme_name,
+            palette_overrides = M.config.palette_overrides
+        })
+        local highlights = require("colorize.highlights").setup(theme, M.config)
         require("colorize.utils").compile(theme_name, highlights, M.config.terminalColors and theme.theme.term or {})
     end
 end

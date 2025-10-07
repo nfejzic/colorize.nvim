@@ -124,39 +124,17 @@ on the basis of their actual function.
 In short, a `palette` defines all the available colors, while a `theme` maps the `PaletteColors`
 to specific `ThemeColors` and the same palette color may be assigned to multiple theme colors.
 
-You can change _both_ theme or palette colors using `config.colors`.
+You can change palette colors using `config.palette_overrides`.
 All the palette color names can be found [here](lua/colorize/colors.lua),
 while their usage by each theme can be found [here](lua/colorize/themes.lua).
 
 ```lua
 require('colorize').setup({
     ...,
-    colors = {
-        palette = {
-            -- change all usages of these colors
-            sol_base0 = "#000000",
-            sol_red = "#FFFFFF",
-        },
-        theme = {
-            -- change specific usages for a certain theme, or for all of them
-            ['gruvbox-dark-hard'] = {
-                ui = {
-                    float = {
-                        bg = "none",
-                    },
-                },
-            },
-            ['solarized-dark'] = {
-                syn = {
-                    parameter = "yellow",
-                },
-            },
-            all = {
-                ui = {
-                    bg_gutter = "none"
-                }
-            }
-        }
+    palette_overrides = {
+        -- change all usages of these colors
+        bg = "#000000",
+        fg = "#FFFFFF",
     },
     ...
 })

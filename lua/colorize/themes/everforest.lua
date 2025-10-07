@@ -5,8 +5,48 @@ local private = {}
 ---@class Everforest.Colours
 local M = {}
 
+---@class EverforestBaseColors
+---@field fg string
+---@field red string
+---@field orange string
+---@field yellow string
+---@field green string
+---@field aqua string
+---@field blue string
+---@field purple string
+---@field grey0 string
+---@field grey1 string
+---@field grey2 string
+---@field statusline1 string
+---@field statusline2 string
+---@field statusline3 string
+---@field none string
+
+---@class EverforestContrastColors
+---@field bg_dim string
+---@field bg0 string
+---@field bg1 string
+---@field bg2 string
+---@field bg3 string
+---@field bg4 string
+---@field bg5 string
+---@field bg_visual string
+---@field bg_red string
+---@field bg_green string
+---@field bg_blue string
+---@field bg_yellow string
+---@field bg_purple string
+
+---@class EverforestAppearanceColors
+---@field base EverforestBaseColors
+---@field soft EverforestContrastColors
+---@field normal EverforestContrastColors
+---@field hard EverforestContrastColors
+
+
 ---@class EverforestPaletteColors
 private.everforest_palette = {
+	---@type EverforestAppearanceColors
 	dark = {
 		base = {
 			fg = "#d3c6aa",
@@ -25,6 +65,7 @@ private.everforest_palette = {
 			statusline3 = "#e67e80",
 			none = "NONE",
 		},
+
 		hard = {
 			bg_dim = "#1e2326",
 			bg0 = "#272e33",
@@ -40,7 +81,8 @@ private.everforest_palette = {
 			bg_yellow = "#45443c",
 			bg_purple = "#463f48",
 		},
-		medium = {
+
+		normal = {
 			bg_dim = "#232a2e",
 			bg0 = "#2d353b",
 			bg1 = "#343f44",
@@ -54,8 +96,8 @@ private.everforest_palette = {
 			bg_blue = "#3a515d",
 			bg_yellow = "#4d4c43",
 			bg_purple = "#4a444e",
-
 		},
+
 		soft = {
 			bg_dim = "#293136",
 			bg0 = "#333c43",
@@ -73,6 +115,7 @@ private.everforest_palette = {
 		},
 	},
 
+	---@type EverforestAppearanceColors
 	light = {
 		base = {
 			fg = "#5c6a72",
@@ -91,6 +134,7 @@ private.everforest_palette = {
 			statusline3 = "#e66868",
 			none = "NONE",
 		},
+
 		hard = {
 			bg_dim = "#f2efdf",
 			bg0 = "#fffbef",
@@ -106,7 +150,8 @@ private.everforest_palette = {
 			bg_yellow = "#fef2d5",
 			bg_purple = "#fceced",
 		},
-		medium = {
+
+		normal = {
 			bg_dim = "#efebd4",
 			bg0 = "#fdf6e3",
 			bg1 = "#f4f0d9",
@@ -121,6 +166,7 @@ private.everforest_palette = {
 			bg_yellow = "#faedcd",
 			bg_purple = "#fae8e2",
 		},
+
 		soft = {
 			bg_dim = "#e5dfc5",
 			bg0 = "#f3ead3",
@@ -144,252 +190,81 @@ function public.palette()
 	return private.everforest_palette
 end
 
----@param contrast "hard"|"soft"|"none"
----@return fun(palette: PaletteColors): Theme
-function public.dark(contrast)
-	---@param palette_colors PaletteColors
-	return function(palette_colors)
-		local palette = palette_colors.everforest
+---@param contrast "soft"|"normal"|"hard"
+---@param appearance "dark"|"light"
+---@return Colors.P
+local function base(contrast, appearance)
+	local palette = private.everforest_palette
+	local app = appearance == "dark" and palette.dark or palette.light
 
-		local contrast_colors = palette.dark.medium
-		local base = palette.dark.base
+	local base_p = app.base
+	---@type EverforestContrastColors
+	local contr = app[contrast]
 
-		if contrast == "hard" then
-			contrast_colors = palette.dark.hard
-		elseif contrast == "soft" then
-			contrast_colors = palette.dark.soft
-		end
+	local Color = require("colorize.lib.color")
 
-		local colors = {
-			ui = {
-				fg = base.fg,
-				fg_dim = base.grey0,
-				fg_reverse = contrast_colors.bg0,
-
-				bg_dim = contrast_colors.bg_dim,
-				bg_gutter = contrast_colors.bg2,
-
-				bg_m3 = contrast_colors.bg3,
-				bg_m2 = contrast_colors.bg2,
-				bg_m1 = contrast_colors.bg1,
-				bg = contrast_colors.bg0,
-				bg_p1 = contrast_colors.bg1,
-				bg_p2 = contrast_colors.bg2,
-
-				special = base.red,
-				nontext = base.grey0,
-				whitespace = base.grey0,
-
-				bg_search = contrast_colors.bg_visual,
-				bg_visual = contrast_colors.bg_visual,
-
-				pmenu = {
-					fg = base.fg,
-					fg_sel = "none", -- This is important to make highlights pass-through
-					bg = "none",
-					bg_sel = contrast_colors.bg2,
-					bg_sbar = contrast_colors.bg2,
-					bg_thumb = contrast_colors.bg2,
-				},
-				float = {
-					fg = base.fg,
-					bg = contrast_colors.bg0,
-					fg_border = contrast_colors.bg3,
-					bg_border = contrast_colors.bg0,
-				},
-			},
-			syn = {
-				string = base.green,
-				variable = base.fg,
-				number = base.orange,
-				constant = base.orange,
-				identifier = base.fg,
-				parameter = base.fg,
-				fun = base.blue,
-				statement = base.purple,
-				keyword = base.purple,
-				operator = base.orange,
-				preproc = base.red,
-				type = base.yellow,
-				regex = base.yellow,
-				deprecated = base.grey0,
-				comment = base.orange,
-				docComment = base.aqua,
-				punct = base.fg,
-				special1 = base.aqua,
-				special2 = base.red,
-				special3 = base.red,
-			},
-			vcs = {
-				added = base.green,
-				removed = base.red,
-				changed = base.orange,
-			},
-			diff = {
-				add = contrast_colors.bg_green,
-				delete = contrast_colors.bg_red,
-				change = contrast_colors.bg_blue,
-				text = base.green,
-			},
-			diag = {
-				ok = base.green,
-				error = base.red,
-				warning = base.orange,
-				info = base.blue,
-				hint = base.aqua,
-			},
-			term = {
-				contrast_colors.bg0, -- black
-				base.red, -- red
-				base.green, -- green
-				base.yellow, -- yellow
-				base.blue, -- blue
-				base.purple, -- magenta
-				base.aqua, -- cyan
-				contrast_colors.bg5, -- white
-				contrast_colors.bg1, -- bright black
-				base.red, -- bright red
-				base.green, -- bright green
-				base.yellow, -- bright yellow
-				base.blue, -- bright blue
-				base.purple, -- bright magenta
-				base.aqua, -- bright cyan
-				base.fg, -- bright white
-				base.orange, -- extended color 1
-				base.red, -- extended color 2
-			},
-		}
-
-		return { colors = colors, base_color = contrast_colors.dark0 }
+	local darken = function(hex)
+		return Color(hex):brighten(-0.35, contr.bg0):to_hex()
 	end
+
+	---@type Colors.P
+	local colors = {
+		brightRed = base_p.red,
+		neutralRed = darken(base_p.red),
+		darkRed = contr.bg_red,
+
+		brightGreen = base_p.green,
+		neutralGreen = darken(base_p.green),
+		darkGreen = contr.bg_green,
+
+		brightYellow = base_p.yellow,
+		neutralYellow = darken(base_p.yellow),
+
+		brightBlue = base_p.blue,
+		neutralBlue = darken(base_p.blue),
+
+		brightPurple = base_p.purple,
+		neutralPurple = darken(base_p.purple),
+
+		brightAqua = base_p.aqua,
+		neutralAqua = Color(base_p.aqua):brighten(-0.25, contr.bg0):to_hex(),
+		darkAqua = Color(base_p.aqua):brighten(-0.5, contr.bg0):to_hex(),
+
+		brightOrange = base_p.orange,
+		neutralOrange = darken(base_p.orange),
+	}
+
+	return colors
 end
 
----@param contrast "hard"|"soft"|"none"
----@return fun(palette: PaletteColors): Theme
-function public.light(contrast)
-	return function(palette_colors)
-		local palette = palette_colors.gruvbox
+---@param contrast "soft"|"normal"|"hard"
+---@param appearance "dark"|"light"
+---@return Colors
+function public.colors(contrast, appearance)
+	local base_colors = base(contrast, appearance)
 
-		---@class LightGruvboxContrastColors
-		local contrast_colors = {
-			light0 = palette.light0,
-			light0_dim = palette.light0,
-		}
+	---@type EverforestAppearanceColors
+	local app = private.everforest_palette[appearance]
 
-		if contrast == "hard" then
-			contrast_colors = {
-				light0 = palette.light0_hard,
-				light0_dim = palette.light0_soft,
-			}
-		elseif contrast == "soft" then
-			contrast_colors = {
-				light0 = palette.light0_soft,
-				light0_dim = palette.light0_soft,
-			}
-		end
+	--- @type EverforestBaseColors
+	local b = app.base
 
-		local colors = {
-			ui = {
-				fg = palette.dark1,
-				fg_dim = palette.dark2,
-				fg_reverse = base.grey0,
+	---@type EverforestContrastColors
+	local contr = app[contrast]
 
-				bg_dim = palette.light0,
-				bg_gutter = palette.light1,
+	local colors = vim.tbl_deep_extend('force', base_colors, {
+		bg = contr.bg0,
+		bg1 = contr.bg1,
+		bg2 = contr.bg4,
+		bg3 = contr.bg5,
+		fg = b.fg,
+		fg1 = b.statusline2,
+		fg2 = b.grey1,
+		blend = 50,
+	})
 
-				bg_m3 = palette.light0,
-				bg_m2 = palette.light0,
-				bg_m1 = palette.light2,
-				bg = contrast_colors.light0,
-				bg_p1 = palette.light1,
-				bg_p2 = palette.light2,
-
-				special = palette.neutralPurple,
-				nontext = palette.light4,
-				whitespace = palette.light4,
-
-				bg_search = palette.light0,
-				bg_visual = palette.light2,
-
-				pmenu = {
-					fg = palette.dark1,
-					fg_sel = "none", -- This is important to make highlights pass-through
-					bg = "none",
-					bg_sel = palette.light1,
-					bg_sbar = palette.light2,
-					bg_thumb = palette.light1,
-				},
-				float = {
-					fg = palette.dark2,
-					bg = contrast_colors.light0,
-					fg_border = palette.light4,
-					bg_border = palette.light0,
-				},
-			},
-			syn = {
-				string = palette.neutralGreen,
-				variable = palette.dark1,
-				number = palette.neutralOrange,
-				constant = palette.neutralOrange,
-				identifier = palette.dark1,
-				parameter = palette.dark1,
-				fun = palette.neutralBlue,
-				statement = palette.neutralPurple,
-				keyword = palette.neutralPurple,
-				operator = palette.fadedYellow,
-				preproc = palette.neutralRed,
-				type = palette.fadedYellow,
-				regex = base.yellow,
-				deprecated = palette.light4,
-				comment = palette.neutralOrange,
-				docComment = palette.neutralAqua,
-				punct = palette.dark1,
-				special1 = palette.neutralBlue,
-				special2 = palette.neutralRed,
-				special3 = palette.neutralRed,
-			},
-			vcs = {
-				added = palette.neutralGreen,
-				removed = palette.neutralRed,
-				changed = base.yellow,
-			},
-			diff = {
-				add = palette.darkGreenHard,
-				delete = palette.darkRedHard,
-				change = palette.light1,
-				text = palette.light2,
-			},
-			diag = {
-				ok = palette.brightGreen,
-				error = base.red,
-				warning = base.orange,
-				info = palette.brightBlue,
-				hint = palette.neutralAqua,
-			},
-			term = {
-				contrast_colors.light0, -- black
-				base.red,   -- red
-				palette.neutralGreen, -- green
-				base.yellow, -- yellow
-				palette.brightBlue, -- blue
-				base.purple, -- magenta
-				palette.neutralAqua, -- cyan
-				palette.dark2, -- white
-				base.grey0, -- bright black
-				base.red,   -- bright red
-				palette.brightGreen, -- bright green
-				base.yellow, -- bright yellow
-				palette.brightBlue, -- bright blue
-				palette.neutralPurple, -- bright magenta
-				palette.neutralAqua, -- bright cyan
-				palette.dark1, -- bright white
-				base.orange, -- extended color 1
-				base.red,   -- extended color 2
-			},
-		}
-
-		return { colors = colors, base_color = contrast_colors.light0 }
-	end
+	--- @type Colors
+	return colors
 end
 
 return public

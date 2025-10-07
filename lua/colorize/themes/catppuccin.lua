@@ -131,28 +131,38 @@ private.palette = {
 
 	mocha = {
 		Rosewater = "#f5e0dc",
+
 		Flamingo = "#f2cdcd",
 		Pink = "#f5c2e7",
-		Mauve = "#cba6f7",
+
 		Red = "#f38ba8",
 		Maroon = "#eba0ac",
+
 		Peach = "#fab387",
 		Yellow = "#f9e2af",
+
 		Green = "#a6e3a1",
+
+		Mauve = "#cba6f7",
+		Lavender = "#b4befe",
+
 		Teal = "#94e2d5",
 		Sky = "#89dceb",
 		Sapphire = "#74c7ec",
 		Blue = "#89b4fa",
-		Lavender = "#b4befe",
+
 		Text = "#cdd6f4",
 		Subtext1 = "#bac2de",
 		Subtext0 = "#a6adc8",
+
 		Overlay2 = "#9399b2",
 		Overlay1 = "#7f849c",
 		Overlay0 = "#6c7086",
+
 		Surface2 = "#585b70",
 		Surface1 = "#45475a",
 		Surface0 = "#313244",
+
 		Base = "#1e1e2e",
 		Mantle = "#181825",
 		Crust = "#11111b",
@@ -164,150 +174,71 @@ function public.palette()
 	return private.palette
 end
 
----@return fun(palette: PaletteColors): Theme
+---@return Colors
 function public.latte()
-	return function(palette_colors)
-		local theme = palette_colors.catppuccin
-		local palette = theme.latte
-
-		return private.colorize(palette)
-	end
+	return private.colorize(private.palette.latte)
 end
 
----@return fun(palette: PaletteColors): Theme
+---@return Colors
 function public.frappe()
-	return function(palette_colors)
-		local theme = palette_colors.catppuccin
-		local palette = theme.frappe
-
-		return private.colorize(palette)
-	end
+	return private.colorize(private.palette.frappe)
 end
 
----@return fun(palette: PaletteColors): Theme
+---@return Colors
 function public.macchiato()
-	return function(palette_colors)
-		local theme = palette_colors.catppuccin
-		local palette = theme.macchiato
-
-		return private.colorize(palette)
-	end
+	return private.colorize(private.palette.macchiato)
 end
 
----@return fun(palette: PaletteColors): Theme
+---@return Colors
 function public.mocha()
-	return function(palette_colors)
-		local theme = palette_colors.catppuccin
-		local palette = theme.mocha
-
-		return private.colorize(palette)
-	end
+	return private.colorize(private.palette.mocha)
 end
 
----@param palette CatppuccinPaletteColors
----@return Theme
-function private.colorize(palette)
-	local colors = {
-		ui = {
-			fg = palette.Text,
-			fg_dim = palette.Subtext1,
-			fg_reverse = palette.Base,
+---@param p CatppuccinPaletteColors
+---@return Colors
+function private.colorize(p)
+	local Color = require("colorize.lib.color")
+	local darken = function(hex, darken)
+		local amount = darken or 0.15
+		return Color(hex):brighten(amount, p.Base):to_hex()
+	end
 
-			bg_dim = palette.Crust,
-			bg_gutter = palette.Surface0,
+	---@type Colors
+	return {
+		bg = p.Base,
+		bg1 = p.Surface0,
+		bg2 = p.Surface1,
+		bg3 = p.Surface2,
 
-			bg_m3 = palette.Mantle,
-			bg_m2 = palette.Subtext1,
-			bg_m1 = palette.Crust,
-			bg = palette.Base,
-			bg_p1 = palette.Surface0,
-			bg_p2 = palette.Surface0,
+		fg = p.Text,
+		fg1 = p.Subtext0,
+		fg2 = p.Subtext1,
+		brightRed = p.Red,
+		neutralRed = darken(p.Maroon, -0.35),
+		darkRed = darken(p.Red, -0.5),
 
-			special = palette.Maroon,
-			nontext = palette.Overlay1,
-			whitespace = palette.Surface0,
+		brightGreen = p.Green,
+		neutralGreen = darken(p.Green, -0.35),
+		darkGreen = darken(p.Green, -0.4),
 
-			bg_search = palette.Teal,
-			bg_visual = palette.Surface1,
+		brightYellow = p.Yellow,
+		neutralYellow = darken(p.Yellow),
 
-			pmenu = {
-				fg = palette.Subtext1,
-				fg_sel = "none", -- This is important to make highlights pass-through
-				bg = palette.Surface0,
-				bg_sel = palette.Surface1,
-				bg_sbar = palette.Surface1,
-				bg_thumb = palette.Surface1,
-			},
-			float = {
-				fg = palette.Subtext1,
-				bg = palette.Base,
-				fg_border = palette.Overlay1,
-				bg_border = palette.Base,
-			},
-		},
-		syn = {
-			string = palette.Green,
-			variable = palette.Text,
-			number = palette.Peach,
-			constant = palette.Peach,
-			identifier = palette.Text,
-			parameter = palette.Text,
-			fun = palette.Blue,
-			statement = palette.Mauve,
-			keyword = palette.Mauve,
-			operator = palette.Peach,
-			preproc = palette.Red,
-			type = palette.Yellow,
-			regex = palette.Yellow,
-			deprecated = palette.Subtext1,
-			comment = palette.Peach,
-			docComment = palette.Green,
-			punct = palette.Text,
-			special1 = palette.Sapphire,
-			special2 = palette.Red,
-			special3 = palette.Red,
-		},
-		vcs = {
-			added = palette.Green,
-			removed = palette.Red,
-			changed = palette.Blue,
-		},
-		diff = {
-			add = palette.Green,
-			delete = palette.Red,
-			change = palette.Blue,
-			text = palette.Text,
-		},
-		diag = {
-			ok = palette.Green,
-			error = palette.Red,
-			warning = palette.Yellow,
-			info = palette.Sky,
-			hint = palette.Sapphire,
-		},
-		term = {
-			palette.Surface0, -- black
-			palette.Maroon, -- red
-			palette.Green, -- green
-			palette.Yellow, -- yellow
-			palette.Blue, -- blue
-			palette.Mauve, -- magenta
-			palette.Sky, -- cyan
-			palette.Text, -- white
-			palette.Subtext1, -- bright black
-			palette.Red, -- bright red
-			palette.Green, -- bright green
-			palette.Yellow, -- bright yellow
-			palette.Sapphire, -- bright blue
-			palette.Pink, -- bright magenta
-			palette.Sky, -- bright cyan
-			palette.Subtext1, -- bright white
-			palette.Peach, -- extended color 1
-			palette.Red, -- extended color 2
-		},
+		brightBlue = p.Blue,
+		neutralBlue = p.Sapphire,
+
+		brightPurple = p.Mauve,
+		neutralPurple = p.Lavender,
+
+		brightAqua = p.Teal,
+		neutralAqua = darken(p.Teal),
+		darkAqua = darken(p.Teal, -0.55),
+
+		brightOrange = p.Peach,
+		neutralOrange = darken(p.Peach),
+
+		blend = nil,
 	}
-
-	return { colors = colors, base_color = palette.Subtext1 }
 end
 
 return public

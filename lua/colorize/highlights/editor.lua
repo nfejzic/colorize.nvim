@@ -53,7 +53,7 @@ function M.setup(colors, config)
 		-- IncSearch	'incsearch' highlighting; also used for the text replaced with ":s///c".
 		IncSearch = { fg = theme.ui.bg, bg = theme.diag.warning },
 		-- Substitute	|:substitute| replacement text highlighting.
-		Substitute = { fg = theme.ui.fg, bg = theme.vcs.removed },
+		Substitute = { fg = theme.ui.bg, bg = theme.diag.warning },
 		-- LineNr		Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
 		LineNr = { fg = theme.ui.nontext, bg = theme.ui.bg_gutter },
 		-- LineNrAbove	Line number for when the 'relativenumber' option is set, above the cursor line.

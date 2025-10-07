@@ -46,8 +46,7 @@ end
 
 ---@param colors ColorizeColors
 ---@param config? ColorizeConfig
----@param base_color? string
-function M.setup(colors, config, base_color)
+function M.setup(colors, config)
     config = config or require("colorize").config
 
     local highlights = {}

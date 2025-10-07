@@ -25,10 +25,16 @@ function M.setup(colors, config)
 
         -- Gitsigns
         GitSignsAdd = { fg = theme.vcs.added, bg = theme.ui.bg_gutter },
-        GitSignsAddInline = { bg = theme.vcs.added, blend = utils.min(utils.or_default(theme.diff.blend) + 20, 100) },
-        GitSignsDeleteInline = { bg = theme.vcs.removed, blend = utils.min(utils.or_default(theme.diff.blend, 80) + 20, 100) },
+        GitSignsAddPreview = { bg = theme.diff.change, blend = utils.min(utils.or_default(theme.diff.blend) + 20, 100) },
+        GitSignsAddInline = { bg = theme.diff.add, blend = utils.min(utils.or_default(theme.diff.blend) + 20, 100) },
+
         GitSignsChange = { fg = theme.vcs.changed, bg = theme.ui.bg_gutter },
+        GitSignsChangePreview = { bg = theme.diff.change, blend = utils.min(utils.or_default(theme.diff.blend) + 20, 100) },
+        GitSignsChangeInline = { bg = theme.diff.change, blend = utils.min(utils.or_default(theme.diff.blend) + 20, 100) },
+
         GitSignsDelete = { fg = theme.vcs.removed, bg = theme.ui.bg_gutter },
+        GitSignsDeletePreview = { bg = theme.diff.delete, blend = utils.min(utils.or_default(theme.diff.blend) + 20, 100) },
+        GitSignsDeleteInline = { bg = theme.vcs.removed, blend = utils.min(utils.or_default(theme.diff.blend) + 20, 100) },
 
         -- GitConflict
         GitConflictAncestorLabel = { bg = theme.ui.bg },
