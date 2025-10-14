@@ -96,6 +96,7 @@ local kanagawa = require('colorize.themes.kanagawa')
 local kanso = require('colorize.themes.kanso')
 local catppuccin = require('colorize.themes.catppuccin')
 local everforest = require('colorize.themes.everforest')
+local monokai_pro = require('colorize.themes.monokai_pro')
 
 ---@alias ThemeChoice
 ---|'gruvbox-dark-hard'
@@ -154,4 +155,11 @@ return {
 	["catppuccin-mocha"] = catppuccin.mocha(),
 
 	["everforest-dark-hard"] = everforest.dark("hard"),
+
+	["monokai-pro"] = monokai_pro.dark("pro"),
+	["monokai-spectrum"] = monokai_pro.dark("spectrum"),
+	["monokai-octagon"] = monokai_pro.dark("octagon"),
+	["monokai-ristretto"] = monokai_pro.dark("ristretto"),
+	["monokai-machine"] = monokai_pro.dark("machine"),
+	["monokai-light"] = monokai_pro.light(),
 }

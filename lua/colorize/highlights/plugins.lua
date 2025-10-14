@@ -23,9 +23,10 @@ function M.setup(colors, config)
         -- vcsSignsDelete = { link = "diffDeleted" },
         -- vcsSignsDeleteLn = { bg = theme.diff.delete },
 
-        -- Gitsigns
+        -- Gitigns
         GitSignsAdd = { fg = theme.vcs.added, bg = theme.ui.bg_gutter },
-        GitSignsAddInline = { bg = theme.vcs.added, blend = utils.min(utils.or_default(theme.diff.blend) + 20, 100) },
+        GitSignsAddPreview = { link = "DiffAdd" },
+        GitSignsAddInline = { link = "DiffText" },
         GitSignsDeleteInline = { bg = theme.vcs.removed, blend = utils.min(utils.or_default(theme.diff.blend, 80) + 20, 100) },
         GitSignsChange = { fg = theme.vcs.changed, bg = theme.ui.bg_gutter },
         GitSignsDelete = { fg = theme.vcs.removed, bg = theme.ui.bg_gutter },

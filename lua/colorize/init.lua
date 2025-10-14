@@ -104,4 +104,53 @@ vim.api.nvim_create_user_command("ColorizeCompile", function()
     vim.api.nvim_exec_autocmds("ColorScheme", { modeline = false })
 end, {})
 
+vim.api.nvim_create_user_command("Colorize", function(opts)
+    local theme = opts.args
+    M.config.theme = theme
+    vim.cmd([[colorscheme colorize]])
+end, {
+    nargs = 1,
+    complete = function()
+        return {
+            "gruvbox-dark-hard",
+            "gruvbox-dark-soft",
+            "gruvbox-dark",
+            "gruvbox-light-hard",
+            "gruvbox-light-soft",
+            "gruvbox-light",
+
+            "solarized-dark-hard",
+            "solarized-dark",
+
+            "rose-pine-main",
+            "rose-pine-black",
+            "rose-pine-moon",
+            "rose-pine-dawn",
+
+            "kanagawa-wave",
+            "kanagawa-dragon",
+            "kanagawa-lotus",
+
+            "kanso-zen",
+            "kanso-ink",
+            "kanso-pearl",
+            "kanso-mist",
+
+            "catppuccin-latte",
+            "catppuccin-frappe",
+            "catppuccin-macchiato",
+            "catppuccin-mocha",
+
+            "everforest-dark-hard",
+            -- "monokai-classic",
+            "monokai-light",
+            "monokai-machine",
+            "monokai-octagon",
+            "monokai-pro",
+            "monokai-ristretto",
+            "monokai-spectrum",
+        }
+    end,
+})
+
 return M

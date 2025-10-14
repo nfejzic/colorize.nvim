@@ -77,6 +77,15 @@ function Color:saturate(r)
 end
 
 local M = {}
+
+---@param hex string RGB color
+---@param towards_hex string RGB base colors, i.e. background
+---@param amount number|nil
+function M.shift(hex, towards_hex, amount)
+    local am = amount or -0.15
+    return Color.new(hex):brighten(am, towards_hex):to_hex()
+end
+
 return setmetatable(M, {
     __call = function(_, ...)
         return Color.new(...)
