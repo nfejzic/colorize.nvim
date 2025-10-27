@@ -1,7 +1,7 @@
 local private = {
     file_path = vim.fn.stdpath("data") .. "/.nvim.colorize.lua",
 
-    --- @class ColorizeCmdChoice
+    --- @type table<ThemeChoice>
     theme_choice = {
         "gruvbox-dark-hard",
         "gruvbox-dark-soft",
@@ -40,8 +40,9 @@ local private = {
         "monokai-pro",
         "monokai-ristretto",
         "monokai-spectrum",
-    },
 
+        "two-firewatch-dark",
+    },
 }
 
 local M = {}
