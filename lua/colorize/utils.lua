@@ -5,12 +5,6 @@ local get_compiled_path = function(theme)
     return table.concat({ vim.fn.stdpath("state"), "colorize", theme .. "_compiled.lua" }, PATH_SEP)
 end
 
----@return string theme
-function M.get_theme_from_bg_opt()
-    local config = require("colorize").config
-    return config.theme[vim.o.background] or config.theme.default
-end
-
 ---@param theme string
 ---@param highlights table
 ---@param termcolors table

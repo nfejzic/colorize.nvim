@@ -96,23 +96,23 @@ Colorize comes in multiple variants:
 - `solarized-dark` Solarized dark theme
 - `solarized-dark-hard` Solarized dark theme with hard contrast (darker background)
 
-Themes can be changed in three ways:
+By default the `kanagawa-wave` theme will be used. You can modify which variant
+is set by running the `Colorize <theme-name>` command. This will set colorscheme
+to that theme and persist the change so that next loads will use that theme. You
+can also load the colorscheme directly with:
 
-- Setting `config.theme` to the desired theme. Note that `vim.o.background` **must** be unset.
-- Using the `background` option:
-  Any change to the value of `vim.o.background` will select the theme mapped by `config.background`.
-  Use `vim.o.background = ""` to unset this option.
-- Loading the colorscheme directly with:
-  ```lua
-  vim.cmd("colorscheme gruvbox-dark")
-  vim.cmd("colorscheme gruvbox-dark-hard")
-  vim.cmd("colorscheme solarized-dark-hard")
-  -- etc.
-  ```
-  or
-  ```lua
-  require("colorize").load("gruvbox-dark-hard")
-  ```
+```lua
+vim.cmd("colorscheme gruvbox-dark")
+vim.cmd("colorscheme gruvbox-dark-hard")
+vim.cmd("colorscheme solarized-dark-hard")
+-- etc.
+```
+
+or
+
+```lua
+require("colorize").load("gruvbox-dark-hard")
+```
 
 ## Customization
 
