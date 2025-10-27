@@ -120,7 +120,7 @@ function public.dark(contrast)
 				nontext = palette.dark4,
 				whitespace = palette.dark4,
 
-				bg_search = palette.darkAquaHard,
+				bg_search = palette.brightOrange,
 				bg_visual = palette.dark2,
 
 				pmenu = {
@@ -248,7 +248,7 @@ function public.light(contrast)
 				nontext = palette.light4,
 				whitespace = palette.light4,
 
-				bg_search = palette.light0,
+				bg_search = palette.brightOrange,
 				bg_visual = palette.light2,
 
 				pmenu = {

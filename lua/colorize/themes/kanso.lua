@@ -164,7 +164,7 @@ function public.zen()
 				nontext = palette.inkAsh,
 				whitespace = palette.inkBlack3,
 
-				bg_search = palette.zenBlue2,
+				bg_search = palette.roninYellow,
 				bg_visual = palette.inkBlack3,
 
 				pmenu = {
@@ -274,7 +274,7 @@ function public.ink()
 				nontext = palette.inkAsh,
 				whitespace = palette.inkBlack4,
 
-				bg_search = palette.zenBlue2,
+				bg_search = palette.roninYellow,
 				bg_visual = palette.inkBlack3,
 
 				pmenu = {
@@ -384,7 +384,7 @@ function public.pearl()
 				nontext = palette.pearlViolet1,
 				whitespace = palette.pearlWhite3,
 
-				bg_search = palette.pearlBlue2,
+				bg_search = palette.pearlOrange2,
 				bg_visual = palette.pearlWhite2,
 
 				pmenu = {
@@ -494,7 +494,7 @@ function public.mist()
 				nontext = palette.mistAsh,
 				whitespace = palette.mist3,
 
-				bg_search = palette.zenBlue2,
+				bg_search = palette.roninYellow,
 				bg_visual = palette.mist2,
 
 				pmenu = {

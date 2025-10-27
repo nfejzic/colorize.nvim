@@ -14,7 +14,7 @@ function M.setup(colors, config)
 		-- Conceal		Placeholder characters substituted for concealed text (see 'conceallevel').
 		Conceal = { fg = theme.ui.special, bold = true },
 		-- CurSearch	Used for highlighting a search pattern under the cursor (see 'hlsearch').
-		CurSearch = { fg = theme.ui.fg, bg = theme.ui.bg_search, bold = true },
+		CurSearch = { link = "Search", bold = true },
 		-- Cursor		Character under the cursor.
 		Cursor = { fg = theme.ui.bg, bg = theme.ui.fg },
 		-- lCursor		Character under the cursor when |language-mapping| is used (see 'guicursor').
@@ -26,7 +26,7 @@ function M.setup(colors, config)
 		-- CursorLine	Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
 		CursorLine = { bg = theme.ui.bg_p2 },
 		-- Directory	Directory names (and other special names in listings).
-		Directory = { fg = theme.syn.fun },
+		Directory = { fg = theme.syn.fun, bold = true },
 		-- DiffAdd		Diff mode: Added line. |diff.txt|
 		DiffAdd = { bg = theme.diff.add, blend = utils.clamped_val(theme.diff.blend, 80, 100) },
 		-- DiffChange	Diff mode: Changed line. |diff.txt|
@@ -51,7 +51,7 @@ function M.setup(colors, config)
 		-- SignColumn	Column where |signs| are displayed.
 		SignColumn = { fg = theme.ui.special, bg = theme.ui.bg_gutter },
 		-- IncSearch	'incsearch' highlighting; also used for the text replaced with ":s///c".
-		IncSearch = { fg = theme.ui.bg, bg = theme.diag.warning },
+		IncSearch = { link = "Search" },
 		-- Substitute	|:substitute| replacement text highlighting.
 		Substitute = { fg = theme.ui.fg, bg = theme.vcs.removed },
 		-- LineNr		Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
@@ -75,7 +75,7 @@ function M.setup(colors, config)
 		-- NonText		'@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
 		NonText = { fg = theme.ui.nontext },
 		-- Normal		Normal text.
-		Normal = { fg = theme.ui.fg, bg = not config.transparent and theme.ui.bg or "NONE" },
+		Normal = { fg = theme.ui.fg, bg = config.transparent and "none" or theme.ui.bg },
 		-- NormalFloat	Normal text in floating windows.
 		NormalFloat = { fg = theme.ui.float.fg, bg = theme.ui.float.bg },
 		-- FloatBorder	Border of floating windows.
@@ -107,7 +107,7 @@ function M.setup(colors, config)
 		-- QuickFixLine	Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
 		QuickFixLine = { bg = theme.ui.bg_p1 },
 		-- Search		Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
-		Search = { fg = theme.ui.fg, bg = theme.ui.bg_search },
+		Search = { fg = theme.ui.bg, bg = theme.ui.bg_search },
 		-- SpecialKey	Unprintable characters: Text displayed differently from what it really is. But not 'listchars' whitespace. |hl-Whitespace|
 		SpecialKey = { fg = theme.ui.special },
 		-- SpellBad	Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.

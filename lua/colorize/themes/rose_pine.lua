@@ -103,7 +103,7 @@ function public.colorize(variant)
 				nontext = palette.muted,
 				whitespace = palette.muted,
 
-				bg_search = palette.highlight_med,
+				bg_search = palette.gold,
 				bg_visual = palette.highlight_med,
 
 				pmenu = {

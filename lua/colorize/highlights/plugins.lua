@@ -63,7 +63,8 @@ function M.setup(colors, config)
         TelescopeResultsVariable = { link = "@variable" },
 
         -- SnacksPicker
-        SnacksPickerDir = { fg = theme.ui.fg },
+        SnacksPickerDir = { fg = theme.ui.fg_dim },
+        SnacksPickerFile = { fg = theme.ui.fg },
         SnacksPickerTree = { bg = "none" },
         SnacksPickerCol = { fg = theme.syn.comment, bg = "none" },
         SnacksPickerPrompt = { bg = theme.ui.bg },
@@ -173,7 +174,7 @@ function M.setup(colors, config)
         CmpDocumentationBorder = { link = "FloatBorder" },
         CmpCompletion = { link = "Pmenu" },
         CmpCompletionSel = { fg = "NONE", bg = theme.ui.pmenu.bg_sel },
-        CmpCompletionBorder = { fg = theme.ui.bg_search, bg = theme.ui.pmenu.bg },
+        CmpCompletionBorder = { fg = theme.ui.float.fg_border, bg = theme.ui.float.bg_border },
         CmpCompletionThumb = { link = "PmenuThumb" },
         CmpCompletionSbar = { link = "PmenuSbar" },
         CmpItemAbbr = { fg = theme.ui.pmenu.fg },
@@ -414,7 +415,7 @@ function M.setup(colors, config)
         MiniTablineModifiedCurrent = { fg = theme.ui.bg_p1, bg = theme.ui.fg_dim, bold = true },
         MiniTablineModifiedHidden = { fg = theme.ui.bg_m3, bg = theme.ui.special },
         MiniTablineModifiedVisible = { fg = theme.ui.bg_m3, bg = theme.ui.special, bold = true },
-        MiniTablineTabpagesection = { fg = theme.ui.fg, bg = theme.ui.bg_search, bold = true },
+        MiniTablineTabpagesection = { fg = theme.ui.fg, bg = theme.ui.nontext, bold = true },
         MiniTablineVisible = { fg = theme.ui.special, bg = theme.ui.bg_m3, bold = true },
 
         MiniTestEmphasis = { bold = true },

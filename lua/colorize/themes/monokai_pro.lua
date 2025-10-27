@@ -167,13 +167,15 @@ function public.dark(filter)
 end
 
 ---@param p MonokaiProPalette
+---@return Theme
 function private.colorize(p)
 	local Color = require("colorize.lib.color")
 
+	--- @type ThemeColors
 	local colors = {
 		ui = {
 			fg = p.text,
-			dimmed1 = p.dark2,
+			fg_dim = p.dimmed2,
 			fg_reverse = p.dimmed4,
 
 			bg_dim = p.background,
@@ -190,7 +192,7 @@ function private.colorize(p)
 			nontext = p.dimmed3,
 			whitespace = p.dimmed5,
 
-			bg_search = p.background,
+			bg_search = p.orange,
 			bg_visual = Color.shift(p.dimmed5, p.background, -0.08),
 
 			pmenu = {

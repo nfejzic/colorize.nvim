@@ -55,9 +55,10 @@ function public.dark(variant)
 		local palette = palette_colors.solarized
 
 		local visual = palette.sol_base02
+		local bg = palette.sol_base03
 		if variant == "hard" then
 			visual = palette.sol_base03
-			palette.sol_base03 = palette.sol_base03_hard
+			bg = palette.sol_base03_hard
 		end
 
 		local colors = {
@@ -69,10 +70,10 @@ function public.dark(variant)
 				bg_dim = palette.sol_base01,
 				bg_gutter = palette.sol_base02,
 
-				bg_m3 = palette.sol_base01,
+				bg_m3 = palette.sol_base04,
 				bg_m2 = palette.sol_base00,
 				bg_m1 = palette.sol_base01,
-				bg = palette.sol_base03,
+				bg = bg,
 				bg_p1 = palette.sol_base02,
 				bg_p2 = palette.sol_base02,
 
@@ -80,22 +81,22 @@ function public.dark(variant)
 				nontext = palette.sol_base01,
 				whitespace = palette.sol_base01,
 
-				bg_search = palette.sol_cyan,
+				bg_search = palette.sol_yellow,
 				bg_visual = visual,
 
 				pmenu = {
 					fg = palette.sol_base0,
 					fg_sel = "none", -- This is important to make highlights pass-through
 					bg = palette.sol_base02,
-					bg_sel = palette.sol_base01,
+					bg_sel = palette.sol_base02,
 					bg_sbar = palette.sol_base01,
 					bg_thumb = palette.sol_cyan,
 				},
 				float = {
 					fg = palette.sol_base0,
-					bg = palette.sol_base03,
+					bg = bg,
 					fg_border = palette.sol_base01,
-					bg_border = palette.sol_base03,
+					bg_border = bg,
 				},
 			},
 			syn = {
@@ -147,7 +148,7 @@ function public.dark(variant)
 				palette.sol_magenta, -- magenta
 				palette.sol_cyan, -- cyan
 				palette.sol_base2, -- white
-				palette.sol_base03, -- bright black
+				palette.sol_base04, -- bright black
 				palette.sol_red, -- bright red
 				palette.sol_base01, -- bright green
 				palette.sol_base00, -- bright yellow

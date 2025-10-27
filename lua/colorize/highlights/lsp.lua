@@ -95,10 +95,7 @@ local function medium(colors)
     }
 end
 
----@param colors ColorizeColors
-local function full(colors)
-    local theme = colors.theme
-
+local function full()
     return {
         ["@lsp.type.macro"] = { link = "Macro" },
         ["@lsp.type.method"] = { link = "none" },                   -- Function - use treesitter
@@ -127,7 +124,7 @@ local function full(colors)
         ["@lsp.typemod.comment.documentation"] = { link = "@comment.documentation" },
 
         ["@lsp.typemod.operator.controlFlow"] = { link = "Operator" },
-        ["@lsp.typemod.keyword.documentation"] = { link = "Special" },
+        ["@lsp.typemod.keyword"] = { link = "Keyword" },
 
         ["@lsp.typemod.variable.global"] = { link = "Constant" },
         ["@lsp.typemod.variable.static"] = { link = "Constant" },
@@ -145,7 +142,7 @@ local function full(colors)
         ["@lsp.typemod.function.injected"] = { link = "Function" },
         ["@lsp.typemod.macro.injected"] = { link = "Macro" },
 
-        ["@lsp.typemod.function.readonly"] = { fg = theme.syn.fun, bold = true }
+        ["@lsp.typemod.function.readonly"] = { link = "Function" }
     }
 end
 
@@ -165,7 +162,7 @@ function M.setup(colors, config)
     elseif config.semantic_highlighting == "medium" then
         lsp_highlights = vim.tbl_deep_extend('force', lsp_highlights, medium(colors))
     elseif config.semantic_highlighting == "full" then
-        lsp_highlights = vim.tbl_deep_extend('force', lsp_highlights, full(colors))
+        lsp_highlights = vim.tbl_deep_extend('force', lsp_highlights, full())
     end
 
     return lsp_highlights

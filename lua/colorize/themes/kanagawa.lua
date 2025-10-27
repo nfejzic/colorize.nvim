@@ -188,7 +188,7 @@ function public.dragon()
 				nontext = palette.dragonBlack6,
 				whitespace = palette.dragonBlack5,
 
-				bg_search = palette.waveBlue1,
+				bg_search = palette.roninYellow,
 				bg_visual = palette.dragonBlack4,
 
 				pmenu = {
@@ -302,7 +302,7 @@ function public.lotus()
 				nontext = palette.lotusGray2,
 				whitespace = palette.lotusWhite2,
 
-				bg_search = palette.lotusViolet3,
+				bg_search = palette.lotusOrange2,
 				bg_visual = palette.lotusWhite0,
 
 				pmenu = {
@@ -332,7 +332,7 @@ function public.lotus()
 				keyword = palette.lotusPink,
 				operator = palette.lotusOrange,
 				preproc = palette.lotusRed,
-				type = palette.lotusBlue4,
+				type = palette.lotusAqua2,
 				regex = palette.lotusYellow2,
 				deprecated = palette.lotusGray3,
 				comment = palette.lotusOrange,
@@ -412,7 +412,7 @@ function public.wave()
 				nontext = palette.sumiInk4,
 				whitespace = palette.sumiInk2,
 
-				bg_search = palette.waveBlue2,
+				bg_search = palette.roninYellow,
 				bg_visual = palette.waveBlue1,
 
 				pmenu = {

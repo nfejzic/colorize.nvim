@@ -180,7 +180,7 @@ function public.dark(contrast)
 				nontext = base.grey0,
 				whitespace = base.grey0,
 
-				bg_search = contrast_colors.bg_visual,
+				bg_search = base.orange,
 				bg_visual = contrast_colors.bg_visual,
 
 				pmenu = {
@@ -292,7 +292,7 @@ function public.light(contrast)
 			ui = {
 				fg = palette.dark1,
 				fg_dim = palette.dark2,
-				fg_reverse = base.grey0,
+				fg_reverse = contrast_colors.light0,
 
 				bg_dim = palette.light0,
 				bg_gutter = palette.light1,
@@ -308,7 +308,7 @@ function public.light(contrast)
 				nontext = palette.light4,
 				whitespace = palette.light4,
 
-				bg_search = palette.light0,
+				bg_search = palette.brightOrange,
 				bg_visual = palette.light2,
 
 				pmenu = {

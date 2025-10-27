@@ -108,7 +108,7 @@ function M.setup(colors, config)
         -- @punctuation.bracket    brackets (e.g. `()`, `{}`, `[]`)
         ["@punctuation.bracket"] = { fg = theme.syn.punct },
         -- @punctuation.special    special symbols (e.g. `{}` in string interpolation)
-        ["@punctuation.special"] = { fg = theme.syn.special1 },
+        ["@punctuation.special"] = { fg = theme.syn.operator },
         --
         -- @comment                line and block comments
         -- @comment.documentation  comments documenting code
