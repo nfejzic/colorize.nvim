@@ -158,7 +158,7 @@ function public.dark(contrast)
 				punct = palette.light1,
 				special1 = palette.brightAqua,
 				special2 = palette.brightRed,
-				special3 = palette.brightRed,
+				special3 = palette.brightYellow,
 			},
 			vcs = {
 				added = palette.neutralGreen,
