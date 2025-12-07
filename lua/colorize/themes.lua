@@ -14,6 +14,7 @@
 ---@field operator ColorSpec
 ---@field preproc ColorSpec
 ---@field type ColorSpec
+---@field interface? ColorSpec
 ---@field regex ColorSpec
 ---@field deprecated ColorSpec
 ---@field comment ColorSpec

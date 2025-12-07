@@ -443,6 +443,7 @@ function public.wave()
 				operator = palette.surimiOrange,
 				preproc = palette.peachRed,
 				type = palette.carpYellow,
+				interface = palette.waveAqua2,
 				regex = palette.boatYellow2,
 				deprecated = palette.katanaGrey,
 				comment = palette.surimiOrange,
