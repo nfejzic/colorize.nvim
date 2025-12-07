@@ -1,16 +1,19 @@
 local M = {}
 
-local function minimal()
+---@param colors ColorizeColors
+local function minimal(colors)
     return {
         ["@lsp.type.formatSpecifier"] = { link = "Constant" },
         ["@lsp.type.variable"] = { link = '@variable' }, -- Identifier
         ["@lsp.typemod.deriveHelper"] = { link = "Macro" },
+        ["@lsp.type.interface"] = { fg = colors.theme.syn.interface or colors.theme.syn.special1 },
 
         ["@lsp.typemod.enum.injected"] = { link = "Type" },
-        ["@lsp.typemod.enumMember.injected"] = { link = "@variable" },
+        ["@lsp.typemod.enumMember.injected"] = { link = "@constant" },
         ["@lsp.typemod.function.injected"] = { link = "Function" },
-        ["@lsp.typemod.interface.injected"] = { link = "Type" },
+        ["@lsp.typemod.interface.injected"] = { link = "@lsp.type.interface" },
         ["@lsp.typemod.struct.injected"] = { link = "Type" },
+        ["@lsp.typemod.builtinType.injected"] = { link = "Type" },
         -- ["@lsp.typemod.comment.injected"] = { link = "Comment" },
         -- ["@lsp.typemod.operator.injected"] = { link = "Operator" },
         -- ["@lsp.typemod.string.injected"] = { link = "String" },
@@ -158,11 +161,11 @@ function M.setup(colors, config)
     end
 
     if config.semantic_highlighting == "minimal" then
-        lsp_highlights = vim.tbl_deep_extend('force', lsp_highlights, minimal())
+        lsp_highlights = vim.tbl_extend('force', lsp_highlights, minimal(colors))
     elseif config.semantic_highlighting == "medium" then
-        lsp_highlights = vim.tbl_deep_extend('force', lsp_highlights, medium(colors))
+        lsp_highlights = vim.tbl_extend('force', lsp_highlights, medium(colors))
     elseif config.semantic_highlighting == "full" then
-        lsp_highlights = vim.tbl_deep_extend('force', lsp_highlights, full())
+        lsp_highlights = vim.tbl_extend('force', lsp_highlights, full())
     end
 
     return lsp_highlights

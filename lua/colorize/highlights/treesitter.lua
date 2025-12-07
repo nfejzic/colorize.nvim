@@ -65,7 +65,7 @@ function M.setup(colors, config)
         -- @function.call          function calls
         ["@function.macro"] = { link = "Macro" },           --         preprocessor macros
         ["@macro_invocation"] = { fg = theme.syn.keyword }, --         preprocessor macros
-        ["@assert_macro"] = { fg = theme.syn.operator },
+        ["@assert_macro"] = { link = "Macro" },
         ["@superimportant"] = { fg = theme.syn.operator },
         --
         -- @function.method        method definitions
@@ -81,19 +81,23 @@ function M.setup(colors, config)
         -- @keyword.coroutine      keywords related to coroutines (e.g. `go` in Go, `async/await` in Python)
         -- @keyword.function       keywords that define a function (e.g. `func` in Go, `def` in Python)
         -- @keyword.operator       operators that are English words (e.g. `and`, `or`)
-        ["@keyword.operator"] = { fg = theme.syn.special2, bold = true },
+        -- ["@keyword.operator"] = { fg = theme.syn.special2, bold = true },
         -- @keyword.import         keywords for including modules (e.g. `import`, `from` in Python)
         ["@keyword.import"] = { link = "PreProc" },
         -- @keyword.type           keywords defining composite types (e.g. `struct`, `enum`)
         -- @keyword.modifier       keywords defining type modifiers (e.g. `const`, `static`, `public`)
-        ["@keyword.modifier"] = { link = "PreProc" },
+        ["@keyword.modifier"] = { link = "Keyword" },
+
+        ["@unsafe_specifier"] = { link = "Exception" },
+        ["@mutable_specifier"] = { link = "Type" },
+
         -- @keyword.repeat         keywords related to loops (e.g. `for`, `while`)
         -- @keyword.return         keywords like `return` and `yield`
-        ["@keyword.return"] = vim.tbl_extend("force", { fg = theme.syn.special3 }, config.keywordStyle),
+        ["@keyword.return"] = vim.tbl_extend("force", { fg = theme.syn.special2 }, config.keywordStyle),
         -- @keyword.debug          keywords related to debugging
         ["@keyword.debug.rust"] = { link = "PreProc" },
         -- @keyword.exception      keywords related to exceptions (e.g. `throw`, `catch`)
-        ["@keyword.exception"] = vim.tbl_extend("force", { fg = theme.syn.special3 }, config.statementStyle),
+        ["@keyword.exception"] = vim.tbl_extend("force", { fg = theme.syn.special2 }, config.statementStyle),
 
         ["@keyword.luap"] = { link = "@string.regex" },
         --
@@ -170,6 +174,7 @@ function M.setup(colors, config)
         -- @tag                    XML-style tag names (e.g. in XML, HTML, etc.)
         -- @tag.builtin            XML-style tag names (e.g. HTML5 tags)
         -- @tag.attribute          XML-style tag attributes
+        ["@tag"] = { link = "Type" },
         ["@tag.attribute"] = { fg = theme.syn.identifier },
         -- @tag.delimiter          XML-style tag delimiters
         ["@tag.delimiter"] = { fg = theme.syn.punct },

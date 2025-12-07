@@ -51,7 +51,7 @@ function M.setup(colors, config)
 		-- SignColumn	Column where |signs| are displayed.
 		SignColumn = { fg = theme.ui.special, bg = theme.ui.bg_gutter },
 		-- IncSearch	'incsearch' highlighting; also used for the text replaced with ":s///c".
-		IncSearch = { link = "Search" },
+		IncSearch = { link = "Search", nocombine = true },
 		-- Substitute	|:substitute| replacement text highlighting.
 		Substitute = { fg = theme.ui.fg, bg = theme.vcs.removed },
 		-- LineNr		Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
@@ -107,7 +107,7 @@ function M.setup(colors, config)
 		-- QuickFixLine	Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
 		QuickFixLine = { bg = theme.ui.bg_p1 },
 		-- Search		Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
-		Search = { fg = theme.ui.bg, bg = theme.ui.bg_search },
+		Search = { fg = theme.ui.bg, bg = theme.ui.bg_search, nocombine = true },
 		-- SpecialKey	Unprintable characters: Text displayed differently from what it really is. But not 'listchars' whitespace. |hl-Whitespace|
 		SpecialKey = { fg = theme.ui.special },
 		-- SpellBad	Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
