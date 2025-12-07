@@ -50,12 +50,21 @@ function M.setup(colors, config)
     config = config or require("colorize").config
 
     local highlights = {}
-    for _, highlight in ipairs({ "editor", "syntax", "treesitter", "lsp", "plugins" }) do
-        local mod = require("colorize.highlights." .. highlight)
-        for hl, spec in pairs(mod.setup(colors, config)) do
-            highlights[hl] = spec
-        end
-    end
+
+    local editor = require("colorize.highlights.editor")
+    highlights = vim.tbl_extend('error', highlights, editor.setup(colors, config))
+
+    local syntax = require("colorize.highlights.syntax")
+    highlights = vim.tbl_extend('error', highlights, syntax.setup(colors, config))
+
+    local treesitter = require("colorize.highlights.treesitter")
+    highlights = vim.tbl_extend('error', highlights, treesitter.setup(colors, config))
+
+    local lsp = require("colorize.highlights.lsp")
+    highlights = vim.tbl_extend('error', highlights, lsp.setup(colors, config))
+
+    local plugins = require("colorize.highlights.plugins")
+    highlights = vim.tbl_extend('error', highlights, plugins.setup(colors, config))
 
     for hl, spec in pairs(config.overrides(colors)) do
         if highlights[hl] and next(spec) then
