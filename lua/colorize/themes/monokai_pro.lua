@@ -3,10 +3,8 @@ local public = {}
 local private = {}
 
 ---@class MonokaiProPalette
----@field dark2 string
----@field dark1 string
 ---@field background string
----@field text string
+---@field foreground string
 ---@field red string
 ---@field orange string
 ---@field yellow string
@@ -18,6 +16,8 @@ local private = {}
 ---@field dimmed3 string
 ---@field dimmed4 string
 ---@field dimmed5 string
+---@field bg_dimmed1 string
+---@field bg_dimmed2 string
 
 ---@class MonokaiProPaletteLight: MonokaiProPalette
 ---@field panel string
@@ -25,29 +25,29 @@ local private = {}
 
 ---@type MonokaiProPalette
 local pro = {
-	dark2 = "#19181a",
-	dark1 = "#221f22",
-	background = "#2d2a2e",
-	text = "#fcfcfa",
-	red = "#ff6188", -- red
-	orange = "#fc9867",
-	yellow = "#ffd866",
-	green = "#a9dc76",
-	blue = "#78dce8",
-	magenta = "#ab9df2",
-	dimmed1 = "#c1c0c0",
-	dimmed2 = "#939293", -- border
+	background = "#2D2A2E",
+	foreground = "#FCFCFA",
+	red = "#FF6188",
+	orange = "#FC9867",
+	yellow = "#FFD866",
+	green = "#A9DC76",
+	blue = "#78DCE8",
+	magenta = "#AB9DF2",
+	dimmed1 = "#C1C0C0",
+	dimmed2 = "#939293",
 	dimmed3 = "#727072",
-	dimmed4 = "#5b595c",
-	dimmed5 = "#403e41",
+	dimmed4 = "#5B595C",
+	dimmed5 = "#403E41",
+	bg_dimmed1 = "#221F22",
+	bg_dimmed2 = "#19181A",
 }
 
 ---@type MonokaiProPalette
 local machine = {
-	dark2 = "#161b1e",
-	dark1 = "#1d2528",
+	bg_dimmed2 = "#161b1e",
+	bg_dimmed1 = "#1d2528",
 	background = "#273136",
-	text = "#f2fffc",
+	foreground = "#f2fffc",
 	red = "#ff6d7e",
 	orange = "#ffb270",
 	yellow = "#ffed72",
@@ -63,10 +63,10 @@ local machine = {
 
 ---@type MonokaiProPalette
 local octagon = {
-	dark2 = "#161821",
-	dark1 = "#1e1f2b",
+	bg_dimmed2 = "#161821",
+	bg_dimmed1 = "#1e1f2b",
 	background = "#282a3a",
-	text = "#eaf2f1",
+	foreground = "#eaf2f1",
 	red = "#ff657a",
 	orange = "#ff9b5e",
 	yellow = "#ffd76d",
@@ -82,10 +82,10 @@ local octagon = {
 
 ---@type MonokaiProPalette
 local ristretto = {
-	dark2 = "#191515",
-	dark1 = "#211c1c",
+	bg_dimmed2 = "#191515",
+	bg_dimmed1 = "#211c1c",
 	background = "#2c2525",
-	text = "#fff1f3",
+	foreground = "#fff1f3",
 	red = "#fd6883",
 	orange = "#f38d70",
 	yellow = "#f9cc6c",
@@ -101,10 +101,10 @@ local ristretto = {
 
 ---@type MonokaiProPalette
 local spectrum = {
-	dark2 = "#131313",
-	dark1 = "#191919",
+	bg_dimmed2 = "#131313",
+	bg_dimmed1 = "#191919",
 	background = "#222222",
-	text = "#f7f1ff",
+	foreground = "#f7f1ff",
 	red = "#fc618d",
 	orange = "#fd9353",
 	yellow = "#fce566",
@@ -120,10 +120,10 @@ local spectrum = {
 
 ---@type MonokaiProPaletteLight
 local light = {
-	dark2 = "#d3cdcc",
-	dark1 = "#ede7e5",
+	bg_dimmed2 = "#d3cdcc",
+	bg_dimmed1 = "#ede7e5",
 	background = "#faf4f2",
-	text = "#29242a",
+	foreground = "#29242a",
 	red = "#e14775",
 	orange = "#e16032",
 	yellow = "#cc7a0a",
@@ -174,12 +174,12 @@ function private.colorize(p)
 	--- @type ThemeColors
 	local colors = {
 		ui = {
-			fg = p.text,
+			fg = p.foreground,
 			fg_dim = p.dimmed2,
 			fg_reverse = p.dimmed4,
 
 			bg_dim = p.background,
-			bg_gutter = p.dimmed5,
+			bg_gutter = p.background,
 
 			bg_m3 = p.dimmed4,
 			bg_m2 = p.background,
@@ -193,10 +193,10 @@ function private.colorize(p)
 			whitespace = p.dimmed5,
 
 			bg_search = p.orange,
-			bg_visual = Color.shift(p.dimmed5, p.background, -0.08),
+			bg_visual = p.dimmed5,
 
 			pmenu = {
-				fg = p.text,
+				fg = p.foreground,
 				fg_sel = "none", -- This is important to make highlights pass-through
 				bg = "none",
 				bg_sel = p.dimmed5,
@@ -211,24 +211,24 @@ function private.colorize(p)
 			},
 		},
 		syn = {
-			string = p.green,
-			variable = p.text,
-			number = p.orange,
-			constant = p.orange,
-			identifier = p.text,
-			parameter = p.text,
-			fun = p.blue,
+			string = p.yellow,
+			variable = p.foreground,
+			number = p.magenta,
+			constant = p.magenta,
+			identifier = p.foreground,
+			parameter = p.foreground,
+			fun = p.green,
 			statement = p.red,
-			keyword = p.magenta,
-			operator = p.yellow,
+			keyword = p.red,
+			operator = p.orange,
 			preproc = p.red,
-			type = p.yellow,
-			regex = p.yellow,
+			type = p.blue,
+			regex = p.blue,
 			deprecated = p.dimmed3,
 			comment = p.orange,
-			docComment = p.green,
-			punct = p.text,
-			special1 = p.blue,
+			docComment = p.yellow,
+			punct = p.foreground,
+			special1 = p.green,
 			special2 = p.red,
 			special3 = p.red,
 		},
@@ -258,7 +258,7 @@ function private.colorize(p)
 			p.blue, -- blue
 			p.magenta, -- magenta
 			p.blue, -- cyan
-			p.dark2, -- white
+			p.bg_dimmed2, -- white
 			p.dimmed5, -- bright black
 			p.red, -- bright red
 			p.green, -- bright green
@@ -266,7 +266,7 @@ function private.colorize(p)
 			p.blue, -- bright blue
 			p.red, -- bright magenta
 			p.blue, -- bright cyan
-			p.text, -- bright white
+			p.foreground, -- bright white
 			p.orange, -- extended color 1
 			p.red, -- extended color 2
 		},
