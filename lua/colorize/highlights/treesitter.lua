@@ -31,6 +31,7 @@ function M.setup(colors, config)
         --
         -- @string                 string literals
         -- @string.documentation   string documenting code (e.g. Python docstrings)
+        ["@string.documentation"] = { link = "@comment.documentation" },
         -- @string.regexp          regular expressions
         ["@string.regexp"] = { fg = theme.syn.regex },
         -- @string.escape          escape sequences
