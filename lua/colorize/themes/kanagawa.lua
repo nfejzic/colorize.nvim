@@ -396,14 +396,11 @@ function public.wave()
 			ui = {
 				fg = palette.fujiWhite,
 				fg_dim = palette.oldWhite,
-				fg_reverse = palette.sumiInk1,
 
 				bg_dim = palette.sumiInk0,
 				bg_gutter = palette.sumiInk2,
 
 				bg_m3 = palette.sumiInk3,
-				bg_m2 = palette.oldWhite,
-				bg_m1 = palette.sumiInk0,
 				bg = palette.sumiInk1,
 				bg_p1 = palette.sumiInk2,
 				bg_p2 = palette.sumiInk2,
@@ -416,43 +413,55 @@ function public.wave()
 				bg_visual = palette.waveBlue1,
 
 				pmenu = {
-					fg = palette.oldWhite,
+					fg = palette.fujiWhite,
 					fg_sel = "none", -- This is important to make highlights pass-through
 					bg = "none",
 					bg_sel = palette.sumiInk3,
 					bg_sbar = palette.sumiInk3,
 					bg_thumb = palette.sumiInk3,
 				},
+
 				float = {
-					fg = palette.oldWhite,
+					fg = palette.fujiWhite,
 					bg = palette.sumiInk1,
 					fg_border = palette.sumiInk4,
 					bg_border = palette.sumiInk1,
 				},
 			},
+
+
 			syn = {
-				string = palette.springGreen,
 				variable = palette.fujiWhite,
-				number = palette.surimiOrange,
-				constant = palette.surimiOrange,
 				identifier = palette.fujiWhite,
 				parameter = palette.fujiWhite,
+
+				string = palette.springGreen,
+				number = palette.surimiOrange,
+				constant = palette.surimiOrange,
+				regex = palette.boatYellow2,
+
+				operator = palette.surimiOrange,
+				punct = palette.fujiWhite,
+
 				fun = palette.crystalBlue,
 				statement = palette.oniViolet,
 				keyword = palette.sakuraPink,
-				operator = palette.surimiOrange,
 				preproc = palette.peachRed,
+
 				type = palette.carpYellow,
 				interface = palette.waveAqua2,
-				regex = palette.boatYellow2,
+
 				deprecated = palette.katanaGrey,
+
 				comment = palette.fujiGrey,
 				docComment = palette.springGreen,
-				punct = palette.fujiWhite,
+
 				special1 = palette.waveAqua1,
 				special2 = palette.peachRed,
 				special3 = palette.peachRed,
 			},
+
+
 			vcs = {
 				added = palette.autumnGreen,
 				removed = palette.autumnRed,
@@ -465,6 +474,7 @@ function public.wave()
 				text = palette.winterGreen,
 				blend = 0,
 			},
+
 			diag = {
 				ok = palette.springGreen,
 				error = palette.samuraiRed,
@@ -472,6 +482,7 @@ function public.wave()
 				info = palette.waveAqua1,
 				hint = palette.dragonBlue,
 			},
+
 			term = {
 				palette.sumiInk2, -- black
 				palette.peachRed, -- red
@@ -496,6 +507,55 @@ function public.wave()
 
 		return { colors = colors, base_color = palette.oldWhite }
 	end
+end
+
+--- @param palette PaletteColors
+--- @return AllColors
+function public.wave_colors(palette)
+	local p = palette.kanagawa
+
+	--- @type AllColors
+	local colors = {
+		fg = p.fujiWhite,
+		fg_dim = p.oldWhite,
+		fg_faded = p.fujiGrey,
+		fg_accent = p.peachRed,
+		nontext = p.sumiInk4,
+
+		bg = p.sumiInk1,
+		bg_chrome = p.sumiInk2,
+		bg_dim = p.sumiInk0,
+		bg_accent = p.sumiInk3,
+		bg_highlight = p.roninYellow,
+		bg_select = p.waveBlue1,
+
+		dark_red = p.winterRed,
+		faded_red = p.autumnRed,
+		red = p.peachRed,
+		br_red = p.samuraiRed,
+
+		orange = p.surimiOrange,
+
+		faded_yellow = p.autumnYellow,
+		yellow = p.boatYellow2,
+		br_yellow = p.carpYellow,
+
+		dark_green = p.winterGreen,
+		faded_green = p.autumnGreen,
+		br_green = p.springGreen,
+
+		cyan = p.waveAqua1,
+		br_cyan = p.waveAqua2,
+
+		dark_blue = p.winterBlue,
+		blue = p.crystalBlue,
+		br_blue = p.springBlue,
+
+		magenta = p.oniViolet,
+		br_magenta = p.sakuraPink,
+	}
+
+	return colors
 end
 
 return public

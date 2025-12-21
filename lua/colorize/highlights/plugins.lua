@@ -86,7 +86,7 @@ function M.setup(colors, config)
         NvimTreeExecFile = { fg = theme.syn.string, bold = true },
         NvimTreeOpenedFile = { fg = theme.syn.special1, italic = true },
         NvimTreeWinSeparator = { link = "WinSeparator" },
-        NvimTreeWindowPicker = { bg = theme.ui.bg_m1, fg = theme.syn.special1, bold = true },
+        NvimTreeWindowPicker = { bg = theme.ui.bg_dim, fg = theme.syn.special1, bold = true },
         -- NeoTree
         NeoTreeTabInactive = { link = "TabLine" },
         NeoTreeTabActive = { link = "TabLineSel" },

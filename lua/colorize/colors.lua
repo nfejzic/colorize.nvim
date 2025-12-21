@@ -54,7 +54,6 @@ function M.setup(opts)
 	return {
 		theme = updated_theme_colors,
 		palette = updated_palette_colors,
-		base_color = new_theme.base_color,
 	}
 end
 

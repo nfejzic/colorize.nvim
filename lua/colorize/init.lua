@@ -136,6 +136,7 @@ vim.api.nvim_create_user_command("ColorizeCompile", function()
             package.loaded[mod] = nil
         end
     end
+
     M.compile()
     vim.notify("Colorize: compiled successfully!", vim.log.levels.INFO)
 
