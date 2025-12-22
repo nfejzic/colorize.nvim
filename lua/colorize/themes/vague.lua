@@ -1,31 +1,38 @@
+local Color = require("colorize.lib.color")
+
 local private = {}
 local public = {}
 
 --- @class VaguePalette
 private.palette = {
-	bg = "#141415",
-	inactiveBg = "#1c1c24",
-	fg = "#cdcdcd",
-	floatBorder = "#878787",
-	line = "#252530",
-	comment = "#606079",
-	builtin = "#b4d4cf", -- teal
-	func = "#c48282",   -- red (faded)
-	string = "#e8b589", -- orange
-	number = "#e0a363", -- orange (darker)
-	property = "#c3c3d5", -- lavender
-	constant = "#aeaed1", -- violet
-	parameter = "#bb9dbd", -- pink
-	visual = "#333738", -- dark dark dark green
-	error = "#d8647e",  -- red (bright)
-	warning = "#f3be7c", -- orange (bright)
-	hint = "#7e98e8",   -- blue (bright)
-	operator = "#90a0b5", -- teal (bright)
-	keyword = "#6e94b2", -- cyan
-	type = "#9bb4bc",   -- teal
-	search = "#405065", -- dark teal? dark cyan?
-	plus = "#7fa563",   -- green
-	delta = "#f3be7c",  -- orang-ish
+	eerie_black = "#141415",     -- prev: bg
+	raisin_black = "#252530",    -- prev: line
+	taupe_gray = "#878787",      -- prev: floatBorder
+	dark_jungle_green = "#1c1c24", -- prev: inactiveBg
+	onyx = "#333738",            -- prev: visual
+
+	light_gray = "#cdcdcd",      -- prev: fg
+	lavender_gray = "#c3c3d5",   -- prev: property
+	cadet_grey = "#90a0b5",      -- prev: operator
+	independence = "#405065",    -- prev: search
+
+	dark_electric_blue = "#606079", -- prev: comment
+	light_steel_blue = "#b4d4cf", -- prev: builtin
+	little_boy_blue = "#7e98e8", -- prev: hint
+
+	blush = "#d8647e",           -- prev: error
+	old_rose = "#c48282",        -- prev: func
+
+	gold = "#e8b589",            -- prev: string
+	indian_yellow = "#e0a363",   -- prev: number
+	mellow_apricot = "#f3be7c",  -- prev: warning
+
+	wild_blue_yonder = "#aeaed1", -- prev: constant
+	lilac = "#bb9dbd",           -- prev: parameter
+	shadow_blue = "#6e94b2",     -- prev: keyword
+	opal = "#9bb4bc",            -- prev: type
+
+	moss_green = "#7fa563",      -- prev: plus
 }
 
 --- @return VaguePalette
@@ -40,43 +47,43 @@ function public.colors(palette)
 
 	--- @type AllColors
 	return {
-		fg = p.fg,
-		fg_dim = p.fg,
-		fg_faded = p.comment,
-		fg_accent = p.error,
-		nontext = p.comment,
+		fg = p.light_gray,
+		fg_dim = p.light_gray,
+		fg_faded = p.dark_electric_blue,
+		fg_accent = p.blush,
+		nontext = p.dark_electric_blue,
 
-		bg = p.bg,
-		bg_chrome = p.inactiveBg,
-		bg_dim = p.bg,
-		bg_accent = p.visual,
-		bg_highlight = p.search,
-		bg_select = p.visual,
+		bg = p.eerie_black,
+		bg_chrome = p.dark_jungle_green,
+		bg_dim = p.eerie_black,
+		bg_accent = p.raisin_black,
+		bg_highlight = p.gold,
+		bg_select = p.onyx,
 
-		dark_red = p.func,
-		faded_red = p.func,
-		red = p.error,
-		br_red = p.error,
+		dark_red = Color.shift(p.old_rose, p.eerie_black, -0.55),
+		faded_red = Color.shift(p.old_rose, p.eerie_black, -0.25),
+		red = p.blush,
+		br_red = Color.shift(p.blush, p.eerie_black, 0.15),
 
-		orange = p.warning,
+		orange = p.mellow_apricot,
 
-		faded_yellow = p.number,
-		yellow = p.delta,
-		br_yellow = p.delta,
+		faded_yellow = Color.shift(p.indian_yellow, p.eerie_black, -0.15),
+		yellow = p.mellow_apricot,
+		br_yellow = Color.shift(p.mellow_apricot, p.eerie_black, 0.15),
 
-		dark_green = p.search,
-		faded_green = p.plus,
-		br_green = p.plus,
+		dark_green = Color.shift(p.moss_green, p.eerie_black, -0.5),
+		faded_green = Color.shift(p.moss_green, p.eerie_black, -0.15),
+		br_green = p.moss_green,
 
-		cyan = p.builtin,
-		br_cyan = p.type,
+		cyan = p.light_steel_blue,
+		br_cyan = p.opal,
 
-		dark_blue = p.hint,
-		blue = p.func,
-		br_blue = p.operator,
+		dark_blue = p.little_boy_blue,
+		blue = p.old_rose,
+		br_blue = p.cadet_grey,
 
-		magenta = p.constant,
-		br_magenta = p.keyword,
+		magenta = p.wild_blue_yonder,
+		br_magenta = p.shadow_blue,
 	}
 end
 
