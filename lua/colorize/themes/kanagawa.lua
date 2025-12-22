@@ -69,9 +69,10 @@ private.palette = {
 	lotusGray3 = "#8a8980",
 
 	-- red
-	lotusRed = "#c84053",
-	lotusRed3 = "#e82424",
-	lotusRed4 = "#d9a594",
+	lotusRed = "#c84053", -- faded red
+	lotusRed2 = "#d7474b", -- red
+	lotusRed3 = "#e82424", -- bright red
+	lotusRed4 = "#d9a594", -- dark red
 
 	-- orange
 	lotusOrange = "#cc6d00",
@@ -92,13 +93,16 @@ private.palette = {
 	lotusTeal3 = "#5a7785",
 
 	-- aqua
+	lotusAqua = "#597b75",
 	lotusAqua2 = "#5e857a",
 
 	-- cyan
 	lotusCyan = "#d7e3d8",
 
 	-- blue
+	lotusBlue1 = "#c7d7e0",
 	lotusBlue2 = "#b5cbd2",
+	lotusBlue3 = "#9fb5c9",
 	lotusBlue4 = "#4d699b",
 
 	-- violet
@@ -163,355 +167,108 @@ function public.palette()
 	return private.palette
 end
 
----@return fun(palette: PaletteColors): Theme
-function public.dragon()
-	return function(palette_colors)
-		local palette = palette_colors.kanagawa
+--- @param palette PaletteColors
+--- @return AllColors
+function public.lotus(palette)
+	local p = palette.kanagawa
 
-		local colors = {
-			ui = {
-				fg = palette.dragonWhite,
-				fg_dim = palette.oldWhite,
-				fg_reverse = palette.dragonBlack1,
+	--- @type AllColors
+	local colors = {
+		fg = p.lotusInk1,
+		fg_dim = p.lotusInk2,
+		fg_faded = p.lotusGray3,
+		fg_accent = p.lotusRed,
+		nontext = p.lotusGray2,
 
-				bg_dim = palette.dragonBlack0,
-				bg_gutter = palette.dragonBlack2,
+		bg = p.lotusWhite3,
+		bg_chrome = p.lotusWhite4,
+		bg_dim = p.lotusWhite4,
+		bg_accent = p.lotusWhite4,
+		bg_highlight = p.lotusOrange,
+		bg_select = p.lotusWhite0,
 
-				bg_m3 = palette.dragonBlack3,
-				bg_m2 = palette.oldWhite,
-				bg_m1 = palette.dragonBlack0,
-				bg = palette.dragonBlack1,
-				bg_p1 = palette.dragonBlack2,
-				bg_p2 = palette.dragonBlack2,
+		-- NOTE: maybe introduce another red color here...
+		dark_red = p.lotusRed4,
+		faded_red = p.lotusRed,
+		red = p.lotusRed2,
+		br_red = p.lotusRed3,
 
-				special = palette.dragonRed,
-				nontext = palette.dragonBlack6,
-				whitespace = palette.dragonBlack5,
+		orange = p.lotusOrange,
 
-				bg_search = palette.roninYellow,
-				bg_visual = palette.dragonBlack4,
+		faded_yellow = p.lotusYellow3,
+		yellow = p.lotusYellow2,
+		br_yellow = p.lotusAqua2,
 
-				pmenu = {
-					fg = palette.oldWhite,
-					fg_sel = "none", -- This is important to make highlights pass-through
-					bg = "none",
-					bg_sel = palette.dragonBlack4,
-					bg_sbar = palette.dragonBlack5,
-					bg_thumb = palette.dragonBlack5,
-				},
-				float = {
-					fg = palette.oldWhite,
-					bg = palette.dragonBlack1,
-					fg_border = palette.dragonBlack4,
-					bg_border = palette.dragonBlack1,
-				},
-			},
-			syn = {
-				string = palette.dragonGreen2,
-				variable = palette.dragonWhite,
-				number = palette.dragonOrange,
-				constant = palette.dragonOrange,
-				identifier = palette.dragonWhite,
-				parameter = palette.dragonWhite,
-				fun = palette.dragonBlue2,
-				statement = palette.dragonViolet,
-				keyword = palette.dragonPink,
-				operator = palette.dragonOrange,
-				preproc = palette.dragonRed,
-				type = palette.dragonYellow,
-				regex = palette.dragonRed,
-				deprecated = palette.katanaGrey,
-				comment = palette.fujiGrey,
-				docComment = palette.dragonGreen2,
-				punct = palette.dragonWhite,
-				special1 = palette.dragonTeal,
-				special2 = palette.dragonRed,
-				special3 = palette.dragonRed,
-			},
-			vcs = {
-				added = palette.autumnGreen,
-				removed = palette.autumnRed,
-				changed = palette.autumnYellow,
-			},
-			diff = {
-				add = palette.winterGreen,
-				delete = palette.winterRed,
-				change = palette.winterBlue,
-				text = palette.winterYellow,
-				blend = 100,
-			},
-			diag = {
-				ok = palette.dragonGreen2,
-				error = palette.samuraiRed,
-				warning = palette.roninYellow,
-				info = palette.waveAqua1,
-				hint = palette.dragonBlue,
-			},
-			term = {
-				palette.dragonBlack0, -- black
-				palette.dragonRed, -- red
-				palette.dragonGreen2, -- green
-				palette.dragonYellow, -- yellow
-				palette.dragonBlue2, -- blue
-				palette.dragonPink, -- magenta
-				palette.dragonAqua, -- cyan
-				palette.oldWhite, -- white
-				palette.dragonGray, -- bright black
-				palette.waveRed, -- bright red
-				palette.dragonGreen, -- bright green
-				palette.carpYellow, -- bright yellow
-				palette.springBlue, -- bright blue
-				palette.springViolet1, -- bright magenta
-				palette.waveAqua2, -- bright cyan
-				palette.dragonWhite, -- bright white
-				palette.dragonOrange, -- extended color 1
-				palette.dragonOrange2, -- extended color 2
-			},
-		}
+		dark_green = p.lotusGreen3,
+		faded_green = p.lotusGreen2,
+		br_green = p.lotusGreen,
 
-		return { colors = colors, base_color = palette.oldWhite }
-	end
-end
+		cyan = p.lotusAqua2,
+		br_cyan = p.lotusTeal3,
 
----@return fun(palette: PaletteColors): Theme
-function public.lotus()
-	return function(palette_colors)
-		local palette = palette_colors.kanagawa
+		dark_blue = p.lotusCyan,
+		blue = p.lotusBlue4,
+		br_blue = p.lotusTeal2,
 
-		local fg = palette.lotusInk1
-		local bg = palette.lotusWhite3
-		local bg_gutter = palette.lotusWhite4
+		magenta = p.lotusViolet4,
+		br_magenta = p.lotusPink,
+	}
 
-		local colors = {
-			ui = {
-				fg = fg,
-				fg_dim = palette.lotusInk2,
-				fg_reverse = bg,
-
-				bg_dim = bg_gutter,
-				bg_gutter = bg_gutter,
-
-				bg_m3 = bg_gutter,
-				bg_m2 = palette.lotusInk2,
-				bg_m1 = bg_gutter,
-				bg = palette.lotusWhite3,
-				bg_p1 = bg_gutter,
-				bg_p2 = palette.lotusWhite2,
-
-				special = palette.lotusRed,
-				nontext = palette.lotusGray2,
-				whitespace = palette.lotusWhite2,
-
-				bg_search = palette.lotusOrange2,
-				bg_visual = palette.lotusWhite0,
-
-				pmenu = {
-					fg = "none",
-					fg_sel = "none",
-					bg = "none",
-					bg_sel = palette.lotusWhite0,
-					bg_sbar = palette.lotusInk2,
-					bg_thumb = palette.lotusInk2,
-				},
-				float = {
-					fg = fg,
-					bg = bg,
-					fg_border = fg,
-					bg_border = bg,
-				},
-			},
-			syn = {
-				string = palette.lotusGreen,
-				variable = palette.lotusInk1,
-				number = palette.lotusOrange,
-				constant = palette.lotusOrange,
-				identifier = palette.lotusInk1,
-				parameter = palette.lotusInk1,
-				fun = palette.lotusBlue4,
-				statement = palette.lotusViolet4,
-				keyword = palette.lotusPink,
-				operator = palette.lotusOrange,
-				preproc = palette.lotusRed,
-				type = palette.lotusAqua2,
-				regex = palette.lotusYellow2,
-				deprecated = palette.lotusGray3,
-				comment = palette.fujiGrey,
-				docComment = palette.lotusGreen,
-				punct = palette.lotusInk1,
-				special1 = palette.lotusTeal2,
-				special2 = palette.lotusRed,
-				special3 = palette.lotusRed,
-			},
-			vcs = {
-				added = palette.lotusGreen2,
-				removed = palette.lotusRed,
-				changed = palette.lotusYellow3,
-			},
-			diff = {
-				add = palette.lotusGreen2,
-				delete = palette.lotusRed4,
-				change = palette.lotusGreen3,
-				text = palette.springGreen,
-				blend = 30,
-			},
-			diag = {
-				ok = palette.lotusGreen,
-				error = palette.lotusRed3,
-				warning = palette.lotusOrange2,
-				info = palette.lotusAqua2,
-				hint = palette.lotusTeal3,
-			},
-			term = {
-				palette.lotusWhite2, -- black
-				palette.lotusRed, -- red
-				palette.lotusGreen2, -- green
-				palette.lotusYellow2, -- yellow
-				palette.lotusBlue4, -- blue
-				palette.lotusViolet4, -- magenta
-				palette.lotusAqua2, -- cyan
-				palette.lotusInk1, -- white
-				palette.lotusInk2, -- bright black
-				palette.lotusRed3, -- bright red
-				palette.lotusGreen, -- bright green
-				palette.lotusOrange2, -- bright yellow
-				palette.lotusTeal2, -- bright blue
-				palette.lotusPink, -- bright magenta
-				palette.lotusAqua2, -- bright cyan
-				palette.lotusInk2, -- bright white
-				palette.lotusOrange, -- extended color 1
-				palette.lotusRed3, -- extended color 2
-			},
-		}
-
-		return { colors = colors, base_color = palette.lotusWhite1 }
-	end
-end
-
---- @return fun(palette: PaletteColors): Theme
-function public.wave()
-	return function(palette_colors)
-		local palette = palette_colors.kanagawa
-
-		local colors = {
-			ui = {
-				fg = palette.fujiWhite,
-				fg_dim = palette.oldWhite,
-
-				bg_dim = palette.sumiInk0,
-				bg_gutter = palette.sumiInk2,
-
-				bg_m3 = palette.sumiInk3,
-				bg = palette.sumiInk1,
-				bg_p1 = palette.sumiInk2,
-				bg_p2 = palette.sumiInk2,
-
-				special = palette.peachRed,
-				nontext = palette.sumiInk4,
-				whitespace = palette.sumiInk2,
-
-				bg_search = palette.roninYellow,
-				bg_visual = palette.waveBlue1,
-
-				pmenu = {
-					fg = palette.fujiWhite,
-					fg_sel = "none", -- This is important to make highlights pass-through
-					bg = "none",
-					bg_sel = palette.sumiInk3,
-					bg_sbar = palette.sumiInk3,
-					bg_thumb = palette.sumiInk3,
-				},
-
-				float = {
-					fg = palette.fujiWhite,
-					bg = palette.sumiInk1,
-					fg_border = palette.sumiInk4,
-					bg_border = palette.sumiInk1,
-				},
-			},
-
-
-			syn = {
-				variable = palette.fujiWhite,
-				identifier = palette.fujiWhite,
-				parameter = palette.fujiWhite,
-
-				string = palette.springGreen,
-				number = palette.surimiOrange,
-				constant = palette.surimiOrange,
-				regex = palette.boatYellow2,
-
-				operator = palette.surimiOrange,
-				punct = palette.fujiWhite,
-
-				fun = palette.crystalBlue,
-				statement = palette.oniViolet,
-				keyword = palette.sakuraPink,
-				preproc = palette.peachRed,
-
-				type = palette.carpYellow,
-				interface = palette.waveAqua2,
-
-				deprecated = palette.katanaGrey,
-
-				comment = palette.fujiGrey,
-				docComment = palette.springGreen,
-
-				special1 = palette.waveAqua1,
-				special2 = palette.peachRed,
-				special3 = palette.peachRed,
-			},
-
-
-			vcs = {
-				added = palette.autumnGreen,
-				removed = palette.autumnRed,
-				changed = palette.autumnYellow,
-			},
-			diff = {
-				add = palette.winterGreen,
-				delete = palette.winterRed,
-				change = palette.winterBlue,
-				text = palette.winterGreen,
-				blend = 0,
-			},
-
-			diag = {
-				ok = palette.springGreen,
-				error = palette.samuraiRed,
-				warning = palette.roninYellow,
-				info = palette.waveAqua1,
-				hint = palette.dragonBlue,
-			},
-
-			term = {
-				palette.sumiInk2, -- black
-				palette.peachRed, -- red
-				palette.autumnGreen, -- green
-				palette.boatYellow2, -- yellow
-				palette.crystalBlue, -- blue
-				palette.oniViolet, -- magenta
-				palette.waveAqua1, -- cyan
-				palette.fujiWhite, -- white
-				palette.oldWhite, -- bright black
-				palette.samuraiRed, -- bright red
-				palette.springGreen, -- bright green
-				palette.roninYellow, -- bright yellow
-				palette.springBlue, -- bright blue
-				palette.sakuraPink, -- bright magenta
-				palette.lightBlue, -- bright cyan
-				palette.oldWhite, -- bright white
-				palette.surimiOrange, -- extended color 1
-				palette.samuraiRed, -- extended color 2
-			},
-		}
-
-		return { colors = colors, base_color = palette.oldWhite }
-	end
+	return colors
 end
 
 --- @param palette PaletteColors
 --- @return AllColors
-function public.wave_colors(palette)
+function public.dragon(palette)
+	local p = palette.kanagawa
+
+	--- @type AllColors
+	local colors = {
+		fg = p.dragonWhite,
+		fg_dim = p.oldWhite,
+		fg_faded = p.fujiGrey,
+		fg_accent = p.dragonRed,
+		nontext = p.dragonBlack6,
+
+		bg = p.dragonBlack1,
+		bg_chrome = p.dragonBlack2,
+		bg_dim = p.dragonBlack0,
+		bg_accent = p.dragonBlack4,
+		bg_highlight = p.roninYellow,
+		bg_select = p.dragonBlack4,
+
+		dark_red = p.winterRed,
+		faded_red = p.autumnRed,
+		red = p.dragonRed,
+		br_red = p.waveRed,
+
+		orange = p.dragonOrange,
+
+		faded_yellow = p.autumnYellow,
+		yellow = p.dragonYellow,
+		br_yellow = p.dragonYellow,
+
+		dark_green = p.winterGreen,
+		faded_green = p.autumnGreen,
+		br_green = p.dragonGreen2,
+
+		cyan = p.waveAqua1,
+		br_cyan = p.waveAqua2,
+
+		dark_blue = p.winterBlue,
+		blue = p.dragonBlue2,
+		br_blue = p.springBlue,
+
+		magenta = p.dragonViolet,
+		br_magenta = p.dragonPink,
+	}
+
+	return colors
+end
+
+--- @param palette PaletteColors
+--- @return AllColors
+function public.wave(palette)
 	local p = palette.kanagawa
 
 	--- @type AllColors

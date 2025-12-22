@@ -303,9 +303,9 @@ return {
 	["rose-pine-moon"] = rose_pine.colorize("moon"),
 	["rose-pine-dawn"] = rose_pine.colorize("dawn"),
 
-	["kanagawa-wave"] = colorize(kanagawa.wave_colors),
-	["kanagawa-dragon"] = kanagawa.dragon(),
-	["kanagawa-lotus"] = kanagawa.lotus(),
+	["kanagawa-wave"] = colorize(kanagawa.wave),
+	["kanagawa-dragon"] = colorize(kanagawa.dragon),
+	["kanagawa-lotus"] = colorize(kanagawa.lotus),
 
 	["kanso-zen"] = kanso.zen(),
 	["kanso-ink"] = kanso.ink(),
