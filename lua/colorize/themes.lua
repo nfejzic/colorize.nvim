@@ -97,6 +97,7 @@ local kanso = require('colorize.themes.kanso')
 local catppuccin = require('colorize.themes.catppuccin')
 local everforest = require('colorize.themes.everforest')
 local monokai_pro = require('colorize.themes.monokai_pro')
+local vague = require('colorize.themes.vague')
 
 ---@alias ThemeChoice
 ---|'gruvbox-dark-hard'
@@ -325,4 +326,6 @@ return {
 	["monokai-ristretto"] = monokai_pro.dark("ristretto"),
 	["monokai-machine"] = monokai_pro.dark("machine"),
 	["monokai-light"] = monokai_pro.light(),
+
+	["vague"] = colorize(vague.colors),
 }

@@ -6,6 +6,7 @@ local kanso = require('colorize.themes.kanso')
 local catppuccin = require('colorize.themes.catppuccin')
 local everforest = require('colorize.themes.everforest')
 local monokai_pro = require('colorize.themes.monokai_pro')
+local vague = require('colorize.themes.vague')
 
 ---@class PaletteColors
 local palette = {
@@ -17,6 +18,7 @@ local palette = {
 	kanso = kanso.palette(),
 	everforest = everforest.palette(),
 	monokai_pro = monokai_pro.palette(),
+	vague = vague.palette(),
 }
 
 local M = {}

@@ -42,6 +42,8 @@ local private = {
         "monokai-spectrum",
 
         "two-firewatch-dark",
+
+        "vague",
     },
 }
 
