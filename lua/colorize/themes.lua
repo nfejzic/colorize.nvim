@@ -209,7 +209,7 @@ local function colorize(get_colors)
 				add = colors.dark_green,
 				delete = colors.dark_red,
 				change = colors.dark_blue,
-				text = colors.dark_green,
+				text = colors.faded_green,
 				blend = 0,
 			},
 
