@@ -313,10 +313,10 @@ return {
 	["kanso-pearl"] = kanso.pearl(),
 	["kanso-mist"] = kanso.mist(),
 
-	["catppuccin-latte"] = catppuccin.latte(),
-	["catppuccin-frappe"] = catppuccin.frappe(),
-	["catppuccin-macchiato"] = catppuccin.macchiato(),
-	["catppuccin-mocha"] = catppuccin.mocha(),
+	["catppuccin-latte"] = colorize(catppuccin.latte),
+	["catppuccin-frappe"] = colorize(catppuccin.frappe),
+	["catppuccin-macchiato"] = colorize(catppuccin.macchiato),
+	["catppuccin-mocha"] = colorize(catppuccin.mocha),
 
 	["everforest-dark-hard"] = everforest.dark("hard"),
 

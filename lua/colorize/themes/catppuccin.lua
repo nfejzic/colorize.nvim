@@ -164,150 +164,77 @@ function public.palette()
 	return private.palette
 end
 
----@return fun(palette: PaletteColors): Theme
-function public.latte()
-	return function(palette_colors)
-		local theme = palette_colors.catppuccin
-		local palette = theme.latte
-
-		return private.colorize(palette)
-	end
+---@param palette PaletteColors
+---@return AllColors
+function public.latte(palette)
+	return private.colorize(palette.catppuccin.latte)
 end
 
----@return fun(palette: PaletteColors): Theme
-function public.frappe()
-	return function(palette_colors)
-		local theme = palette_colors.catppuccin
-		local palette = theme.frappe
-
-		return private.colorize(palette)
-	end
+---@param palette PaletteColors
+---@return AllColors
+function public.frappe(palette)
+	return private.colorize(palette.catppuccin.frappe)
 end
 
----@return fun(palette: PaletteColors): Theme
-function public.macchiato()
-	return function(palette_colors)
-		local theme = palette_colors.catppuccin
-		local palette = theme.macchiato
-
-		return private.colorize(palette)
-	end
+---@param palette PaletteColors
+---@return AllColors
+function public.macchiato(palette)
+	return private.colorize(palette.catppuccin.macchiato)
 end
 
----@return fun(palette: PaletteColors): Theme
-function public.mocha()
-	return function(palette_colors)
-		local theme = palette_colors.catppuccin
-		local palette = theme.mocha
-
-		return private.colorize(palette)
-	end
+---@param palette PaletteColors
+---@return AllColors
+function public.mocha(palette)
+	return private.colorize(palette.catppuccin.mocha)
 end
 
 ---@param palette CatppuccinPaletteColors
----@return Theme
+---@return AllColors
 function private.colorize(palette)
+	local Color = require("colorize.lib.color")
+
+	---@type AllColors
 	local colors = {
-		ui = {
-			fg = palette.Text,
-			fg_dim = palette.Subtext1,
-			fg_reverse = palette.Base,
+		fg = palette.Text,
+		fg_dim = palette.Subtext1,
+		fg_accent = palette.Maroon,
+		fg_faded = palette.Overlay2,
+		nontext = palette.Overlay1,
 
-			bg_dim = palette.Crust,
-			bg_gutter = palette.Surface0,
+		bg = palette.Base,
+		bg_dim = palette.Crust,
+		bg_chrome = palette.Surface0,
+		bg_accent = palette.Surface0,
+		bg_highlight = palette.Teal,
+		bg_select = palette.Surface1,
 
-			bg_m3 = palette.Mantle,
-			bg_m2 = palette.Subtext1,
-			bg_m1 = palette.Crust,
-			bg = palette.Base,
-			bg_p1 = palette.Surface0,
-			bg_p2 = palette.Surface0,
+		dark_red = Color.shift(palette.Red, palette.Base, -0.6),
+		faded_red = Color.shift(palette.Red, palette.Base, -0.45),
+		red = palette.Red,
+		br_red = palette.Maroon,
 
-			special = palette.Maroon,
-			nontext = palette.Overlay1,
-			whitespace = palette.Surface0,
+		orange = palette.Peach,
 
-			bg_search = palette.Teal,
-			bg_visual = palette.Surface1,
+		faded_yellow = Color.shift(palette.Yellow, palette.Base, -0.2),
+		yellow = palette.Yellow,
+		br_yellow = palette.Yellow,
 
-			pmenu = {
-				fg = palette.Subtext1,
-				fg_sel = "none", -- This is important to make highlights pass-through
-				bg = palette.Surface0,
-				bg_sel = palette.Surface1,
-				bg_sbar = palette.Surface1,
-				bg_thumb = palette.Surface1,
-			},
-			float = {
-				fg = palette.Subtext1,
-				bg = palette.Base,
-				fg_border = palette.Overlay1,
-				bg_border = palette.Base,
-			},
-		},
-		syn = {
-			string = palette.Green,
-			variable = palette.Text,
-			number = palette.Peach,
-			constant = palette.Peach,
-			identifier = palette.Text,
-			parameter = palette.Text,
-			fun = palette.Blue,
-			statement = palette.Mauve,
-			keyword = palette.Mauve,
-			operator = palette.Peach,
-			preproc = palette.Red,
-			type = palette.Yellow,
-			regex = palette.Yellow,
-			deprecated = palette.Subtext1,
-			comment = palette.Peach,
-			docComment = palette.Green,
-			punct = palette.Text,
-			special1 = palette.Sapphire,
-			special2 = palette.Red,
-			special3 = palette.Red,
-		},
-		vcs = {
-			added = palette.Green,
-			removed = palette.Red,
-			changed = palette.Blue,
-		},
-		diff = {
-			add = palette.Green,
-			delete = palette.Red,
-			change = palette.Blue,
-			text = palette.Text,
-		},
-		diag = {
-			ok = palette.Green,
-			error = palette.Red,
-			warning = palette.Yellow,
-			info = palette.Sky,
-			hint = palette.Sapphire,
-		},
-		term = {
-			palette.Surface0, -- black
-			palette.Maroon, -- red
-			palette.Green, -- green
-			palette.Yellow, -- yellow
-			palette.Blue, -- blue
-			palette.Mauve, -- magenta
-			palette.Sky, -- cyan
-			palette.Text, -- white
-			palette.Subtext1, -- bright black
-			palette.Red, -- bright red
-			palette.Green, -- bright green
-			palette.Yellow, -- bright yellow
-			palette.Sapphire, -- bright blue
-			palette.Pink, -- bright magenta
-			palette.Sky, -- bright cyan
-			palette.Subtext1, -- bright white
-			palette.Peach, -- extended color 1
-			palette.Red, -- extended color 2
-		},
+		dark_green = Color.shift(palette.Green, palette.Base, -0.6),
+		faded_green = Color.shift(palette.Green, palette.Base, -0.45),
+		br_green = palette.Green,
+
+		cyan = palette.Teal,
+		br_cyan = palette.Sky,
+
+		dark_blue = Color.shift(palette.Blue, palette.Base, -0.6),
+		blue = palette.Blue,
+		br_blue = palette.Sapphire,
+
+		magenta = palette.Lavender,
+		br_magenta = palette.Mauve,
 	}
 
-	return { colors = colors, base_color = palette.Subtext1 }
+	return colors
 end
 
 return public
