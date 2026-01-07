@@ -139,444 +139,192 @@ function public.palette()
 	return private.palette
 end
 
----@return fun(palette: PaletteColors): Theme
-function public.zen()
-	return function(palette_colors)
-		local palette = palette_colors.kanso
+--- @param palette PaletteColors
+--- @return AllColors
+function public.zen(palette)
+	local p = palette.kanso
 
-		local colors = {
-			ui = {
-				fg = palette.inkWhite,
-				fg_dim = palette.inkGray,
-				fg_reverse = palette.zenBlue1,
+	--- @type AllColors
+	return {
+		fg = p.inkWhite,
+		fg_dim = p.inkGray,
+		fg_accent = p.inkRed,
+		fg_faded = p.katanaGray,
+		nontext = p.inkAsh,
 
-				bg_dim = palette.zen0,
-				bg_gutter = palette.zen1,
+		bg = p.zen0,
+		bg_dim = p.zen0,
+		bg_chrome = p.zen1,
+		bg_accent = p.zen2,
+		bg_highlight = p.roninYellow,
+		bg_select = p.inkBlack2,
 
-				bg_m3 = palette.zen0,
-				bg_m2 = palette.inkGray,
-				bg_m1 = palette.zen0,
-				bg = palette.zen0,
-				bg_p1 = palette.zen1,
-				bg_p2 = palette.zen1,
+		dark_red = p.winterRed,
+		faded_red = p.autumnRed,
+		red = p.inkRed,
+		br_red = p.samuraiRed,
 
-				special = palette.inkRed,
-				nontext = palette.inkAsh,
-				whitespace = palette.inkBlack3,
+		orange = p.inkOrange,
 
-				bg_search = palette.roninYellow,
-				bg_visual = palette.inkBlack3,
+		faded_yellow = p.autumnYellow,
+		yellow = p.inkYellow,
+		br_yellow = p.carpYellow,
 
-				pmenu = {
-					fg = palette.inkGray,
-					fg_sel = "none", -- This is important to make highlights pass-through
-					bg = "none",
-					bg_sel = palette.inkBlack3,
-					bg_sbar = palette.inkBlack3,
-					bg_thumb = palette.inkBlack3,
-				},
-				float = {
-					fg = palette.inkGray,
-					bg = palette.zen0,
-					fg_border = palette.inkBlack3,
-					bg_border = palette.zen0,
-				},
-			},
-			syn = {
-				string = palette.inkGreen2,
-				variable = palette.inkWhite,
-				number = palette.inkOrange,
-				constant = palette.inkOrange,
-				identifier = palette.inkWhite,
-				parameter = palette.inkWhite,
-				fun = palette.inkBlue2,
-				statement = palette.inkViolet,
-				keyword = palette.inkPink,
-				operator = palette.inkGray1,
-				preproc = palette.inkRed,
-				type = palette.inkYellow,
-				regex = palette.inkRed,
-				deprecated = palette.katanaGray,
-				comment = palette.inkOrange,
-				docComment = palette.inkGreen2,
-				punct = palette.inkWhite,
-				special1 = palette.inkYellow,
-				special2 = palette.inkRed,
-				special3 = palette.inkRed,
-			},
-			vcs = {
-				added = palette.autumnGreen,
-				removed = palette.autumnRed,
-				changed = palette.autumnYellow,
-			},
-			diff = {
-				add = palette.winterGreen,
-				delete = palette.winterRed,
-				change = palette.winterBlue,
-				text = palette.winterYellow,
-				blend = 100,
-			},
-			diag = {
-				ok = palette.springGreen,
-				error = palette.samuraiRed,
-				warning = palette.roninYellow,
-				info = palette.inkBlue,
-				hint = palette.zenAqua1,
-			},
-			term = {
-				palette.zen0, -- black
-				palette.inkRed, -- red
-				palette.inkGreen2, -- green
-				palette.inkYellow, -- yellow
-				palette.inkBlue2, -- blue
-				palette.inkPink, -- magenta
-				palette.inkWhite, -- cyan
-				palette.inkGray, -- white
-				palette.inkGray1, -- bright black
-				palette.zenRed, -- bright red
-				palette.inkGreen, -- bright green
-				palette.carpYellow, -- bright yellow
-				palette.springBlue, -- bright blue
-				palette.springViolet1, -- bright magenta
-				palette.zenAqua2, -- bright cyan
-				palette.inkWhite, -- bright white
-				palette.inkOrange, -- extended color 1
-				palette.inkOrange2, -- extended color 2
-			},
-		}
+		dark_green = p.winterGreen,
+		faded_green = p.autumnGreen,
+		br_green = p.inkGreen2,
 
-		return { colors = colors, base_color = palette.oldWhite }
-	end
+		cyan = p.inkBlue,
+		br_cyan = p.zenAqua1,
+
+		dark_blue = p.winterBlue,
+		blue = p.inkBlue2,
+		br_blue = p.springBlue,
+
+		magenta = p.inkViolet,
+		br_magenta = p.inkPink,
+	}
 end
 
----@return fun(palette: PaletteColors): Theme
-function public.ink()
-	return function(palette_colors)
-		local palette = palette_colors.kanso
+--- @param palette PaletteColors
+--- @return AllColors
+function public.ink(palette)
+	local p = palette.kanso
 
-		local colors = {
-			ui = {
-				fg = palette.inkWhite,
-				fg_dim = palette.inkGray,
-				fg_reverse = palette.zenBlue1,
+	--- @type AllColors
+	return {
+		fg = p.inkWhite,
+		fg_dim = p.inkGray,
+		fg_accent = p.inkRed,
+		fg_faded = p.katanaGray,
+		nontext = p.inkAsh,
 
-				bg_dim = palette.inkBlack0,
-				bg_gutter = palette.inkBlack1,
+		bg = p.inkBlack0,
+		bg_dim = p.inkBlack0,
+		bg_chrome = p.inkBlack1,
+		bg_accent = p.inkBlack3,
+		bg_highlight = p.roninYellow,
+		bg_select = p.inkBlack3,
 
-				bg_m3 = palette.inkBlack0,
-				bg_m2 = palette.inkBlack0,
-				bg_m1 = palette.inkBlack0,
-				bg = palette.inkBlack0,
-				bg_p1 = palette.inkBlack1,
-				bg_p2 = palette.inkBlack1,
+		dark_red = p.winterRed,
+		faded_red = p.autumnRed,
+		red = p.inkRed,
+		br_red = p.samuraiRed,
 
-				special = palette.inkRed,
-				nontext = palette.inkAsh,
-				whitespace = palette.inkBlack4,
+		orange = p.roninYellow,
 
-				bg_search = palette.roninYellow,
-				bg_visual = palette.inkBlack3,
+		faded_yellow = p.autumnYellow,
+		yellow = p.inkYellow,
+		br_yellow = p.carpYellow,
 
-				pmenu = {
-					fg = palette.fujiWhite,
-					fg_sel = "none", -- This is important to make highlights pass-through
-					bg = "none",
-					bg_sel = palette.inkBlack3,
-					bg_sbar = palette.inkBlack3,
-					bg_thumb = palette.inkBlack2,
-				},
-				float = {
-					fg = palette.inkGray,
-					bg = palette.inkBlack0,
-					fg_border = palette.inkBlack2,
-					bg_border = palette.inkBlack0,
-				},
-			},
-			syn = {
-				string = palette.inkGreen2,
-				variable = palette.inkWhite,
-				number = palette.inkOrange,
-				constant = palette.inkOrange,
-				identifier = palette.inkWhite,
-				parameter = palette.inkWhite,
-				fun = palette.inkBlue2,
-				statement = palette.inkViolet,
-				keyword = palette.inkPink,
-				operator = palette.inkGray1,
-				preproc = palette.inkRed,
-				type = palette.inkYellow,
-				regex = palette.inkRed,
-				deprecated = palette.katanaGray,
-				comment = palette.inkOrange,
-				docComment = palette.inkGreen2,
-				punct = palette.inkGray1,
-				special1 = palette.inkYellow,
-				special2 = palette.inkRed,
-				special3 = palette.inkRed,
-			},
-			vcs = {
-				added = palette.autumnGreen,
-				removed = palette.autumnRed,
-				changed = palette.autumnYellow,
-			},
-			diff = {
-				add = palette.winterGreen,
-				delete = palette.winterRed,
-				change = palette.winterBlue,
-				text = palette.winterYellow,
-				blend = 100,
-			},
-			diag = {
-				ok = palette.springGreen,
-				error = palette.samuraiRed,
-				warning = palette.roninYellow,
-				info = palette.inkBlue,
-				hint = palette.zenAqua1,
-			},
-			term = {
-				palette.inkBlack0, -- black
-				palette.inkRed, -- red
-				palette.inkGreen2, -- green
-				palette.inkYellow, -- yellow
-				palette.inkBlue2, -- blue
-				palette.inkPink, -- magenta
-				palette.inkWhite, -- cyan
-				palette.inkGray, -- white
-				palette.inkGray1, -- bright black
-				palette.zenRed, -- bright red
-				palette.inkGreen, -- bright green
-				palette.carpYellow, -- bright yellow
-				palette.springBlue, -- bright blue
-				palette.springViolet1, -- bright magenta
-				palette.zenAqua2, -- bright cyan
-				palette.inkWhite, -- bright white
-				palette.inkOrange, -- extended color 1
-				palette.inkOrange2, -- extended color 2
-			},
-		}
+		dark_green = p.winterGreen,
+		faded_green = p.autumnGreen,
+		br_green = p.springGreen,
 
-		return { colors = colors, base_color = palette.oldWhite }
-	end
+		cyan = p.inkBlue,
+		br_cyan = p.zenAqua1,
+
+		dark_blue = p.winterBlue,
+		blue = p.inkBlue2,
+		br_blue = p.springBlue,
+
+		magenta = p.inkViolet,
+		br_magenta = p.inkPink,
+	}
 end
 
----@return fun(palette: PaletteColors): Theme
-function public.pearl()
-	return function(palette_colors)
-		local palette = palette_colors.kanso
+--- @param palette PaletteColors
+--- @return AllColors
+function public.pearl(palette)
+	local p = palette.kanso
 
-		local colors = {
-			ui = {
-				fg = palette.pearlInk0,
-				fg_dim = palette.pearlInk1,
-				fg_reverse = palette.pearlGray,
+	--- @type AllColors
+	return {
+		fg = p.pearlInk0,
+		fg_dim = p.pearlInk1,
+		fg_accent = p.pearlRed,
+		fg_faded = p.pearlOrange,
+		nontext = p.pearlViolet1,
 
-				bg_dim = palette.pearlWhite0,
-				bg_gutter = palette.pearlWhite1,
+		bg = p.pearlWhite0,
+		bg_dim = p.pearlWhite0,
+		bg_chrome = p.pearlWhite1,
+		bg_accent = p.pearlWhite2,
+		bg_highlight = p.pearlOrange2,
+		bg_select = p.pearlWhite2,
 
-				bg_m3 = palette.pearlWhite0,
-				bg_m2 = palette.pearlWhite0,
-				bg_m1 = palette.pearlWhite0,
-				bg = palette.pearlWhite0,
-				bg_p1 = palette.pearlWhite1,
-				bg_p2 = palette.pearlWhite1,
+		dark_red = p.pearlRed4,
+		faded_red = p.pearlRed2,
+		red = p.pearlRed,
+		br_red = p.pearlRed3,
 
-				special = palette.pearlRed,
-				nontext = palette.pearlViolet1,
-				whitespace = palette.pearlWhite3,
+		orange = p.pearlOrange,
 
-				bg_search = palette.pearlOrange2,
-				bg_visual = palette.pearlWhite2,
+		faded_yellow = p.pearlYellow3,
+		yellow = p.pearlYellow,
+		br_yellow = p.pearlYellow,
 
-				pmenu = {
-					fg = palette.pearlInk2,
-					fg_sel = "none", -- This is important to make highlights pass-through
-					bg = "none",
-					bg_sel = palette.pearlWhite2,
-					bg_sbar = palette.pearlWhite2,
-					bg_thumb = palette.inkBlack2,
-				},
-				float = {
-					fg = palette.pearlInk2,
-					bg = palette.pearlWhite0,
-					fg_border = palette.pearlGray2,
-					bg_border = palette.pearlWhite0,
-				},
-			},
-			syn = {
-				string = palette.pearlGreen,
-				variable = palette.pearlInk0,
-				number = palette.pearlOrange,
-				constant = palette.pearlOrange,
-				identifier = palette.pearlInk0,
-				parameter = palette.pearlInk0,
-				fun = palette.pearlBlue4,
-				statement = palette.pearlViolet4,
-				keyword = palette.pearlPink,
-				operator = palette.pearlGray3,
-				preproc = palette.pearlRed,
-				type = palette.pearlYellow,
-				regex = palette.pearlRed,
-				deprecated = palette.pearlGray3,
-				comment = palette.pearlOrange,
-				docComment = palette.pearlGreen,
-				punct = palette.pearlGray3,
-				special1 = palette.pearlYellow,
-				special2 = palette.pearlRed,
-				special3 = palette.pearlRed,
-			},
-			vcs = {
-				added = palette.pearlGreen2,
-				removed = palette.pearlRed2,
-				changed = palette.pearlYellow3,
-			},
-			diff = {
-				add = palette.pearlGreen3,
-				delete = palette.pearlRed4,
-				change = palette.pearlCyan,
-				text = palette.pearlYellow4,
-				blend = 100,
-			},
-			diag = {
-				ok = palette.pearlGreen,
-				error = palette.pearlRed3,
-				warning = palette.pearlOrange2,
-				info = palette.pearlTeal3,
-				hint = palette.pearlAqua2,
-			},
-			term = {
-				palette.inkBlack2, -- black
-				palette.pearlRed, -- red
-				palette.pearlGreen, -- green
-				palette.pearlYellow, -- yellow
-				palette.pearlBlue4, -- blue
-				palette.pearlPink, -- magenta
-				palette.pearlAqua, -- cyan
-				palette.pearlInk0, -- white
-				palette.pearlGray3, -- bright black
-				palette.pearlRed2, -- bright red
-				palette.pearlGreen2, -- bright green
-				palette.pearlYellow2, -- bright yellow
-				palette.pearlTeal2, -- bright blue
-				palette.pearlViolet4, -- bright magenta
-				palette.pearlAqua2, -- bright cyan
-				palette.pearlInk2, -- bright white
-				palette.pearlOrange2, -- extended color 1
-				palette.pearlRed3, -- extended color 2
-			},
-		}
+		dark_green = p.pearlGreen3,
+		faded_green = p.pearlYellow4,
+		br_green = p.pearlGreen,
 
-		return { colors = colors, base_color = palette.oldWhite }
-	end
+		cyan = p.pearlTeal3,
+		br_cyan = p.pearlAqua2,
+
+		dark_blue = p.pearlCyan,
+		blue = p.pearlBlue4,
+		br_blue = p.pearlTeal2,
+
+		magenta = p.pearlViolet4,
+		br_magenta = p.pearlPink,
+	}
 end
 
----@return fun(palette: PaletteColors): Theme
-function public.mist()
-	return function(palette_colors)
-		local palette = palette_colors.kanso
+--- @param palette PaletteColors
+--- @return AllColors
+function public.mist(palette)
+	local p = palette.kanso
 
-		local colors = {
-			ui = {
-				fg = palette.mistWhite,
-				fg_dim = palette.mistGray,
-				fg_reverse = palette.zenBlue1,
+	--- @type AllColors
+	return {
+		fg = p.mistWhite,
+		fg_dim = p.mistGray,
+		fg_accent = p.mistRed,
+		fg_faded = p.mistOrange,
+		nontext = p.mistGray2,
 
-				bg_dim = palette.mist0,
-				bg_gutter = palette.mist2,
+		bg = p.mist0,
+		bg_dim = p.mist0,
+		bg_chrome = p.mist2,
+		bg_accent = p.mist2,
+		bg_highlight = p.roninYellow,
+		bg_select = p.mist2,
 
-				bg_m3 = palette.mist0,
-				bg_m2 = palette.mist0,
-				bg_m1 = palette.mist0,
-				bg = palette.mist0,
-				bg_p1 = palette.mist2,
-				bg_p2 = palette.mist2,
+		dark_red = p.winterRed,
+		faded_red = p.autumnRed,
+		red = p.mistRed,
+		br_red = p.samuraiRed,
 
-				special = palette.mistRed,
-				nontext = palette.mistAsh,
-				whitespace = palette.mist3,
+		orange = p.mistOrange,
 
-				bg_search = palette.roninYellow,
-				bg_visual = palette.mist2,
+		faded_yellow = p.autumnYellow,
+		yellow = p.mistYellow,
+		br_yellow = p.mistYellow,
 
-				pmenu = {
-					fg = palette.fujiWhite,
-					fg_sel = "none", -- This is important to make highlights pass-through
-					bg = "none",
-					bg_sel = palette.mist2,
-					bg_sbar = palette.mist2,
-					bg_thumb = palette.mist3,
-				},
-				float = {
-					fg = palette.mistGray,
-					bg = palette.mist0,
-					fg_border = palette.mist2,
-					bg_border = palette.mist0,
-				},
-			},
-			syn = {
-				string = palette.mistGreen2,
-				variable = palette.mistWhite,
-				number = palette.mistOrange,
-				constant = palette.mistOrange,
-				identifier = palette.mistWhite,
-				parameter = palette.mistWhite,
-				fun = palette.mistBlue2,
-				statement = palette.mistViolet,
-				keyword = palette.mistPink,
-				operator = palette.mistGray1,
-				preproc = palette.mistRed,
-				type = palette.mistYellow,
-				regex = palette.mistRed,
-				deprecated = palette.katanaGray,
-				comment = palette.mistOrange,
-				docComment = palette.mistGreen2,
-				punct = palette.mistGray1,
-				special1 = palette.mistYellow,
-				special2 = palette.mistRed,
-				special3 = palette.mistRed,
-			},
-			vcs = {
-				added = palette.autumnGreen,
-				removed = palette.autumnRed,
-				changed = palette.autumnYellow,
-			},
-			diff = {
-				add = palette.winterGreen,
-				delete = palette.winterRed,
-				change = palette.winterBlue,
-				text = palette.winterYellow,
-				blend = 100,
-			},
-			diag = {
-				ok = palette.springGreen,
-				error = palette.samuraiRed,
-				warning = palette.roninYellow,
-				info = palette.inkBlue,
-				hint = palette.zenAqua1,
-			},
-			term = {
-				palette.mist0, -- black
-				palette.mistRed, -- red
-				palette.mistGreen2, -- green
-				palette.mistYellow, -- yellow
-				palette.mistBlue2, -- blue
-				palette.mistPink, -- magenta
-				palette.mistWhite, -- cyan
-				palette.mistGray, -- white
-				palette.mistGray1, -- bright black
-				palette.zenRed, -- bright red
-				palette.mistGreen, -- bright green
-				palette.carpYellow, -- bright yellow
-				palette.springBlue, -- bright blue
-				palette.springViolet1, -- bright magenta
-				palette.zenAqua2, -- bright cyan
-				palette.mistWhite, -- bright white
-				palette.mistOrange, -- extended color 1
-				palette.mistOrange2, -- extended color 2
-			},
-		}
+		dark_green = p.winterGreen,
+		faded_green = p.autumnGreen,
+		br_green = p.mistGreen2,
 
-		return { colors = colors, base_color = palette.oldWhite }
-	end
+		cyan = p.inkBlue,
+		br_cyan = p.zenAqua1,
+
+		dark_blue = p.winterBlue,
+		blue = p.mistBlue2,
+		br_blue = p.springBlue,
+
+		magenta = p.mistViolet,
+		br_magenta = p.mistPink,
+	}
 end
 
 return public

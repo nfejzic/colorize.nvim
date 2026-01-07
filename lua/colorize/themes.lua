@@ -308,10 +308,10 @@ return {
 	["kanagawa-dragon"] = colorize(kanagawa.dragon),
 	["kanagawa-lotus"] = colorize(kanagawa.lotus),
 
-	["kanso-zen"] = kanso.zen(),
-	["kanso-ink"] = kanso.ink(),
-	["kanso-pearl"] = kanso.pearl(),
-	["kanso-mist"] = kanso.mist(),
+	["kanso-zen"] = colorize(kanso.zen),
+	["kanso-ink"] = colorize(kanso.ink),
+	["kanso-pearl"] = colorize(kanso.pearl),
+	["kanso-mist"] = colorize(kanso.mist),
 
 	["catppuccin-latte"] = colorize(catppuccin.latte),
 	["catppuccin-frappe"] = colorize(catppuccin.frappe),
