@@ -320,12 +320,12 @@ return {
 
 	["everforest-dark-hard"] = everforest.dark("hard"),
 
-	["monokai-pro"] = monokai_pro.dark("pro"),
-	["monokai-spectrum"] = monokai_pro.dark("spectrum"),
-	["monokai-octagon"] = monokai_pro.dark("octagon"),
-	["monokai-ristretto"] = monokai_pro.dark("ristretto"),
-	["monokai-machine"] = monokai_pro.dark("machine"),
-	["monokai-light"] = monokai_pro.light(),
+	["monokai-pro"] = colorize(monokai_pro.colors("pro")),
+	["monokai-spectrum"] = colorize(monokai_pro.colors("spectrum")),
+	["monokai-octagon"] = colorize(monokai_pro.colors("octagon")),
+	["monokai-ristretto"] = colorize(monokai_pro.colors("ristretto")),
+	["monokai-machine"] = colorize(monokai_pro.colors("machine")),
+	["monokai-light"] = colorize(monokai_pro.colors("light")),
 
 	["vague"] = colorize(vague.colors),
 }

@@ -78,6 +78,15 @@ end
 
 local M = {}
 
+---Blend Color with another color (hex)
+---@param color1 string First hex color
+---@param color2 string Second hex color
+---@param ratio number Blend ratio [0, 1]
+---@return string
+function M.blend(color1, color2, ratio)
+    return Color.new(color1):blend(color2, ratio):to_hex()
+end
+
 ---@param hex string RGB color
 ---@param towards_hex string RGB base colors, i.e. background
 ---@param amount number|nil

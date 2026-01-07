@@ -154,131 +154,64 @@ function public.palette()
 	return private.monokai_pro_palette
 end
 
----@param filter "pro"|"spectrum"|"octagon"|"ristretto"|"machine"|"light"
----@return fun(palette: PaletteColors): Theme
-function public.dark(filter)
-	return function(palette)
-		if filter == "light" then
-			return private.colorize_light(palette.monokai_pro.light)
-		else
-			return private.colorize(palette.monokai_pro[filter])
-		end
-	end
-end
-
----@param p MonokaiProPalette
----@return Theme
-function private.colorize(p)
+--- @param filter "pro"|"spectrum"|"octagon"|"ristretto"|"machine"|"light"
+--- @return fun(palette: PaletteColors): AllColors
+function public.colors(filter)
 	local Color = require("colorize.lib.color")
 
-	--- @type ThemeColors
-	local colors = {
-		ui = {
+	return function(palette)
+		--- @type MonokaiProPalette
+		local p = palette.monokai_pro[filter]
+
+		if filter == "light" then
+			--- @cast p MonokaiProPaletteLight
+			p = p
+		end
+
+		--- @type AllColors
+		local colors = {
 			fg = p.foreground,
 			fg_dim = p.dimmed2,
-			fg_reverse = p.dimmed4,
+			fg_accent = p.red,
+			fg_faded = p.orange,
 
-			bg_dim = p.background,
-			bg_gutter = p.background,
-
-			bg_m3 = p.dimmed4,
-			bg_m2 = p.background,
-			bg_m1 = p.dimmed5,
-			bg = p.background,
-			bg_p1 = p.dimmed5,
-			bg_p2 = p.dimmed5,
-
-			special = p.red,
 			nontext = p.dimmed3,
-			whitespace = p.dimmed5,
 
-			bg_search = p.orange,
-			bg_visual = p.dimmed5,
+			bg = p.background,
+			bg_dim = p.background,
+			bg_chrome = Color.shift(p.background, p.background, 0.07),
+			bg_accent = p.dimmed4,
+			bg_highlight = p.orange,
+			bg_select = p.dimmed5,
 
-			pmenu = {
-				fg = p.foreground,
-				fg_sel = "none", -- This is important to make highlights pass-through
-				bg = "none",
-				bg_sel = p.dimmed5,
-				bg_sbar = p.dimmed5,
-				bg_thumb = p.dimmed5,
-			},
-			float = {
-				fg = p.dimmed1,
-				bg = p.background,
-				fg_border = p.dimmed3,
-				bg_border = p.background,
-			},
-		},
-		syn = {
-			string = p.yellow,
-			variable = p.foreground,
-			number = p.magenta,
-			constant = p.magenta,
-			identifier = p.foreground,
-			parameter = p.foreground,
-			fun = p.green,
-			statement = p.red,
-			keyword = p.red,
-			operator = p.orange,
-			preproc = p.red,
-			type = p.blue,
-			regex = p.blue,
-			deprecated = p.dimmed3,
-			comment = p.orange,
-			docComment = p.yellow,
-			punct = p.foreground,
-			special1 = p.green,
-			special2 = p.red,
-			special3 = p.red,
-		},
-		vcs = {
-			added = p.green,
-			removed = Color.shift(p.red, p.background, -0.35),
-			changed = p.yellow,
-		},
-		diff = {
-			add = Color.shift(p.green, p.background, -0.5),
-			delete = Color.shift(p.red, p.background, -0.5),
-			change = Color.shift(p.green, p.background, -0.5),
-			text = Color.shift(p.green, p.background, -0.35),
-		},
-		diag = {
-			ok = p.green,
-			error = p.red,
-			warning = p.orange,
-			info = p.blue,
-			hint = p.blue,
-		},
-		term = {
-			p.background, -- black
-			p.red, -- red
-			p.green, -- green
-			p.yellow, -- yellow
-			p.blue, -- blue
-			p.magenta, -- magenta
-			p.blue, -- cyan
-			p.bg_dimmed2, -- white
-			p.dimmed5, -- bright black
-			p.red, -- bright red
-			p.green, -- bright green
-			p.yellow, -- bright yellow
-			p.blue, -- bright blue
-			p.red, -- bright magenta
-			p.blue, -- bright cyan
-			p.foreground, -- bright white
-			p.orange, -- extended color 1
-			p.red, -- extended color 2
-		},
-	}
+			dark_red = Color.shift(p.red, p.background, -0.5),
+			faded_red = Color.shift(p.red, p.background, -0.25),
+			red = p.red,
+			br_red = p.red,
 
-	return { colors = colors, base_color = p.background }
-end
+			orange = p.orange,
 
----@return fun(palette: PaletteColors): Theme
-function public.light()
-	return function(palette)
-		return private.colorize(palette.monokai_pro.light)
+			faded_yellow = Color.shift(p.yellow, p.background, -0.2),
+			yellow = p.yellow,
+			br_yellow = p.yellow,
+
+			dark_green = Color.shift(p.green, p.background, -0.6),
+			faded_green = Color.shift(p.green, p.background, -0.3),
+			br_green = p.green,
+
+			cyan = p.blue,
+			br_cyan = p.blue,
+
+			dark_blue = Color.shift(p.green, p.background, -0.5),
+			blue = p.blue,
+			br_blue = Color.shift(p.blue, p.background, 0.2),
+
+			magenta = p.red,
+			-- br_magenta = Color.shift(Color.blend(p.magenta, p.red, 0.65), p.background, 0.1),
+			br_magenta = p.magenta
+		}
+
+		return colors
 	end
 end
 
