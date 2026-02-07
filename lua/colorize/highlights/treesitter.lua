@@ -87,10 +87,11 @@ function M.setup(colors, config)
         ["@keyword.import"] = { link = "PreProc" },
         -- @keyword.type           keywords defining composite types (e.g. `struct`, `enum`)
         -- @keyword.modifier       keywords defining type modifiers (e.g. `const`, `static`, `public`)
-        ["@keyword.modifier"] = { link = "Keyword" },
+        ["@keyword.modifier"] = { link = "PreProc" },
 
         ["@unsafe_specifier"] = { link = "Exception" },
-        ["@mutable_specifier"] = { link = "Type" },
+        -- ["@mutable_specifier"] = { link = "Type" },
+        ["@mutable_specifier"] = { link = "PreProc" },
 
         -- @keyword.repeat         keywords related to loops (e.g. `for`, `while`)
         -- @keyword.return         keywords like `return` and `yield`

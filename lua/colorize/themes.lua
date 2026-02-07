@@ -189,10 +189,10 @@ local function colorize(get_colors)
 				type = colors.br_yellow,
 				interface = colors.br_cyan,
 
-				deprecated = colors.fg_faded, -- prev: katanaGrey...
+				deprecated = colors.fg_faded,
 
-				comment = colors.fg_faded, -- fujiGrey
-				docComment = colors.br_green,
+				comment = colors.fg_comment or colors.fg_faded,
+				docComment = colors.fg_doc_comment or colors.br_green,
 
 				special1 = colors.cyan,
 				special2 = colors.fg_accent,
@@ -253,6 +253,8 @@ end
 --- @field fg_accent string
 --- @field fg_dim string
 --- @field fg_faded string
+--- @field fg_comment string|nil
+--- @field fg_doc_comment string|nil
 --- @field nontext string
 ---
 --- @field bg string

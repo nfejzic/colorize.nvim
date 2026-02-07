@@ -33,15 +33,13 @@ local private = {
         "catppuccin-mocha",
 
         "everforest-dark-hard",
-        -- "monokai-classic",
+
         "monokai-light",
         "monokai-machine",
         "monokai-octagon",
         "monokai-pro",
         "monokai-ristretto",
         "monokai-spectrum",
-
-        "two-firewatch-dark",
 
         "vague",
     },

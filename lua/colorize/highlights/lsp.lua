@@ -162,11 +162,11 @@ function M.setup(colors, config)
     end
 
     if config.semantic_highlighting == "minimal" then
-        lsp_highlights = vim.tbl_extend('force', lsp_highlights, minimal(colors))
+        lsp_highlights = vim.tbl_deep_extend('force', lsp_highlights, minimal(colors))
     elseif config.semantic_highlighting == "medium" then
-        lsp_highlights = vim.tbl_extend('force', lsp_highlights, medium(colors))
+        lsp_highlights = vim.tbl_deep_extend('force', lsp_highlights, medium(colors))
     elseif config.semantic_highlighting == "full" then
-        lsp_highlights = vim.tbl_extend('force', lsp_highlights, full())
+        lsp_highlights = vim.tbl_deep_extend('force', lsp_highlights, full())
     end
 
     return lsp_highlights

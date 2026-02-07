@@ -181,7 +181,7 @@ function public.lotus(palette)
 		nontext = p.lotusGray2,
 
 		bg = p.lotusWhite3,
-		bg_chrome = p.lotusWhite4,
+		bg_chrome = p.lotusWhite2,
 		bg_dim = p.lotusWhite4,
 		bg_accent = p.lotusWhite4,
 		bg_highlight = p.lotusOrange,
@@ -277,6 +277,8 @@ function public.wave(palette)
 		fg_dim = p.oldWhite,
 		fg_faded = p.fujiGrey,
 		fg_accent = p.peachRed,
+		fg_comment = p.surimiOrange,
+		fg_doc_comment = p.waveAqua1,
 		nontext = p.sumiInk4,
 
 		bg = p.sumiInk1,
